@@ -1,0 +1,267 @@
+/*
+ * Wendell Free Library Circulation styles
+ *
+ * These style settings relate to the short codes used for the front end
+ * pages for this plug in.
+ *
+ * See css/admin.css for back end (admin) styles.
+ */
+
+/* Non-specific classes and ids */
+
+/* (lifted from WP's admin css) */
+
+/* Hide visually but not from screen readers */
+.screen-reader-text,
+.screen-reader-text span {
+        position: absolute;
+        left: -1000em;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+}
+
+.hidden,
+.js .closed .inside,
+.js .hide-if-js,
+.no-js .hide-if-no-js {
+        display: none;
+}
+
+.keywordchecklist {
+	margin-left: 14px;
+	font-size: 12px;
+	overflow: auto;
+}
+
+.keywordchecklist strong {
+	margin-left: -8px;
+	position: absolute;
+}
+
+.keywordchecklist span {
+	margin-right: 25px;
+	display: block;
+	float: left;
+	font-size: 11px;
+	line-height: 1.8em;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.keywordchecklist span a {
+	margin: 3px 0pt 0pt -12px;
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	display: block;
+	float: left;
+	/*text-indent: -9999px;*/
+	overflow: hidden;
+	position: absolute;
+	color: blue;
+}
+
+.howto {
+	font-style: italic;
+	display: block;
+	font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+}
+
+.keywordssdiv .the-keywordss {
+        display: block;
+        height: 60px;
+        margin: 0 auto;
+        overflow: auto;
+        width: 260px;
+}
+
+
+
+/* Error messages are in <span id="error">...</span>.
+   Initially bold and red. */
+
+#error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Overdue and expired dates are in <span id="overdue">...</span>.
+   Initially italic and red. */
+
+#overdue {
+  font-style: italic;
+  color: red;
+}
+
+/* All <input type="submit" ...> and many <a href=""...> have 
+   class="weblib-button" -- the links are meant to look like buttons.
+   I coded the submit buttons to have this class as well as the <a href>'s, 
+   so that they would all have the same styling. */
+
+/* Common button styling */
+.weblib-button {
+  border: outset 2px #dcdad5;
+  cursor: pointer;
+  color: #000000;
+  background-color: #dcdad5;
+}
+
+.weblib-button:hover {
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Links-as-buttons styling */
+a.weblib-button {
+  height: 24px;
+  white-space: nowrap;
+  /*padding: 2px;*/
+  padding: 0px;
+/*  margin-top: 2px;
+  margin-bottom: 2px;*/
+}
+
+a.weblib-button:link {
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+}
+
+a.weblib-button:visited {
+  color: #000000;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.weblib-item-pagination-table {
+  display: table;
+  width: 40%;
+  margin: 2px 30%;
+}
+
+.weblib-item-pagination {
+  display: table-row;
+  width: 100%;
+  padding: 8px 0px;
+  font-size: 120%;
+}
+
+.weblib-item-pagination .pagelabel {
+  vertical-align: top;
+  display: table-caption;
+  padding: 2px;
+  font-weight: bold;  
+}
+
+.weblib-item-pagination .pagelink {
+  vertical-align: top;
+  display: table-cell;
+  margin: 0px;
+}
+
+.weblib-item-pagination .pagenumform {
+  white-space: nowrap;
+  width: 25%;
+}
+
+.weblib-total-results {
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 150%;
+  float: left;
+}
+
+.weblib-item-long {
+  display: table;
+}
+
+.weblib-item-row {
+  display: table-row;
+  padding: 8px 0px;
+  width: 100%;
+}
+
+.weblib-item-left {
+  width: 90%;
+}
+
+.weblib-item-right {
+}
+
+.weblib-item-center-head {
+  font-weight: bold;
+  text-align: center;
+  display: table-cell;
+  padding: 2px;
+}
+
+.weblib-item-keyword-list {
+  text-align: center;
+  display: table-cell;
+  padding: 2px;
+}
+
+.weblib-item-left-head {
+  font-weight: bold;
+  text-align: right;
+  display: table-cell;
+  padding: 2px;
+}
+
+.weblib-item-left-content {
+  text-align: left;
+  display: table-cell;
+  padding: 2px;
+}
+
+.weblib-item-author {
+  text-decoration: underline;
+}
+
+.weblib-item-title {
+  font-weight: bold;
+}
+
+.weblib-item-content-block {
+  display: table;
+}
+
+.weblib-item-content-element {
+  display: table-row;
+}
+
+
+
+
+
+.weblib-item-element {
+  display: table-cell;
+  vertical-align: top;
+  padding: 2px;
+}
+
+.weblib-item-info {
+  width: 100%;
+}
+
+.weblib-item-index {
+  font-size: 150%;
+  padding: 0px 4px;
+  text-align: left;
+  width: 5%;
+}
+
+.weblib-item-brief {
+}
+
+.weblib-item-holdbutton {
+}
+
+.weblib-item-thumb {
+  padding: 0px 4px;
+  width: 48px;
+  height: 72px;
+}
+

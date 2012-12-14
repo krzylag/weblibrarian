@@ -1,0 +1,906 @@
+# Messages for Web Librarian.
+# Copyright (C) 2012 Robert Heller
+# This file is distributed under the same license as the weblibrarian package.
+# Robert Heller <heller@deepsoft.com>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: weblibrarian 2.6.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-10 09:30-0500\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ascii\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/admin_page_classes.php:30
+msgid "Web Librarian User Manual (PDF)"
+msgstr "Web Librarian User Manual (PDF)"
+
+#: includes/admin_page_classes.php:69
+msgid "Web Librarian Configuration"
+msgstr "Web Librarian Configuration"
+
+#: includes/admin_page_classes.php:69
+msgid "Web Librarian"
+msgstr "Web Librarian"
+
+#: includes/admin_page_classes.php:78 includes/admin_page_classes.php:363
+#: includes/admin_page_classes.php:569 includes/admin_page_classes.php:690
+#: includes/admin_page_classes.php:1171 includes/admin_page_classes.php:1555
+#: includes/admin_page_classes.php:2203 includes/admin_page_classes.php:2679
+#: AWSXmlGet.php:139 ExportLibraryData.php:46 ExportLibraryData.php:53
+#: ExportLibraryStats.php:31 FindPatron.php:31
+msgid "You do not have sufficient permissions to access this page."
+msgstr "You do not have sufficient permissions to access this page."
+
+#: includes/admin_page_classes.php:101
+msgid "Public Key missing!"
+msgstr "Public Key missing!"
+
+#: includes/admin_page_classes.php:105
+msgid "Private Key missing!"
+msgstr "Private Key missing!"
+
+#: includes/admin_page_classes.php:109
+msgid "Region Domain missing!"
+msgstr "Region Domain missing!"
+
+#: includes/admin_page_classes.php:113
+msgid "Associate Tag missing!"
+msgstr "Associate Tag missing!"
+
+#: includes/admin_page_classes.php:122
+msgid "Options Saved"
+msgstr "Options Saved"
+
+#: includes/admin_page_classes.php:132
+msgid "Configure Options"
+msgstr "Configure Options"
+
+#: includes/admin_page_classes.php:138
+msgid "AWS Public Key:"
+msgstr "AWS Public Key:"
+
+#: includes/admin_page_classes.php:145
+msgid "AWS Private Key:"
+msgstr "AWS Private Key:"
+
+#: includes/admin_page_classes.php:152
+msgid "AWS Region:"
+msgstr "AWS Region:"
+
+#: includes/admin_page_classes.php:158
+msgid "United States"
+msgstr "United States"
+
+#: includes/admin_page_classes.php:161
+msgid "Canada"
+msgstr "Canada"
+
+#: includes/admin_page_classes.php:164
+msgid "Germany"
+msgstr "Germany"
+
+#: includes/admin_page_classes.php:167
+msgid "France"
+msgstr "France"
+
+#: includes/admin_page_classes.php:170
+msgid "Japan"
+msgstr "Japan"
+
+#: includes/admin_page_classes.php:173
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+#: includes/admin_page_classes.php:177
+msgid "Amazon Associate Tag:"
+msgstr "Amazon Associate Tag:"
+
+#: includes/admin_page_classes.php:184
+msgid "Debug Database:"
+msgstr "Debug Database:"
+
+#: includes/admin_page_classes.php:187
+msgid "On"
+msgstr "On"
+
+#: includes/admin_page_classes.php:189
+msgid "Off"
+msgstr "Off"
+
+#: includes/admin_page_classes.php:194
+msgid "Save Options"
+msgstr "Save Options"
+
+#: includes/admin_page_classes.php:197
+msgid "Make Database"
+msgstr "Make Database"
+
+#: includes/admin_page_classes.php:199
+msgid "Dump Database"
+msgstr "Dump Database"
+
+#: includes/admin_page_classes.php:205
+msgid "Circulation Quick Stats"
+msgstr "Circulation Quick Stats"
+
+#: includes/admin_page_classes.php:212
+msgid "Patron Circulation Stats"
+msgstr "Patron Circulation Stats"
+
+#: includes/admin_page_classes.php:228
+msgid "Circulation Type"
+msgstr "Circulation Type"
+
+#: includes/admin_page_classes.php:229 includes/admin_page_classes.php:2810
+#: includes/admin_page_classes.php:2813
+msgid "Count"
+msgstr "Count"
+
+#: includes/admin_page_classes.php:236
+msgid "Total"
+msgstr "Total"
+
+#: includes/admin_page_classes.php:245
+#, php-format
+msgid "Circulation Statistics for %s"
+msgstr "Circulation Statistics for %s"
+
+#: includes/admin_page_classes.php:248
+msgid "Items on hold:"
+msgstr "Items on hold:"
+
+#: includes/admin_page_classes.php:249
+msgid "Items checked out:"
+msgstr "Items checked out:"
+
+#: includes/admin_page_classes.php:263
+msgid "Edit your Patron info"
+msgstr "Edit your Patron info"
+
+#: includes/admin_page_classes.php:264
+msgid "Edit Patron info"
+msgstr "Edit Patron info"
+
+#: includes/admin_page_classes.php:268
+msgid "Add Patron ID to a user"
+msgstr "Add Patron ID to a user"
+
+#: includes/admin_page_classes.php:269
+msgid "Add Patron ID"
+msgstr "Add Patron ID"
+
+#: includes/admin_page_classes.php:274
+msgid "user"
+msgstr "user"
+
+#: includes/admin_page_classes.php:275
+msgid "users"
+msgstr "users"
+
+#: includes/admin_page_classes.php:281
+msgid "Users"
+msgstr "Users"
+
+#: includes/admin_page_classes.php:304
+msgid "Your Patron ID has been set. Thank you."
+msgstr "Your Patron ID has been set. Thank you."
+
+#: includes/admin_page_classes.php:309
+msgid "Edit your patron info"
+msgstr "Edit your patron info"
+
+#: includes/admin_page_classes.php:321
+msgid "Set Your Patron Id"
+msgstr "Set Your Patron Id"
+
+#: includes/admin_page_classes.php:331
+msgid "Add Patron Ids to Users"
+msgstr "Add Patron Ids to Users"
+
+#: includes/admin_page_classes.php:337
+msgid "Search Users"
+msgstr "Search Users"
+
+#: includes/admin_page_classes.php:345 includes/admin_page_classes.php:555
+msgid "Username"
+msgstr "Username"
+
+#: includes/admin_page_classes.php:346
+msgid "Patron ID"
+msgstr "Patron ID"
+
+#: includes/admin_page_classes.php:347 includes/admin_page_classes.php:553
+msgid "Patron Name"
+msgstr "Patron Name"
+
+#: includes/admin_page_classes.php:348
+msgid "Update"
+msgstr "Update"
+
+#: includes/admin_page_classes.php:379
+#, php-format
+msgid "Patron ID %d (%s) has been set for user %d (%s)."
+msgstr "Patron ID %d (%s) has been set for user %d (%s)."
+
+#: includes/admin_page_classes.php:410
+msgid "No matching users were found."
+msgstr "No matching users were found."
+
+#: includes/admin_page_classes.php:449
+msgid "Update Id"
+msgstr "Update Id"
+
+#: includes/admin_page_classes.php:467 includes/admin_page_classes.php:508
+msgid "Library Patrons"
+msgstr "Library Patrons"
+
+#: includes/admin_page_classes.php:468 includes/admin_page_classes.php:497
+#: includes/admin_page_classes.php:502
+msgid "Patrons"
+msgstr "Patrons"
+
+#: includes/admin_page_classes.php:473
+msgid "Add Library Patron"
+msgstr "Add Library Patron"
+
+#: includes/admin_page_classes.php:474 includes/admin_page_classes.php:513
+#: includes/admin_page_classes.php:1099 includes/admin_page_classes.php:1128
+#: includes/admin_page_classes.php:1533
+msgid "Add New"
+msgstr "Add New"
+
+#: includes/admin_page_classes.php:477
+msgid "Add Bulk Library Patrons"
+msgstr "Add Bulk Library Patrons"
+
+#: includes/admin_page_classes.php:478 includes/admin_page_classes.php:517
+#: includes/admin_page_classes.php:1535
+msgid "Add New Bulk"
+msgstr "Add New Bulk"
+
+#: includes/admin_page_classes.php:484 includes/admin_page_classes.php:1106
+#: includes/admin_page_classes.php:1508
+msgid "Edit"
+msgstr "Edit"
+
+#: includes/admin_page_classes.php:487 includes/admin_page_classes.php:1512
+msgid "View"
+msgstr "View"
+
+#: includes/admin_page_classes.php:490 includes/admin_page_classes.php:623
+#: includes/admin_page_classes.php:1516 includes/admin_page_classes.php:1560
+msgid "Delete"
+msgstr "Delete"
+
+#: includes/admin_page_classes.php:496 includes/admin_page_classes.php:2220
+msgid "Patron"
+msgstr "Patron"
+
+#: includes/admin_page_classes.php:521 includes/admin_page_classes.php:1539
+msgid "Export as CSV"
+msgstr "Export as CSV"
+
+#: includes/admin_page_classes.php:528
+msgid "Search Patrons"
+msgstr "Search Patrons"
+
+#: includes/admin_page_classes.php:552
+msgid "Patron Id"
+msgstr "Patron Id"
+
+#: includes/admin_page_classes.php:554
+msgid "Telephone Number"
+msgstr "Telephone Number"
+
+#: includes/admin_page_classes.php:703
+#, php-format
+msgid "%s, %s %s inserted with Patron Id %d."
+msgstr "%s, %s %s inserted with Patron Id %d."
+
+#: includes/admin_page_classes.php:720
+#, php-format
+msgid "%s, %s %s updated."
+msgstr "%s, %s %s updated."
+
+#: includes/admin_page_classes.php:894
+msgid "Patron ID:"
+msgstr "Patron ID:"
+
+#: includes/admin_page_classes.php:903
+msgid "Telephone:"
+msgstr "Telephone:"
+
+#: includes/admin_page_classes.php:911
+msgid "Last Name:"
+msgstr "Last Name:"
+
+#: includes/admin_page_classes.php:918
+msgid "First Name:"
+msgstr "First Name:"
+
+#: includes/admin_page_classes.php:925
+msgid "Extra Name:"
+msgstr "Extra Name:"
+
+#: includes/admin_page_classes.php:932
+msgid "Address 1:"
+msgstr "Address 1:"
+
+#: includes/admin_page_classes.php:939
+msgid "Address 2:"
+msgstr "Address 2:"
+
+#: includes/admin_page_classes.php:946
+msgid "City:"
+msgstr "City:"
+
+#: includes/admin_page_classes.php:953
+msgid "State:"
+msgstr "State:"
+
+#: includes/admin_page_classes.php:960
+msgid "Zip:"
+msgstr "Zip:"
+
+#: includes/admin_page_classes.php:967
+msgid "Outstanding Fines: $"
+msgstr "Outstanding Fines: $"
+
+#: includes/admin_page_classes.php:973
+msgid "Expires on:"
+msgstr "Expires on:"
+
+#: includes/admin_page_classes.php:982
+msgid "Add Patron"
+msgstr "Add Patron"
+
+#: includes/admin_page_classes.php:985
+msgid "Update Patron"
+msgstr "Update Patron"
+
+#: includes/admin_page_classes.php:989 includes/admin_page_classes.php:1076
+#: includes/admin_page_classes.php:1363 includes/admin_page_classes.php:2011
+#: includes/admin_page_classes.php:2151
+msgid "Return"
+msgstr "Return"
+
+#: includes/admin_page_classes.php:996
+msgid "Add Library Patrons in bulk"
+msgstr "Add Library Patrons in bulk"
+
+#: includes/admin_page_classes.php:1034 includes/admin_page_classes.php:2109
+msgid "CSV File:"
+msgstr "CSV File:"
+
+#: includes/admin_page_classes.php:1037 includes/admin_page_classes.php:2112
+msgid "Use CSV Header?"
+msgstr "Use CSV Header?"
+
+#: includes/admin_page_classes.php:1041 includes/admin_page_classes.php:2116
+msgid "Field Separater Character:"
+msgstr "Field Separater Character:"
+
+#: includes/admin_page_classes.php:1051 includes/admin_page_classes.php:2126
+msgid "TAB"
+msgstr "TAB"
+
+#: includes/admin_page_classes.php:1053 includes/admin_page_classes.php:2128
+msgid "Enclosure Character:"
+msgstr "Enclosure Character:"
+
+#: includes/admin_page_classes.php:1075 includes/admin_page_classes.php:2150
+msgid "Upload File"
+msgstr "Upload File"
+
+#: includes/admin_page_classes.php:1091
+msgid "Circulation Types Database"
+msgstr "Circulation Types Database"
+
+#: includes/admin_page_classes.php:1091 includes/admin_page_classes.php:1123
+msgid "Circulation Types"
+msgstr "Circulation Types"
+
+#: includes/admin_page_classes.php:1099
+msgid "Add New Item Type"
+msgstr "Add New Item Type"
+
+#: includes/admin_page_classes.php:1112 includes/admin_page_classes.php:1156
+#: includes/admin_page_classes.php:1568 includes/admin_page_classes.php:2212
+#: includes/admin_page_classes.php:2218 includes/admin_page_classes.php:2812
+#: includes/admin_page_classes.php:2959 includes/short_codes.php:366
+msgid "Type"
+msgstr "Type"
+
+#: includes/admin_page_classes.php:1113 includes/admin_page_classes.php:1117
+msgid "Types"
+msgstr "Types"
+
+#: includes/admin_page_classes.php:1157
+msgid "Loan Period (days)"
+msgstr "Loan Period (days)"
+
+#: includes/admin_page_classes.php:1273
+#, php-format
+msgid "%s inserted, with a loan period of %d."
+msgstr "%s inserted, with a loan period of %d."
+
+#: includes/admin_page_classes.php:1289
+#, php-format
+msgid "%s updated, with a loan period of %d."
+msgstr "%s updated, with a loan period of %d."
+
+#: includes/admin_page_classes.php:1338
+msgid "Type name:"
+msgstr "Type name:"
+
+#: includes/admin_page_classes.php:1348
+msgid "Loan Period:"
+msgstr "Loan Period:"
+
+#: includes/admin_page_classes.php:1357
+msgid "Add New Type"
+msgstr "Add New Type"
+
+#: includes/admin_page_classes.php:1360
+msgid "Update Type"
+msgstr "Update Type"
+
+#: includes/admin_page_classes.php:1373 includes/admin_page_classes.php:2872
+msgid "Item"
+msgstr "Item"
+
+#: includes/admin_page_classes.php:1374 includes/admin_page_classes.php:1380
+#: includes/admin_page_classes.php:2873 includes/admin_page_classes.php:2879
+msgid "Items"
+msgstr "Items"
+
+#: includes/admin_page_classes.php:1456 includes/admin_page_classes.php:2932
+msgid "barcode"
+msgstr "barcode"
+
+#: includes/admin_page_classes.php:1457 includes/admin_page_classes.php:2933
+msgid "title"
+msgstr "title"
+
+#: includes/admin_page_classes.php:1458 includes/admin_page_classes.php:2934
+msgid "author"
+msgstr "author"
+
+#: includes/admin_page_classes.php:1546 includes/admin_page_classes.php:2197
+msgid "Search Collection"
+msgstr "Search Collection"
+
+#: includes/admin_page_classes.php:1547
+msgid "Fix Broken Barcodes"
+msgstr "Fix Broken Barcodes"
+
+#: includes/admin_page_classes.php:1565 includes/admin_page_classes.php:2209
+#: includes/admin_page_classes.php:2215 includes/admin_page_classes.php:2956
+msgid "Barcode"
+msgstr "Barcode"
+
+#: includes/admin_page_classes.php:1566 includes/admin_page_classes.php:1989
+#: includes/admin_page_classes.php:2210 includes/admin_page_classes.php:2216
+#: includes/admin_page_classes.php:2957 includes/short_codes.php:11
+#: includes/short_codes.php:49 includes/short_codes.php:272
+msgid "Title"
+msgstr "Title"
+
+#: includes/admin_page_classes.php:1567 includes/admin_page_classes.php:1987
+#: includes/admin_page_classes.php:2211 includes/admin_page_classes.php:2217
+#: includes/admin_page_classes.php:2958 includes/short_codes.php:12
+#: includes/short_codes.php:50 includes/short_codes.php:268
+msgid "Author"
+msgstr "Author"
+
+#: includes/admin_page_classes.php:1602
+#, php-format
+msgid "Broken barcodes fixed: %d"
+msgstr "Broken barcodes fixed: %d"
+
+#: includes/admin_page_classes.php:1705
+#, php-format
+msgid "%s inserted with barcode %s."
+msgstr "%s inserted with barcode %s."
+
+#: includes/admin_page_classes.php:1733
+#, php-format
+msgid "%s updated."
+msgstr "%s updated."
+
+#: includes/admin_page_classes.php:1803
+msgid "Barcode:"
+msgstr "Barcode:"
+
+#: includes/admin_page_classes.php:1813
+msgid "Title:"
+msgstr "Title:"
+
+#: includes/admin_page_classes.php:1820
+msgid "Author:"
+msgstr "Author:"
+
+#: includes/admin_page_classes.php:1827
+msgid "Subject:"
+msgstr "Subject:"
+
+#: includes/admin_page_classes.php:1834
+msgid "Description:"
+msgstr "Description:"
+
+#: includes/admin_page_classes.php:1841
+msgid "Category:"
+msgstr "Category:"
+
+#: includes/admin_page_classes.php:1848
+msgid "Media:"
+msgstr "Media:"
+
+#: includes/admin_page_classes.php:1855
+msgid "Publisher:"
+msgstr "Publisher:"
+
+#: includes/admin_page_classes.php:1862
+msgid "Publisher Location:"
+msgstr "Publisher Location:"
+
+#: includes/admin_page_classes.php:1869
+msgid "Publish Date:"
+msgstr "Publish Date:"
+
+#: includes/admin_page_classes.php:1876
+msgid "Edition:"
+msgstr "Edition:"
+
+#: includes/admin_page_classes.php:1883
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: includes/admin_page_classes.php:1890
+msgid "Type:"
+msgstr "Type:"
+
+#: includes/admin_page_classes.php:1911
+msgid "Thumbnail URL:"
+msgstr "Thumbnail URL:"
+
+#: includes/admin_page_classes.php:1925
+msgid "Keywords:"
+msgstr "Keywords:"
+
+#: includes/admin_page_classes.php:1933
+msgid "Item Keywords"
+msgstr "Item Keywords"
+
+#: includes/admin_page_classes.php:1938
+msgid "Add"
+msgstr "Add"
+
+#: includes/admin_page_classes.php:1962
+msgid "Goto Page:"
+msgstr "Goto Page:"
+
+#: includes/admin_page_classes.php:1977
+msgid "Search In:"
+msgstr "Search In:"
+
+#: includes/admin_page_classes.php:1979
+msgid "Books"
+msgstr "Books"
+
+#: includes/admin_page_classes.php:1980
+msgid "DVD"
+msgstr "DVD"
+
+#: includes/admin_page_classes.php:1981
+msgid "Music"
+msgstr "Music"
+
+#: includes/admin_page_classes.php:1982
+msgid "Video"
+msgstr "Video"
+
+#: includes/admin_page_classes.php:1984 includes/short_codes.php:45
+msgid "for"
+msgstr "for"
+
+#: includes/admin_page_classes.php:1986
+msgid "Artist"
+msgstr "Artist"
+
+#: includes/admin_page_classes.php:1988 includes/short_codes.php:379
+msgid "Keywords"
+msgstr "Keywords"
+
+#: includes/admin_page_classes.php:1992
+msgid "Go"
+msgstr "Go"
+
+#: includes/admin_page_classes.php:2005
+msgid "Add New Item"
+msgstr "Add New Item"
+
+#: includes/admin_page_classes.php:2008
+msgid "Update Item"
+msgstr "Update Item"
+
+#: includes/admin_page_classes.php:2071
+msgid "Add Items to the collection in bulk"
+msgstr "Add Items to the collection in bulk"
+
+#: includes/admin_page_classes.php:2213 includes/admin_page_classes.php:2219
+#: includes/admin_page_classes.php:2960
+msgid "Status"
+msgstr "Status"
+
+#: includes/admin_page_classes.php:2229
+msgid "Select"
+msgstr "Select"
+
+#: includes/admin_page_classes.php:2251 includes/admin_page_classes.php:2982
+msgid "Renew"
+msgstr "Renew"
+
+#: includes/admin_page_classes.php:2282
+msgid "Place Hold"
+msgstr "Place Hold"
+
+#: includes/admin_page_classes.php:2301
+msgid "Scanned Barcode"
+msgstr "Scanned Barcode"
+
+#: includes/admin_page_classes.php:2304
+msgid "Check in Item"
+msgstr "Check in Item"
+
+#: includes/admin_page_classes.php:2307
+msgid "Checkout Item"
+msgstr "Checkout Item"
+
+#: includes/admin_page_classes.php:2310
+msgid "Lookup Barcode"
+msgstr "Lookup Barcode"
+
+#: includes/admin_page_classes.php:2316
+msgid "Find Patron:"
+msgstr "Find Patron:"
+
+#: includes/admin_page_classes.php:2319
+msgid "Find Patron"
+msgstr "Find Patron"
+
+#: includes/admin_page_classes.php:2325
+msgid "Lookup Patron"
+msgstr "Lookup Patron"
+
+#: includes/admin_page_classes.php:2331
+msgid "Check in"
+msgstr "Check in"
+
+#: includes/admin_page_classes.php:2332
+msgid "List Holds"
+msgstr "List Holds"
+
+#: includes/admin_page_classes.php:2333
+msgid "List Checked Out Items"
+msgstr "List Checked Out Items"
+
+#: includes/admin_page_classes.php:2336
+msgid "Back to Main Circulation"
+msgstr "Back to Main Circulation"
+
+#: includes/admin_page_classes.php:2674
+msgid "Rows"
+msgstr "Rows"
+
+#: includes/admin_page_classes.php:2689
+msgid "Export Stats"
+msgstr "Export Stats"
+
+#: includes/admin_page_classes.php:2705 includes/admin_page_classes.php:2845
+msgid "Year"
+msgstr "Year"
+
+#: includes/admin_page_classes.php:2714 includes/admin_page_classes.php:2809
+#: includes/admin_page_classes.php:2855
+msgid "Month"
+msgstr "Month"
+
+#: includes/admin_page_classes.php:2721
+msgid "Export"
+msgstr "Export"
+
+#: includes/admin_page_classes.php:2863
+msgid "Filter"
+msgstr "Filter"
+
+#: includes/admin_page_classes.php:2885
+msgid "You do not have a patron ID yet."
+msgstr "You do not have a patron ID yet."
+
+#: includes/admin_page_classes.php:3061
+msgid "Release Selected Holds"
+msgstr "Release Selected Holds"
+
+#: includes/admin_page_classes.php:3154
+msgid "Renew Selected Items"
+msgstr "Renew Selected Items"
+
+#: includes/database_code.php:202
+msgid "Table: "
+msgstr "Table: "
+
+#: includes/short_codes.php:13 includes/short_codes.php:336
+msgid "Subject"
+msgstr "Subject"
+
+#: includes/short_codes.php:14
+msgid "Keyword"
+msgstr "Keyword"
+
+#: includes/short_codes.php:15 includes/short_codes.php:360
+msgid "ISBN"
+msgstr "ISBN"
+
+#: includes/short_codes.php:37
+msgid "Search:"
+msgstr "Search:"
+
+#: includes/short_codes.php:46
+msgid "Sort by:"
+msgstr "Sort by:"
+
+#: includes/short_codes.php:48
+msgid "System Sorted"
+msgstr "System Sorted"
+
+#: includes/short_codes.php:57
+msgid "Ascending"
+msgstr "Ascending"
+
+#: includes/short_codes.php:58
+msgid "Descending"
+msgstr "Descending"
+
+#: includes/short_codes.php:65
+msgid "Search"
+msgstr "Search"
+
+#: includes/short_codes.php:143
+msgid "1 Item Matched."
+msgstr "1 Item Matched."
+
+#: includes/short_codes.php:145
+#, php-format
+msgid "%d Items Matched."
+msgstr "%d Items Matched."
+
+#: includes/short_codes.php:217
+msgid "Goto Page"
+msgstr "Goto Page"
+
+#: includes/short_codes.php:256
+#, php-format
+msgid "No such item: %s"
+msgstr "No such item: %s"
+
+#: includes/short_codes.php:276
+msgid "Published"
+msgstr "Published"
+
+#: includes/short_codes.php:302 includes/short_codes.php:430
+msgid "Request"
+msgstr "Request"
+
+#: includes/short_codes.php:311
+msgid "Status:"
+msgstr "Status:"
+
+#: includes/short_codes.php:316 includes/short_codes.php:413
+msgid "Due "
+msgstr "Due "
+
+#: includes/short_codes.php:324
+msgid "Check Shelves"
+msgstr "Check Shelves"
+
+#: includes/short_codes.php:328 includes/short_codes.php:424
+#, php-format
+msgid "%d Holds"
+msgstr "%d Holds"
+
+#: includes/short_codes.php:329 includes/short_codes.php:425
+msgid "1 Hold"
+msgstr "1 Hold"
+
+#: includes/short_codes.php:342
+msgid "Category"
+msgstr "Category"
+
+#: includes/short_codes.php:348
+msgid "Media"
+msgstr "Media"
+
+#: includes/short_codes.php:354
+msgid "Edition"
+msgstr "Edition"
+
+#: AWSXmlGet.php:145 ExportLibraryData.php:33 ExportLibraryStats.php:37
+#: FindPatron.php:37 PlaceHoldOnItem.php:33 RenewItem.php:33
+#: UpdatePatronID.php:33
+msgid ""
+"The headers have been sent by another plugin - there may be a plugin "
+"conflict."
+msgstr ""
+"The headers have been sent by another plugin - there may be a plugin "
+"conflict."
+
+#: ExportLibraryData.php:61
+msgid "Bad value for dataselection!"
+msgstr "Bad value for dataselection!"
+
+#: WebLibrarian.php:147 WebLibrarian.php:156
+msgid "Hold"
+msgstr "Hold"
+
+#: WebLibrarian.php:148 WebLibrarian.php:157
+msgid "Holds"
+msgstr "Holds"
+
+#: WebLibrarian.php:149 WebLibrarian.php:158
+msgid "Ajax error:  No Data Received"
+msgstr "Ajax error:  No Data Received"
+
+#: WebLibrarian.php:150 WebLibrarian.php:159
+msgid "Ajax error: "
+msgstr "Ajax error: "
+
+#: WebLibrarian.php:160
+msgid "total results found"
+msgstr "total results found"
+
+#: WebLibrarian.php:161
+msgid "Loading"
+msgstr "Loading"
+
+#: WebLibrarian.php:162
+msgid "Lookup Item"
+msgstr "Lookup Item"
+
+#: WebLibrarian.php:163
+msgid "Insert Item"
+msgstr "Insert Item"
+
+#: WebLibrarian.php:164
+msgid "Lookup Complete."
+msgstr "Lookup Complete."
+
+#: WebLibrarian.php:165
+msgid "Form insertion complete."
+msgstr "Form insertion complete."
+
+#: WebLibrarian.php:166
+msgid "Looking up Patron"
+msgstr "Looking up Patron"
+
+#: WebLibrarian.php:167
+msgid "No matching patrons found."
+msgstr "No matching patrons found."
+
+#: WebLibrarian.php:168
+msgid "Select Patron"
+msgstr "Select Patron"
+
+#: WebLibrarian.php:217
+msgid "Log in/out, admin"
+msgstr "Log in/out, admin"
+
+#: WebLibrarian.php:218
+msgid "Stripped Meta"
+msgstr "Stripped Meta"
