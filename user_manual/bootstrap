@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# make setup
+aclocal
+automake --gnu --add-missing --copy --force
+autoconf
+
+exit 0
