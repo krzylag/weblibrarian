@@ -21,175 +21,142 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $patrons_columns = array(
-		'id'        => 'int NOT NULL AUTO_INCREMENT unique',
-		'firstname' => "varchar(32) not null check (firstname <> '')",
-		'lastname'  => "varchar(32) not null check (lastname <> '')",
-		'extraname' => "varchar(32) not null default ''",
-		'address1'  => "varchar(32) not null check (address1 <> '')",
-		'address2'  => "varchar(32) not null default ''",
-		'city'      => "varchar(32) not null check(city <> '')",
-		'state'     => "char(2) not null check(state <> '')",
-		'zip'       => "char(10) not null check(zip <> '')",
-		'telephone' => "char(10) not null check(telephone <> '')",
-		'outstandingfines' => 'decimal(5,2) default 0.0',
-		'expiration' => "date default '2015-12-31'",
-		'PRIMARY' => 'KEY (id)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_PATRONS . "(
+	id		int NOT NULL AUTO_INCREMENT unique,
+	firstname	varchar(32) not null check (firstname <> ''),
+	lastname	varchar(32) not null check (lastname <> ''),
+	extraname	varchar(32) not null default '',
+	address1	varchar(32) not null check (address1 <> ''),
+	address2	varchar(32) not null default '',
+	city		varchar(32) not null check(city <> ''),
+	state		char(2) not null check(state <> ''),
+	zip		char(10) not null check(zip <> ''),
+	telephone	char(10) not null check(telephone <> ''),
+	outstandingfines decimal(5,2) default 0.0,
+	expiration	date default '2015-12-31',
+	PRIMARY		KEY (id) 
+  );";
+
+  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
 
   /*
    * Collection table:
    *
    */
 
-  $collection_columns = array(
-		'barcode'   => "varchar(16) not null unique check (barcode <> '')",
-		'title'     => "varchar(128) not null check (title <> '')",
-		'author'    => "varchar(64) not null check (author <> '')",
-		'subject'   => "varchar(128) not null check (subject <> '')",
-		/*'description' => "text not null default ''",*/
-		'description' => "text not null",
-		'category'  => "varchar(36) not null default ''",
-		'media'	    => "varchar(36) not null default ''",
-		'publisher' => "varchar(36) not null default ''",
-		'publocation' => "varchar(36) not null default ''",
-		'pubdate'   => "date not null default '0000-01-01'",
-		'edition'   => "varchar(36) not null default ''",
-		'isbn'      => "varchar(20) not null default ''",
-		'type'	    => "varchar(16) not null check (type <> '')",
-		'thumburl'  => "varchar(256) not null default ''",
-		'PRIMARY'   => 'KEY (barcode)',
-		'INDEX'     => '(title)',
-		'INDEX'	    => '(author)',
-		'INDEX'	    => '(subject)',
-		'INDEX'	    => '(isbn)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_COLLECTION . "(
+	barcode		varchar(16) not null unique check (barcode <> ''),
+	title		varchar(128) not null check (title <> ''),
+	author		varchar(64) not null check (author <> ''),
+	subject		varchar(128) not null check (subject <> ''),
+	description		text not null,
+	category		varchar(36) not null default '',
+	media		varchar(36) not null default '',
+	publisher		varchar(36) not null default '',
+	publocation		varchar(36) not null default '',
+	pubdate		date not null default '0000-01-01',
+	edition		varchar(36) not null default '',
+	isbn		varchar(20) not null default '',
+	type		varchar(16) not null check (type <> ''),
+	thumburl		varchar(256) not null default '',
+	PRIMARY		KEY (barcode),
+	INDEX		(title),
+	INDEX		(author),
+	INDEX		(subject),
+	INDEX		(isbn)
+  );";
+
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
 
   /*
    *	Keywords table:
    */
 
+  $sql = 'CREATE TABLE ' . WEBLIB_KEYWORDS . "(
   $keywords_columns = array(
-		'keyword' => "VARCHAR(64) NOT NULL",
-		'barcode' => "varchar(16) not null check (barcode <> '')",
-		'INDEX'	  => '(keyword)' );
+	keyword		VARCHAR(64) NOT NULL,
+	barcode		varchar(16) not null check (barcode <> ''),
+	INDEX		(keyword) 
+  );";
+
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
 
   /*
    * Checked out items table:
    *
    */
 
-  $outitems_columns = array(
-		'transaction' => 'serial',
-		'barcode'   => "varchar(16) not null check (barcode <> '')",
-		'title'     => "varchar(128) not null check (title <> '')",
-		'source'    => "varchar(16) not null check (source <> '')",
-		'type'	    => "varchar(16) not null check (type <> '')",
-		'patronid'  => "int not null",
-		'dateout'   => "date not null check (dateout <> '')",
-		'datedue'   => "date not null check (datedue <> '')",
-		'PRIMARY'    => 'KEY (transaction)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_OUTITEMS . "(
+	transaction	serial,
+	barcode		varchar(16) not null check (barcode <> ''),
+	title		varchar(128) not null check (title <> ''),
+	source		varchar(16) not null check (source <> ''),
+	type		varchar(16) not null check (type <> ''),
+	patronid	int not null,
+	dateout		date not null check (dateout <> ''),
+	datedue		date not null check (datedue <> ''),
+	PRIMARY		KEY (transaction)
+  );";
+
+
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
+
   /*
    * Items on hold table:
    *
    */
 
-  $holditems_columns = array(
-		'transaction' => 'serial',
-		'barcode'   => "varchar(16)  not null check (barcode <> '')",
-		'title'     => "varchar(128) not null check (title <> '')",
-		'source'    => "varchar(16) not null check (source <> '')",
-		'type'	    => "varchar(16) not null check (type <> '')",
-		'patronid'  => "int not null",
-		'dateheld'   => "date not null check (dateheld <> '')",
-		'dateexpire'   => "date not null check (dateexpire <> '')",
-		'PRIMARY'    => 'KEY (transaction)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_HOLDITEMS . "(
+	transaction	serial,
+	barcode		varchar(16)  not null check (barcode <> ''),
+	title		varchar(128) not null check (title <> ''),
+	source		varchar(16) not null check (source <> ''),
+	type		varchar(16) not null check (type <> ''),
+	patronid	int not null,
+	dateheld	date not null check (dateheld <> ''),
+	dateexpire	date not null check (dateexpire <> ''),
+	PRIMARY		KEY (transaction) 
+  );";
+
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
 
   /*
    * Statistics table:
    *
    */
 
-  $statistics_columns = array(
-		'type'      => "varchar(16) not null check (type <> '')",
-		'year'	    => "numeric(4) unsigned not null check (year <> '')",
-		'month'	    => "numeric(2) unsigned not null check (month <> '')",
-		'count'	    => "integer unsigned not null default 0",
-		'PRIMARY'   => 'KEY (type)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_STATISICS . "(
+	type	varchar(16) not null check (type <> ''),
+	year	numeric(4) unsigned not null check (year <> ''),
+	month	numeric(2) unsigned not null check (month <> ''),
+	count	integer unsigned not null default 0,
+	PRIMARY	KEY (type)
+  );";
+
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  $result = dbDelta($sql);
 
   /*
    * Item types table:
    *
    */
 
-  $types_columns = array(
-		'type'      => "varchar(16) not null unique check (type <> '')",
-		'loanperiod' => "integer unsigned not null default 14",
-		'PRIMARY'   => 'KEY (type)' );
+  $sql = 'CREATE TABLE ' . WEBLIB_TYPES . "(
+	type		varchar(16) not null unique check (type <> ''),
+	loanperiod		integer unsigned not null default 14,
+	PRIMARY		KEY (type) 
+  );";
 
-  /*$olderror = $wpdb->show_errors(true);*/
-  $sql = 'CREATE TABLE ' . WEBLIB_PATRONS . '(';
-  foreach($patrons_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_COLLECTION . '(';
-  foreach($collection_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_KEYWORDS . '(';
-  foreach($keywords_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_OUTITEMS . '(';
-  foreach($outitems_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_HOLDITEMS . '(';
-  foreach($holditems_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_STATISICS . '(';
-  foreach($statistics_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-  $result = dbDelta($sql);
-
-  $sql = 'CREATE TABLE ' . WEBLIB_TYPES . '(';
-  foreach($types_columns as $column => $option) {
-        $sql .= "{$column} {$option}, \n";
-  }
-  $sql = rtrim($sql, ", \n") . ")";
-  /*file_put_contents("php://stderr","*** WEBLIB_make_tables: sql = $sql\n");*/
-  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
   $result = dbDelta($sql);
 
   /*$weblib_tables = $wpdb->get_results("SHOW TABLES LIKE '" . $wpdb->prefix . "weblib_%'",'ARRAY_A');
-  file_put_contents("php://stderr","*** WEBLIB_make_tables: weblib_tables = ".print_r($weblib_tables,true)."\n");*/
+  //file_put_contents("php://stderr","*** WEBLIB_make_tables: weblib_tables = ".print_r($weblib_tables,true)."\n");*/
   /*$wpdb->show_errors($olderror);*/
 }
 
@@ -1317,6 +1284,7 @@ class WEBLIB_ItemInCollection {
 		$dummy = fgetcsv($fpointer, 10*1024, $field_sep,
 				 $enclose_char/*,$escape_char*/);
 	  $rowcount = 0;
+	  $numberfixedbc = 0;
 	  if ($generatebarcode) {
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
 	    $lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.
@@ -1340,7 +1308,15 @@ class WEBLIB_ItemInCollection {
 	    if ($generatebarcode) {
 	      $lastbarcode = WEBLIB_ItemInCollection::incrstring($lastbarcode);
 	      $data['barcode'] = $lastbarcode;
-	    }
+	    } else {
+	      if (!preg_match('/^[a-zA-Z0-9]+$/',$data['barcode'])) {
+		$message .= '<p class="error">Replaced bad barcode: '.$$data['barcode'].' with ';
+		$lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
+		$data['barcode'] = WEBLIB_ItemInCollection::incrstring($lastbarcode);
+		$message .= $$data['barcode'].'.</p>';
+		$numberfixedbc++;
+	      }
+	    }		
 	    //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::upload_csv: data is ".print_r($data,true)."\n");
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
 	    $wpdb->insert(WEBLIB_COLLECTION,$data,'%s');
@@ -1355,6 +1331,9 @@ class WEBLIB_ItemInCollection {
 	  }
 	  fclose($fpointer);
 	  $message .= '<p>'.$rowcount.' item'.($rowcount == 1?'':'s').' inserted.</p>';
+	  if ($numberfixedbc > 0) {
+	    $message .= '<p class="error">'.$numberfixedbc.' bad barcodes replaced.</p>';
+	  }
 	  return $message;
 	}
 	static function export_csv() {
