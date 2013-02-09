@@ -3,8 +3,8 @@ Contributors: RobertPHeller
 Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
-Tested up to: 3.2
-Stable tag: 2.6.3.2
+Tested up to: 3.5
+Stable tag: 3.0
 
 A WordPress plugin that implements a basic library collection and
 circulation system.
@@ -81,6 +81,13 @@ as well.
 No Screenshots yet.
 
 == Changelog ==
+
+== 3.0 ==
+* Major code rewrite.  All of the WP_List_Tables redone properly and 
+  separated into separate source files.  Adding the per_page screen options 
+  properly.
+  Added bulletproofing to the collection import code: barcodes are now checked
+  and fixed as they are added -- no more 'broken' databases!
 
 = 2.6.3.2 =
 * Various security fixes.
