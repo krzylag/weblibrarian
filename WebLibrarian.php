@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 2.6.3.2
+ * Version: 3.0
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -48,7 +48,7 @@ require_once(WEBLIB_INCLUDES . '/admin_page_classes.php');
 require_once(WEBLIB_INCLUDES . '/short_codes.php');
 class WebLibrarian {
 
-    private $version = '2.6.3.2';
+    private $version = '3.0';
     private $admin_page;
     private $short_code_class;
 
@@ -67,6 +67,7 @@ class WebLibrarian {
 	add_action('admin_head', array($this, 'admin_head'));
 	add_action('widgets_init', array($this, 'widgets_init'));
 	add_action('admin_menu', array($this, 'admin_menu'));
+	add_filter('set-screen-option',array($this, 'set_screen_options'), 10, 3);
 	add_filter('body_class', array($this, 'body_class'));
 	add_action('weblib_admin_daily_event',array($this,'every_day'));
 	add_option('weblib_aws_public_key','');
@@ -79,7 +80,13 @@ class WebLibrarian {
 
 	//if (is_admin()) {
 	//  wp_enqueue_script('jquery-ui-sortable');
-	//}	
+	//}
+	wp_enqueue_style('weblib-front-style',WEBLIB_CSSURL . '/front.css',
+			 null,$this->version);
+	if (is_admin()) {
+	  wp_enqueue_style('weblib-admin-style',WEBLIB_CSSURL . '/admin.css',
+			array('weblib-front-style'),$this->version);
+	}
     }
     function install() {
 	$this->add_roles_and_caps();
@@ -178,17 +185,8 @@ class WebLibrarian {
 	wp_localize_script( 'front_js','front_js',$this->localize_vars_front() );
     }
     function wp_head() {
-	$path = WEBLIB_CSSURL . '/front.css?version='.$this->version;
-	echo '<link rel="stylesheet" type="text/css" href="' . $path . '" />';
-	echo "\n";
     }
     function admin_head() {
-	$path = WEBLIB_CSSURL . '/front.css?version='.$this->version;
-	echo '<link rel="stylesheet" type="text/css" href="' . $path . '" />';
-	echo "\n";
-	$path = WEBLIB_CSSURL . '/admin.css?version='.$this->version;
-	echo '<link rel="stylesheet" type="text/css" href="' . $path . '" />';
-	echo "\n";
     }
     function widgets_init() {
 	register_widget('WEBLIB_StrippedMeta');
@@ -208,6 +206,10 @@ class WebLibrarian {
 	}
 	add_action('wp_dashboard_setup',array($this->admin_page,
 						'user_wp_dashboard_setup'));
+    }
+    function set_screen_options($status,$option,$value) {
+      file_put_contents("php://stderr","*** WebLibrarian::set_screen_options($status,$option,$value)\n");
+      if (WEBLIB_AdminPages::set_screen_options($status,$option,$value)) return $value;
     }
 }
 
