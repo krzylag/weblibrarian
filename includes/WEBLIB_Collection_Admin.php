@@ -44,6 +44,10 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
     return $theitem->type();
   }
 
+  function column_callnumber ($item) {
+    $theitem = new WEBLIB_ItemInCollection($item);
+    return $theitem->callnumber();
+  }
   function search_box($text, $input_id) {
     if ( empty( $_REQUEST['s'] ) && !$this->has_items() ) return;
 
@@ -91,7 +95,8 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
   function get_sortable_columns() {
 	return array('barcode' => array('barcode',false),
 		     'title' => array('title',false), 
-		     'author' => array('author',false));
+		     'author' => array('author',false),
+		     'callnumber' => array('callnumber',false) );
   }  
 
 }
@@ -140,7 +145,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $user = get_current_user_id();
     $screen = get_current_screen();
     $option = $screen->get_option('per_page','option');
-    file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
+    //file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
     $v = get_user_meta($user, $option, true);
     if (empty($v)  || $v < 1) {
       $v = $screen->get_option('per_page','default');
@@ -179,7 +184,8 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		     'barcode' => __('Barcode','web-librarian'),
 		     'title' => __('Title','web-librarian'),
 		     'author' => __('Author','web-librarian'),
-		     'type' => __('Type','web-librarian'));
+		     'type' => __('Type','web-librarian'),
+		     'callnumber' => __('Call Number','web-librarian') );
   }
 
   function get_bulk_actions() {
@@ -387,6 +393,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  break;
       }
       $this->viewitem = new WEBLIB_ItemInCollection($this->viewbarcode);
+      file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::prepare_one_item(): this->viewitem is ".print_r($this->viewitem,true)."\n");
       if ($this->viewbarcode == '') {
 	$this->viewkeywords = array();
       } else {
@@ -548,6 +555,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		   maxlength="256"
 		   value="<?php echo stripslashes($this->viewitem->thumburl()); ?>"<?php echo $ro; ?> /></td></tr>
       <tr valign="top">
+	<th scope="row"><label for="callnumber" style="width:20%;"><?php _e('Call Number:','web-librarian'); ?></label></th>
+	<td><input id="callnumber"
+		   name="callnumber"
+		   style="width:75%;"
+		   maxlength="36"
+		   value="<?php echo stripslashes($this->viewitem->callnumber()); ?>"<?php echo $ro; ?> /></td></tr>
+      <tr valign="top">
 	<td colspan="2" width="100%">
 	<div id="itemedit-keyword-div">
 	<?php if ($this->viewmode != 'view') {
@@ -690,6 +704,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $item->set_isbn($_REQUEST['isbn']);
     $item->set_type($_REQUEST['type']);
     $item->set_thumburl($_REQUEST['thumburl']);
+    $item->set_callnumber($_REQUEST['callnumber']);
     return $item;
   }
 
