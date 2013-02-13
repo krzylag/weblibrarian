@@ -82,6 +82,10 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2 ==
+* Added Call Number column to collection database.
+* Updated localization.
+
 == 3.1 ==
 * Minor documentation update for the contextual help for the options page.
 
@@ -134,6 +138,9 @@ No Screenshots yet.
 * Initial public release.
 
 == Upgrade Notice ==
+
+= 3.2 =
+Added Call number column to collection database.  Updated localization.
 
 = 2.3 =
 Various updates, see the Change log for details.

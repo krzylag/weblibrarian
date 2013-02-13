@@ -122,12 +122,14 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 		   'title' => __('Title','web-librarian'),
 		   'author' => __('Author','web-librarian'),
 		   'type' => __('Type','web-librarian'),
+		   'callnumber'  => __('Call Number','web-librarian'),
 		   'status' => __('Status','web-librarian'));
     } else {
       return array('barcode' => __('Barcode','web-librarian'),
 		   'title' => __('Title','web-librarian'),
 		   'author' => __('Author','web-librarian'),
 		   'type' => __('Type','web-librarian'),
+		   'callnumber'  => __('Call Number','web-librarian'),
 		   'status' => __('Status','web-librarian'),
 		   'patron' => __('Patron','web-librarian'));
     }

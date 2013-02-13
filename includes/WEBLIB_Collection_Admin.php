@@ -44,6 +44,10 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
     return $theitem->type();
   }
 
+  function column_callnumber ($item) {
+    $theitem = new WEBLIB_ItemInCollection($item);
+    return $theitem->callnumber();
+  }
   function search_box($text, $input_id) {
     if ( empty( $_REQUEST['s'] ) && !$this->has_items() ) return;
 
@@ -91,7 +95,8 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
   function get_sortable_columns() {
 	return array('barcode' => array('barcode',false),
 		     'title' => array('title',false), 
-		     'author' => array('author',false));
+		     'author' => array('author',false),
+		     'callnumber' => array('callnumber',false) );
   }  
 
 }
@@ -179,7 +184,8 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		     'barcode' => __('Barcode','web-librarian'),
 		     'title' => __('Title','web-librarian'),
 		     'author' => __('Author','web-librarian'),
-		     'type' => __('Type','web-librarian'));
+		     'type' => __('Type','web-librarian'),
+		     'callnumber' => __('Call Number','web-librarian') );
   }
 
   function get_bulk_actions() {
@@ -547,6 +553,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		   style="width:75%;"
 		   maxlength="256"
 		   value="<?php echo stripslashes($this->viewitem->thumburl()); ?>"<?php echo $ro; ?> /></td></tr>
+      <tr valign="top">
+	<th scope="row"><label for="callnumber" style="width:20%;"><?php _e('Call Number:','web-librarian'); ?></label></th>
+	<td><input id="callnumber"
+		   name="callnumber"
+		   style="width:75%;"
+		   maxlength="36"
+		   value="<?php echo stripslashes($this->viewitem->callnumber()); ?>"<?php echo $ro; ?> /></td></tr>
       <tr valign="top">
 	<td colspan="2" width="100%">
 	<div id="itemedit-keyword-div">
