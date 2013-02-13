@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
-"POT-Creation-Date: 2013-02-13 16:44:18+00:00\n"
+"POT-Creation-Date: 2013-02-13 17:23:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,8 +99,8 @@ msgstr ""
 #: includes/WEBLIB_Collection_Admin.php:21
 #: includes/WEBLIB_Collection_Admin.php:139
 #: includes/WEBLIB_PatronRecord_Admin.php:20
-#: includes/WEBLIB_PatronRecord_Admin.php:169
-#: includes/WEBLIB_PatronRecord_Admin.php:292
+#: includes/WEBLIB_PatronRecord_Admin.php:175
+#: includes/WEBLIB_PatronRecord_Admin.php:298
 msgid "Items"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgid "Select"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:80
-#: includes/WEBLIB_PatronRecord_Admin.php:99
+#: includes/WEBLIB_PatronRecord_Admin.php:105
 msgid "Renew"
 msgstr ""
 
@@ -120,15 +120,15 @@ msgstr ""
 #: includes/WEBLIB_Circulation_Admin.php:121
 #: includes/WEBLIB_Circulation_Admin.php:128
 #: includes/WEBLIB_Collection_Admin.php:184
-#: includes/WEBLIB_PatronRecord_Admin.php:71
+#: includes/WEBLIB_PatronRecord_Admin.php:76
 msgid "Barcode"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:122
 #: includes/WEBLIB_Circulation_Admin.php:129
 #: includes/WEBLIB_Collection_Admin.php:185
-#: includes/WEBLIB_Collection_Admin.php:635
-#: includes/WEBLIB_PatronRecord_Admin.php:72 includes/short_codes.php:11
+#: includes/WEBLIB_Collection_Admin.php:636
+#: includes/WEBLIB_PatronRecord_Admin.php:77 includes/short_codes.php:11
 #: includes/short_codes.php:49 includes/short_codes.php:272
 msgid "Title"
 msgstr ""
@@ -136,8 +136,8 @@ msgstr ""
 #: includes/WEBLIB_Circulation_Admin.php:123
 #: includes/WEBLIB_Circulation_Admin.php:130
 #: includes/WEBLIB_Collection_Admin.php:186
-#: includes/WEBLIB_Collection_Admin.php:633
-#: includes/WEBLIB_PatronRecord_Admin.php:73 includes/short_codes.php:12
+#: includes/WEBLIB_Collection_Admin.php:634
+#: includes/WEBLIB_PatronRecord_Admin.php:78 includes/short_codes.php:12
 #: includes/short_codes.php:50 includes/short_codes.php:268
 msgid "Author"
 msgstr ""
@@ -145,22 +145,23 @@ msgstr ""
 #: includes/WEBLIB_Circulation_Admin.php:124
 #: includes/WEBLIB_Circulation_Admin.php:131
 #: includes/WEBLIB_Collection_Admin.php:187
-#: includes/WEBLIB_PatronRecord_Admin.php:74
+#: includes/WEBLIB_PatronRecord_Admin.php:79
 #: includes/WEBLIB_Statistics_Admin.php:88
 #: includes/WEBLIB_Types_Database_Admin.php:47
-#: includes/WEBLIB_Types_Database_Admin.php:90 includes/short_codes.php:366
+#: includes/WEBLIB_Types_Database_Admin.php:90 includes/short_codes.php:372
 msgid "Type"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:125
 #: includes/WEBLIB_Circulation_Admin.php:132
 #: includes/WEBLIB_Collection_Admin.php:188
+#: includes/WEBLIB_PatronRecord_Admin.php:80 includes/short_codes.php:366
 msgid "Call Number"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:126
 #: includes/WEBLIB_Circulation_Admin.php:133
-#: includes/WEBLIB_PatronRecord_Admin.php:75
+#: includes/WEBLIB_PatronRecord_Admin.php:81
 msgid "Status"
 msgstr ""
 
@@ -273,163 +274,163 @@ msgstr ""
 msgid "%s updated."
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:442
+#: includes/WEBLIB_Collection_Admin.php:443
 msgid "Barcode:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:452
+#: includes/WEBLIB_Collection_Admin.php:453
 msgid "Title:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:459
+#: includes/WEBLIB_Collection_Admin.php:460
 msgid "Author:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:466
+#: includes/WEBLIB_Collection_Admin.php:467
 msgid "Subject:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:473
+#: includes/WEBLIB_Collection_Admin.php:474
 msgid "Description:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:480
+#: includes/WEBLIB_Collection_Admin.php:481
 msgid "Category:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:487
+#: includes/WEBLIB_Collection_Admin.php:488
 msgid "Media:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:494
+#: includes/WEBLIB_Collection_Admin.php:495
 msgid "Publisher:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:501
+#: includes/WEBLIB_Collection_Admin.php:502
 msgid "Publisher Location:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:508
+#: includes/WEBLIB_Collection_Admin.php:509
 msgid "Publish Date:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:515
+#: includes/WEBLIB_Collection_Admin.php:516
 msgid "Edition:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:522
+#: includes/WEBLIB_Collection_Admin.php:523
 msgid "ISBN:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:529
+#: includes/WEBLIB_Collection_Admin.php:530
 msgid "Type:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:550
+#: includes/WEBLIB_Collection_Admin.php:551
 msgid "Thumbnail URL:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:557
+#: includes/WEBLIB_Collection_Admin.php:558 includes/short_codes.php:417
 msgid "Call Number:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:571
+#: includes/WEBLIB_Collection_Admin.php:572
 msgid "Keywords:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:579
+#: includes/WEBLIB_Collection_Admin.php:580
 msgid "Item Keywords"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:584
+#: includes/WEBLIB_Collection_Admin.php:585
 msgid "Add"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:608
+#: includes/WEBLIB_Collection_Admin.php:609
 msgid "Goto Page:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:623
+#: includes/WEBLIB_Collection_Admin.php:624
 msgid "Search In:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:625
+#: includes/WEBLIB_Collection_Admin.php:626
 msgid "Books"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:626
+#: includes/WEBLIB_Collection_Admin.php:627
 msgid "DVD"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:627
+#: includes/WEBLIB_Collection_Admin.php:628
 msgid "Music"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:628
+#: includes/WEBLIB_Collection_Admin.php:629
 msgid "Video"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:630 includes/short_codes.php:45
+#: includes/WEBLIB_Collection_Admin.php:631 includes/short_codes.php:45
 msgid "for"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:632
+#: includes/WEBLIB_Collection_Admin.php:633
 msgid "Artist"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:634 includes/short_codes.php:379
+#: includes/WEBLIB_Collection_Admin.php:635 includes/short_codes.php:385
 msgid "Keywords"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:638
+#: includes/WEBLIB_Collection_Admin.php:639
 msgid "Go"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:651
+#: includes/WEBLIB_Collection_Admin.php:652
 msgid "Add New Item"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:654
+#: includes/WEBLIB_Collection_Admin.php:655
 msgid "Update Item"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:657
-#: includes/WEBLIB_Collection_Admin.php:797
+#: includes/WEBLIB_Collection_Admin.php:658
+#: includes/WEBLIB_Collection_Admin.php:799
 #: includes/WEBLIB_Patrons_Admin.php:572 includes/WEBLIB_Patrons_Admin.php:659
 #: includes/WEBLIB_Types_Database_Admin.php:310
 msgid "Return"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:717
+#: includes/WEBLIB_Collection_Admin.php:719
 msgid "Add Items to the collection in bulk"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:755
+#: includes/WEBLIB_Collection_Admin.php:757
 #: includes/WEBLIB_Patrons_Admin.php:617
 msgid "CSV File:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:758
+#: includes/WEBLIB_Collection_Admin.php:760
 #: includes/WEBLIB_Patrons_Admin.php:620
 msgid "Use CSV Header?"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:762
+#: includes/WEBLIB_Collection_Admin.php:764
 #: includes/WEBLIB_Patrons_Admin.php:624
 msgid "Field Separater Character:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:772
+#: includes/WEBLIB_Collection_Admin.php:774
 #: includes/WEBLIB_Patrons_Admin.php:634
 msgid "TAB"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:774
+#: includes/WEBLIB_Collection_Admin.php:776
 #: includes/WEBLIB_Patrons_Admin.php:636
 msgid "Enclosure Character:"
 msgstr ""
 
-#: includes/WEBLIB_Collection_Admin.php:796
+#: includes/WEBLIB_Collection_Admin.php:798
 #: includes/WEBLIB_Patrons_Admin.php:658
 msgid "Upload File"
 msgstr ""
@@ -438,11 +439,11 @@ msgstr ""
 msgid "You do not have a patron ID yet."
 msgstr ""
 
-#: includes/WEBLIB_PatronRecord_Admin.php:199
+#: includes/WEBLIB_PatronRecord_Admin.php:205
 msgid "Release Selected Holds"
 msgstr ""
 
-#: includes/WEBLIB_PatronRecord_Admin.php:321
+#: includes/WEBLIB_PatronRecord_Admin.php:327
 msgid "Renew Selected Items"
 msgstr ""
 
@@ -885,7 +886,7 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
-#: includes/short_codes.php:302 includes/short_codes.php:430
+#: includes/short_codes.php:302 includes/short_codes.php:439
 msgid "Request"
 msgstr ""
 
@@ -893,7 +894,7 @@ msgstr ""
 msgid "Status:"
 msgstr ""
 
-#: includes/short_codes.php:316 includes/short_codes.php:413
+#: includes/short_codes.php:316 includes/short_codes.php:422
 msgid "Due "
 msgstr ""
 
@@ -901,11 +902,11 @@ msgstr ""
 msgid "Check Shelves"
 msgstr ""
 
-#: includes/short_codes.php:328 includes/short_codes.php:424
+#: includes/short_codes.php:328 includes/short_codes.php:433
 msgid "%d Holds"
 msgstr ""
 
-#: includes/short_codes.php:329 includes/short_codes.php:425
+#: includes/short_codes.php:329 includes/short_codes.php:434
 msgid "1 Hold"
 msgstr ""
 
