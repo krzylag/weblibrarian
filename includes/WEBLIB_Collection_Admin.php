@@ -145,7 +145,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $user = get_current_user_id();
     $screen = get_current_screen();
     $option = $screen->get_option('per_page','option');
-    file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
+    //file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
     $v = get_user_meta($user, $option, true);
     if (empty($v)  || $v < 1) {
       $v = $screen->get_option('per_page','default');
@@ -393,6 +393,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  break;
       }
       $this->viewitem = new WEBLIB_ItemInCollection($this->viewbarcode);
+      file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::prepare_one_item(): this->viewitem is ".print_r($this->viewitem,true)."\n");
       if ($this->viewbarcode == '') {
 	$this->viewkeywords = array();
       } else {
@@ -703,6 +704,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $item->set_isbn($_REQUEST['isbn']);
     $item->set_type($_REQUEST['type']);
     $item->set_thumburl($_REQUEST['thumburl']);
+    $item->set_callnumber($_REQUEST['callnumber']);
     return $item;
   }
 
