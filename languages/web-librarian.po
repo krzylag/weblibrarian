@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
-"POT-Creation-Date: 2013-02-13 17:23:34+00:00\n"
+"POT-Creation-Date: 2013-02-13 19:34:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: includes/WEBLIB_Patrons_Admin.php:157 includes/WEBLIB_Patrons_Admin.php:273
 #: includes/WEBLIB_Statistics_Admin.php:97
 #: includes/WEBLIB_Types_Database_Admin.php:98
-#: includes/WEBLIB_Users_Admin.php:110 includes/admin_page_classes.php:85
+#: includes/WEBLIB_Users_Admin.php:110 includes/admin_page_classes.php:93
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
@@ -565,7 +565,7 @@ msgid "Month"
 msgstr "Month"
 
 #: includes/WEBLIB_Statistics_Admin.php:86
-#: includes/WEBLIB_Statistics_Admin.php:89 includes/admin_page_classes.php:236
+#: includes/WEBLIB_Statistics_Admin.php:89 includes/admin_page_classes.php:244
 msgid "Count"
 msgstr "Count"
 
@@ -704,127 +704,131 @@ msgstr "Search Users"
 msgid "Web Librarian User Manual (PDF)"
 msgstr "Web Librarian User Manual (PDF)"
 
-#: includes/admin_page_classes.php:76
+#: includes/admin_page_classes.php:31
+msgid "Donate to the Web Librarian plugin software effort."
+msgstr "Donate to the Web Librarian plugin software effort."
+
+#: includes/admin_page_classes.php:84
 msgid "Web Librarian Configuration"
 msgstr "Web Librarian Configuration"
 
-#: includes/admin_page_classes.php:76
+#: includes/admin_page_classes.php:84
 msgid "Web Librarian"
 msgstr "Web Librarian"
 
-#: includes/admin_page_classes.php:108
+#: includes/admin_page_classes.php:116
 msgid "Public Key missing!"
 msgstr "Public Key missing!"
 
-#: includes/admin_page_classes.php:112
+#: includes/admin_page_classes.php:120
 msgid "Private Key missing!"
 msgstr "Private Key missing!"
 
-#: includes/admin_page_classes.php:116
+#: includes/admin_page_classes.php:124
 msgid "Region Domain missing!"
 msgstr "Region Domain missing!"
 
-#: includes/admin_page_classes.php:120
+#: includes/admin_page_classes.php:128
 msgid "Associate Tag missing!"
 msgstr "Associate Tag missing!"
 
-#: includes/admin_page_classes.php:129
+#: includes/admin_page_classes.php:137
 msgid "Options Saved"
 msgstr "Options Saved"
 
-#: includes/admin_page_classes.php:139
+#: includes/admin_page_classes.php:147
 msgid "Configure Options"
 msgstr "Configure Options"
 
-#: includes/admin_page_classes.php:145
+#: includes/admin_page_classes.php:153
 msgid "AWS Public Key:"
 msgstr "AWS Public Key:"
 
-#: includes/admin_page_classes.php:152
+#: includes/admin_page_classes.php:160
 msgid "AWS Private Key:"
 msgstr "AWS Private Key:"
 
-#: includes/admin_page_classes.php:159
+#: includes/admin_page_classes.php:167
 msgid "AWS Region:"
 msgstr "AWS Region:"
 
-#: includes/admin_page_classes.php:165
+#: includes/admin_page_classes.php:173
 msgid "United States"
 msgstr "United States"
 
-#: includes/admin_page_classes.php:168
+#: includes/admin_page_classes.php:176
 msgid "Canada"
 msgstr "Canada"
 
-#: includes/admin_page_classes.php:171
+#: includes/admin_page_classes.php:179
 msgid "Germany"
 msgstr "Germany"
 
-#: includes/admin_page_classes.php:174
+#: includes/admin_page_classes.php:182
 msgid "France"
 msgstr "France"
 
-#: includes/admin_page_classes.php:177
+#: includes/admin_page_classes.php:185
 msgid "Japan"
 msgstr "Japan"
 
-#: includes/admin_page_classes.php:180
+#: includes/admin_page_classes.php:188
 msgid "United Kingdom"
 msgstr "United Kingdom"
 
-#: includes/admin_page_classes.php:184
+#: includes/admin_page_classes.php:192
 msgid "Amazon Associate Tag:"
 msgstr "Amazon Associate Tag:"
 
-#: includes/admin_page_classes.php:191
+#: includes/admin_page_classes.php:199
 msgid "Debug Database:"
 msgstr "Debug Database:"
 
-#: includes/admin_page_classes.php:194
+#: includes/admin_page_classes.php:202
 msgid "On"
 msgstr "On"
 
-#: includes/admin_page_classes.php:196
+#: includes/admin_page_classes.php:204
 msgid "Off"
 msgstr "Off"
 
-#: includes/admin_page_classes.php:201
+#: includes/admin_page_classes.php:209
 msgid "Save Options"
 msgstr "Save Options"
 
-#: includes/admin_page_classes.php:204
+#: includes/admin_page_classes.php:212
 msgid "Make Database"
 msgstr "Make Database"
 
-#: includes/admin_page_classes.php:206
+#: includes/admin_page_classes.php:214
 msgid "Dump Database"
 msgstr "Dump Database"
 
-#: includes/admin_page_classes.php:212
+#: includes/admin_page_classes.php:220
 msgid "Circulation Quick Stats"
 msgstr "Circulation Quick Stats"
 
-#: includes/admin_page_classes.php:219
+#: includes/admin_page_classes.php:227
 msgid "Patron Circulation Stats"
 msgstr "Patron Circulation Stats"
 
-#: includes/admin_page_classes.php:235
+#: includes/admin_page_classes.php:243
 msgid "Circulation Type"
 msgstr "Circulation Type"
 
-#: includes/admin_page_classes.php:243
+#: includes/admin_page_classes.php:251
 msgid "Total"
 msgstr "Total"
 
-#: includes/admin_page_classes.php:252
+#: includes/admin_page_classes.php:260
 msgid "Circulation Statistics for %s"
 msgstr "Circulation Statistics for %s"
 
-#: includes/admin_page_classes.php:255
+#: includes/admin_page_classes.php:263
 msgid "Items on hold:"
 msgstr "Items on hold:"
 
-#: includes/admin_page_classes.php:256
+#: includes/admin_page_classes.php:264
 msgid "Items checked out:"
 msgstr "Items checked out:"
 
