@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.3
+Stable tag: 3.2.4
 
 A WordPress plugin that implements a basic library collection and
 circulation system.
@@ -81,6 +81,12 @@ as well.
 No Screenshots yet.
 
 == Changelog ==
+
+== 3.2.4 =
+* Added code to collection and patron delete functions to clear out orphaned
+  holds and checkouts.
+* Added Collection Database Maintenance page, containing a button to clear out
+  orphaned holds and checkouts.
 
 == 3.2.3 ==
 * Updated the support/donation links (added localiazion).

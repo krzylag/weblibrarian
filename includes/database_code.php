@@ -344,6 +344,8 @@ class WEBLIB_Patron {
 	  if ($this->insert) return true;
 	  $this->dirty = false;
 	  WEBLIB_Patron::DeletePatronByID($this->theid);
+	  WEBLIB_HoldItem::DeleteHoldsByPatronId($this->theid);
+	  WEBLIB_OutItem::DeleteCheckoutsByPatronId($this->theid);
 	  $this->insert = true;
 	  return true;
 	}
@@ -804,6 +806,8 @@ class WEBLIB_ItemInCollection {
 	  $this->dirty = false;
 	  WEBLIB_ItemInCollection::DeleteItemByBarCode($this->thebarcode);
 	  WEBLIB_ItemInCollection::DeleteKeywordsByBarCode($this->thebarcode);
+	  WEBLIB_HoldItem::DeleteHeldItemByBarcode($this->thebarcode);
+	  WEBLIB_OutItem::DeleteOutItemByBarcode($this->thebarcode);
 	  $this->insert = true;
 	  return true;
 	}
@@ -1564,6 +1568,22 @@ class WEBLIB_OutItem {
 	  $wpdb->query($sql);
 	  $wpdb->show_errors($olderror);
 	}
+	static function DeleteCheckoutsByPatronId($patronid) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_OUTITEMS.
+				' where patronid = %d',$patronid);
+	  $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
+	static function DeleteOutItemByBarcode($barcode) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_OUTITEMS.
+			 ' where barcode = %s',$barcode);
+	  $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
 	static function RenewByBarcodeAndPatronID($barcode,$patronid = '*') {
 	  $outitem = WEBLIB_OutItem::OutItemByBarcode($barcode);
 	  if ($outitem == null) {
@@ -1602,6 +1622,32 @@ class WEBLIB_OutItem {
 	  $wpdb->show_errors($olderror);
 	  return $transactions;
 	}
+	static function RemoveOrphanCheckouts() {
+	  global $wpdb;
+	  $transactions = WEBLIB_OutItem::AllOutItems();
+	  $orphans = array();
+	  foreach ($transactions as $trans) {
+	    $out = new WEBLIB_OutItem($trans);
+	    if (!WEBLIB_ItemInCollection::IsItemInCollection($out->barcode())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $out->barcode(),
+				 'patronid' => $out->patronid(),
+				 'title' => $out->title(),
+				 'dateout' => $out->dateout(),
+				 'datedue' => $out->datedue());
+	      $out->delete();
+	    } else if (!WEBLIB_Patron::ValidPatronID($out->patronid())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $out->barcode(),
+				 'patronid' => $out->patronid(),
+				 'title' => $out->title(),
+				 'dateout' => $out->dateout(),
+				 'datedue' => $out->datedue());
+	      $out->delete();
+	    }
+	  }
+	  return $orphans;
+        }
 	static function OutItemsOfPatron($patronid) {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
@@ -1809,6 +1855,22 @@ class WEBLIB_HoldItem {
 	  $status = $wpdb->query($sql);
 	  $wpdb->show_errors($olderror);
 	}
+	static function DeleteHoldsByPatronId($patronid) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_HOLDITEMS.
+				' where patronid = %d',$patronid);
+	  $status = $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
+	static function DeleteHeldItemByBarcode($barcode) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_HOLDITEMS.
+				' where barcode = %s',$barcode);
+	  $status = $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
 	static function AllHeldItems() {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
@@ -1818,6 +1880,32 @@ class WEBLIB_HoldItem {
 	  $wpdb->show_errors($olderror);
 	  return $transactions;
 	}
+	static function RemoveOrphanHolds() {
+	  global $wpdb;
+	  $transactions = WEBLIB_HoldItem::AllHeldItems();
+	  $orphans = array();
+	  foreach ($transactions as $trans) {
+	    $hold = new WEBLIB_HoldItem($trans);
+	    if (!WEBLIB_ItemInCollection::IsItemInCollection($hold->barcode())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $hold->barcode(),
+				 'patronid' => $hold->patronid(),
+				 'title' => $hold->title(),
+				 'dateheld' => $hold->dateheld(),
+				 'dateexpire' => $hold->dateexpire());
+	      $hold->delete();
+	    } else if (!WEBLIB_Patron::ValidPatronID($hold->patronid())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $hold->barcode(),
+				 'patronid' => $hold->patronid(),
+				 'title' => $hold->title(),
+				 'dateheld' => $hold->dateheld(),
+				 'dateexpire' => $hold->dateexpire());
+	      $hold->delete();
+	    }
+	  }
+	  return $orphans;
+        }
 	static function HeldItemsOfPatron($patronid) {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
