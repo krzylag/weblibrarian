@@ -62,6 +62,11 @@ class WEBLIB_PatronRecord_Common extends WP_List_Table {
     return $theitem->type();
   }
 
+  function column_callnumber ($item) {
+    $theitem = new WEBLIB_ItemInCollection($item);
+    return $theitem->callnumber();
+  }
+
   function column_default($item, $column_name) {
     return apply_filters( 'manage_items_custom_column','',$column_name,$item['patronid']);
   }
@@ -72,6 +77,7 @@ class WEBLIB_PatronRecord_Common extends WP_List_Table {
 		 'title' => __('Title','web-librarian'),
 		 'author' => __('Author','web-librarian'),
 		 'type' => __('Type','web-librarian'),
+		 'callnumber' => __('Call Number','web-librarian'),
 		 'status' => __('Status','web-librarian'));
   }
   function column_cb ($item) {
