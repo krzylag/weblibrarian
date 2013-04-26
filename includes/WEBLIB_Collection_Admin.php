@@ -212,7 +212,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     switch ($action) {
       case 'delete':
 	if ( isset($_REQUEST['checked']) && !empty($_REQUEST['checked'])) {
-	  foreach ( $_REQUEST['checked'] as $theitem ) {
+	  foreach ( $_REQUEST['checked'] as $thebarcode ) {
 	    WEBLIB_ItemInCollection::DeleteItemByBarCode($thebarcode);
 	    WEBLIB_ItemInCollection::DeleteKeywordsByBarCode($thebarcode);
 	  }
