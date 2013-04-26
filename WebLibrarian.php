@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.0
+ * Version: 3.2.5
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -48,7 +48,7 @@ require_once(WEBLIB_INCLUDES . '/admin_page_classes.php');
 require_once(WEBLIB_INCLUDES . '/short_codes.php');
 class WebLibrarian {
 
-    private $version = '3.0';
+    private $version;
     private $admin_page;
     private $short_code_class;
 
@@ -56,6 +56,17 @@ class WebLibrarian {
      * add in our actions.
      */
     function __construct() {
+	$fp = fopen(__FILE__,'r');
+	if ($fp) {
+	  while ($line = fgets($fp)) {
+	    if (preg_match("/^\s*\*\s*$/",$line) > 0) {break;}
+	    if (preg_match('/^\s*\*\s*Version:\s*(.*)$/',$line,$matches) > 0) {
+	      $this->version = $matches[1];
+	      break;
+	    }
+	  }
+	  fclose($fp);
+	}
 	// Add the installation and uninstallation hooks
 	register_activation_hook(WEBLIB_DIR . '/' . WEBLIB_FILE, 
 				array($this,'install'));
@@ -88,6 +99,7 @@ class WebLibrarian {
 			array('weblib-front-style'),$this->version);
 	}
     }
+    function MyVersion() {return $this->version;}
     function install() {
 	$this->add_roles_and_caps();
 	WEBLIB_make_tables();
