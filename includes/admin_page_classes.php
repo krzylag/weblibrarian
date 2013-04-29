@@ -67,8 +67,6 @@ class WEBLIB_AdminPages {
     function __construct() {
 	global $weblib_contextual_help;
 
-	load_plugin_textdomain('web-librarian',WEBLIB_BASEURL.'/languages/',
-                                          basename(WEBLIB_DIR).'/languages/');
 	$this->patron_admin_pages = new WEBLIB_Patrons_Admin();
 	$this->user_admin_pages = new WEBLIB_Users_Admin($this->patron_admin_pages);
 	$this->collection_pages = new WEBLIB_Collection_Admin();
