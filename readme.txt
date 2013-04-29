@@ -82,6 +82,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.5.1 =
+* Move loading of Localization files to the correct place
+
 == 3.2.5 =
 * Added missing conextual help page.
 * Fixed silly typo error in the collection bulk delete code.
