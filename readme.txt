@@ -82,14 +82,18 @@ No Screenshots yet.
 
 == Changelog ==
 
-== 3.2.5.1 =
+== 3.2.5.2 ==
+* Remove roles on deactiveate.
+* Make title the default on Amazon searchs.
+
+== 3.2.5.1 ==
 * Move loading of Localization files to the correct place
 
-== 3.2.5 =
+== 3.2.5 ==
 * Added missing conextual help page.
 * Fixed silly typo error in the collection bulk delete code.
 
-== 3.2.4 =
+== 3.2.4 ==
 * Added code to collection and patron delete functions to clear out orphaned
   holds and checkouts.
 * Added Collection Database Maintenance page, containing a button to clear out

@@ -635,11 +635,11 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		  </select>
 		  <label for="FieldName"><?php _e('for','web-librarian'); ?></label>
 		  <select id="FieldName">
+		    <option value="Title" selected="selected"><?php _e('Title','web-librarian'); ?></option>
 		    <option value="Artist"><?php _e('Artist','web-librarian'); ?></option>
 		    <option value="Author"><?php _e('Author','web-librarian'); ?></option>
-		    <option value="Keywords" selected="selected"><?php _e('Keywords','web-librarian'); ?></option>
-		    <option value="Title"><?php _e('Title','web-librarian'); ?></option>
-		  </select>
+		    <option value="Keywords"><?php _e('Keywords','web-librarian'); ?></option>
+                  </select>
 		  <input id="SearchString" type='text' value="" />
 		  <input type="button" id="Go" onclick="AWSSearch(1);" value="<?php _e('Go','web-librarian'); ?>" />
 		</span>
