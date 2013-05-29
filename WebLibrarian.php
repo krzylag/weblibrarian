@@ -190,7 +190,16 @@ class WebLibrarian {
 		'formInsertionComplete' => __('Form insertion complete.','web-librarian'),
 		'lookingUpPatron' => __('Looking up Patron','web-librarian'),
 		'noMatchingPatrons' => __('No matching patrons found.','web-librarian'),
-		'selectPatron' => __('Select Patron','web-librarian')
+		'selectPatron' => __('Select Patron','web-librarian'),
+                'insertTitle' => __('Insert Title','web-librarian'),
+                'insertISBN' => __('Insert ISBN','web-librarian'),
+                'insertThumbnail' => __('Insert Thumbnail','web-librarian'),
+                'addToAuthor' => __('Add to Author','web-librarian'),
+                'insertAsDate' => __('Insert as date','web-librarian'),
+                'insertAsPublisher' => __('Insert As Publisher','web-librarian'),
+                'insertEdition' => __('Insert Edition','web-librarian'),
+                'addToMedia' => __('Add to Media','web-librarian'),
+                'addToDescription' => __('Add to description','web-librarian'),
 	);
     }
     function add_admin_scripts() {

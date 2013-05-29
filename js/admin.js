@@ -8,6 +8,19 @@ function log (message) {
 
 log('*** admin.js loading');
 
+function QuoteString(s) {
+    //log('*** QuoteString('+s+')');
+    var result = s.replace(/"/g,'&quot;');
+    //log('*** QuoteString: result ("s) is '+result);
+    result = result.replace(/\\/g,'\\\\');
+    //log('*** QuoteString: result \\s is '+result);
+    result = result.replace(/\'/g,"\\'");
+    //log('*** QuoteString: result \'s is '+result);
+    return result;
+}
+                        
+                     
+
 function ajaxRequest() {
    try
    {
@@ -662,12 +675,12 @@ function AWSLookupCallback()
 	var asin  = item.getElementsByTagName('ASIN')[0].childNodes[0].nodeValue;
 	outHTML += '<h3>'+title;
         outHTML += '<input type="button" class="button"' +
-                   ' value="Insert Title"' +
-                   ' onclick="WEBLIB_InsertTitle('+"'"+title+"'"+');" />';
+                   ' value="'+admin_js.insertTitle+'"' +
+                   ' onclick="WEBLIB_InsertTitle('+"'"+QuoteString(title)+"'"+');" />';
         outHTML += ' ('+asin;
         outHTML += '<input type="button" class="button"'+
-                   ' value="Insert ISBN"' +
-                   ' onclick="WEBLIB_InsertISBN('+"'"+asin+"'"+');" />';
+                   ' value="'+admin_js.insertISBN+'"' +
+                   ' onclick="WEBLIB_InsertISBN('+"'"+QuoteString(asin)+"'"+');" />';
         outHTML += ")</h3>\n";
 
 	var smallimage = item.getElementsByTagName('SmallImage')[0];
@@ -679,7 +692,7 @@ function AWSLookupCallback()
 	      
 	  outHTML += '<img src="'+smallimageURL+'" height="'+smallimageHeight+
           '" width="'+smallimageWidth+'" border="0">';
-          outHTML += '<input type="button" class="button" value="Insert Thumbnail" onclick="WEBLIB_InsertThumb('+"'"+smallimageURL+"'"+');" />';
+          outHTML += '<input type="button" class="button" value="'+admin_js.insertThumbnail+'" onclick="WEBLIB_InsertThumb('+"'"+QuoteString(smallimageURL)+"'"+');" />';
           
                     
         }
@@ -709,34 +722,34 @@ function AWSLookupCallback()
                   case 'Contributor':
                   case 'Author':
                     var thename = AWSFixName(value);
-                    outHTML += '<input type="button" class="button" value="Add to author" onclick="WEBLIB_AddAuthor('+"'"+thename+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
                     break;
                   case  'Creator':
                     var thename = AWSFixName(value);
                     var role = attribute.attributes.getNamedItem("role");
                     if (role == null) attribute.attributes.getNamedItem("Role");
                     if (role != null) thename += ' ('+role+')';
-                    outHTML += '<input type="button" class="button" value="Add to author" onclick="WEBLIB_AddAuthor('+"'"+thename+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
                     break;
                   case 'ReleaseDate':
                   case 'PublicationDate':
-                    outHTML += '<input type="button" class="button" value="Insert as date"  onclick="WEBLIB_InsertDate('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.insertAsDate+'"  onclick="WEBLIB_InsertDate('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Studio':
                   case 'Label':
                   case 'Publisher':
-                    outHTML += '<input type="button" class="button" value="Insert As Publisher" onclick="WEBLIB_InsertPublisher('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.insertAsPublisher+'" onclick="WEBLIB_InsertPublisher('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'ISBN':
-                    outHTML += '<input type="button" class="button" value="Insert ISBN" " onclick="WEBLIB_InsertISBN('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.insertISBN+'" " onclick="WEBLIB_InsertISBN('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Edition':
-                    outHTML += '<input type="button" class="button" value="Insert Edition" onclick="WEBLIB_InsertEdition('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.insertEdition+'" onclick="WEBLIB_InsertEdition('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Binding':
                   case 'Format':
                   case 'ProductGroup':
-                    outHTML += '<input type="button" class="button" value="Add to Media" onclick="WEBLIB_AddToMedia('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.addToMedia+'" onclick="WEBLIB_AddToMedia('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Height':
                   case 'Width':
@@ -748,10 +761,13 @@ function AWSLookupCallback()
                     } else {
                         var temp = value;
                     }
-                    outHTML += '<input type="button" class="button" value="Add to description" onclick="WEBLIB_AddToDescription('+"'"+temp+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(temp)+"'"+');" />';
+                    break;
+                  case 'Title':
+                    outHTML += '<input type="button" class="button" value="'+admin_js.insertTitle+'" onclick="WEBLIB_InsertTitle('+"'"+QuoteString(value)+"'"+');" />';  
                     break;
                   default:
-                    outHTML += '<input type="button" class="button" value="Add to description" onclick="WEBLIB_AddToDescription('+"'"+value+"'"+');" />';
+                    outHTML += '<input type="button" class="button" value="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                 }
                 outHTML += '</td></tr>';
@@ -770,7 +786,7 @@ function AWSLookupCallback()
 	  for (j = 0; j < keyword.childNodes.length; j++)
 	  {
               if (needcomma) outHTML += ', ';
-              outHTML += '<a href="" onclick="WEBLIB_InsertKeyword('+"'"+keyword.childNodes[j].nodeValue+"'"+');return false;">';
+              outHTML += '<a href="" onclick="WEBLIB_InsertKeyword('+"'"+QuoteString(keyword.childNodes[j].nodeValue)+"'"+');return false;">';
               outHTML += keyword.childNodes[j].nodeValue;
               outHTML += '</a>';
 	    needcomma = true;
