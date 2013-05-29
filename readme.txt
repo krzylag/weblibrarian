@@ -82,6 +82,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.5.3 ==
+* Add insert / add buttons to Amazon item loopup. (Experimental!)
+
 == 3.2.5.2 ==
 * Remove roles on deactiveate.
 * Make title the default on Amazon searchs.
