@@ -19,7 +19,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
   function __construct() {
     global $weblib_contextual_help;
 
-    $screen_id =  add_menu_page('Circulation Desk','Circulation Desk',
+    $screen_id =  add_menu_page(__('Circulation Desk','web-librarian'),__('Circulation Desk','web-librarian'),
 				'manage_circulation','weblib-circulation-desk',
 				array($this,'circulation_desk'),
 			WEBLIB_IMAGEURL.'/Circulation_Menu.png');
@@ -86,13 +86,16 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
       $this->patroninfo .= '<br />'.WEBLIB_Patrons_Admin::addtelephonedashes($telephone);
       unset($outitem);
     } else {
-      $status .= 'Check Shelves';
+      $status .= __('Check Shelves', 'web-librarian');
     }
     $status .= '<br />';
     $status .= '<span id="hold-count-'.$item.'">';
     if ($numberofholds > 0) {
-      $status .= $numberofholds.' Hold';
-      if ($numberofholds > 1) $status .= 's';
+      if ($numberofholds > 1) {
+        $status .= sprintf(__('%d Holds','web-librarian'),$numberofholds);
+      } else {
+        $status .= sprintf(__('%d Hold','web-librarian'),$numberofholds);
+      }
       $brattr = '';
       if ($this->patroninfo == '') {
 	$holds = WEBLIB_HoldItem::HeldItemsByBarcode($item);
@@ -232,11 +235,11 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 	<label class="screen-reader-text" for="<?php echo $input_id; ?>"><?php echo $text; ?>:</label>
 	<input type="text" id="<?php echo $input_id; ?>" name="s" value="<?php _admin_search_query(); ?>" />
 	<select name="f">
-	<?php foreach (array('Title' => 'title',
-			 'Author' => 'author',
-			 'Subject' => 'subject',
-			 'ISBN'  => 'isbn',
-			 'Keyword' => 'keyword') as $l => $f) {
+	<?php foreach (array(__('Title','web-librarian') => 'title',
+			 __('Author','web-librarian') => 'author',
+			 __('Subject','web-librarian') => 'subject',
+			 __('ISBN','web-librarian')  => 'isbn',
+			 __('Keyword','web-librarian') => 'keyword') as $l => $f) {
 		?><option value="<?php echo $f; ?>"<?php
 		  if ($f == $field) {echo ' selected="selected"';}
 		?>><?php echo $l; ?></option>
@@ -291,7 +294,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
       $outitem = WEBLIB_OutItem::OutItemByBarcode($this->barcode);
       $checkouttrans = 0;
       if ($outitem != null) {
-	$message .= '<p><span id="error">Item already checked out!</span></p>';
+	$message .= '<p><span id="error">'.__('Item is already checked out!','web-librarian').'</span></p>';
       } else {
 	$holds = WEBLIB_HoldItem::HeldItemsByBarcode($this->barcode);
 	$hasholds = (! empty($holds));
@@ -311,24 +314,35 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 	  }
 	}
 	if ($hasholds) {
-	  $message .= '<p><span id="error">Someone else has a hold on this item!</span></p>';
+	  $message .= '<p><span id="error">';
+          $message .= __('Someone else has a hold on this item!','web-librarian');
+          $message .= '</span></p>';
 	} else if ($checkouttrans == 0) {
 	  if (WEBLIB_ItemInCollection::IsItemInCollection($this->barcode)) {
 	    $item = new WEBLIB_ItemInCollection($this->barcode);
 	    $type = new WEBLIB_Type($item->type());
 	    $duedate = date('Y-m-d',time() + ($type->loanperiod() * 24 * 60 * 60));
 	    unset($type);
-	    $checkouttrans = $item->checkout($this->patronid, 'Local', $duedate);
+	    $checkouttrans = $item->checkout($this->patronid, __('Local','web-librarian'), $duedate);
 	    unset($item);
 	  } else {/* item not in collection */
-	    $message .= '<p><span id="error">Item is not in the collection!</span></p>';
+	    $message .= '<p><span id="error">';
+            $message .= __('Item is not in the collection!','web-librarian');
+            $message .= '</span></p>';
 	  }
 	}
 	if ($checkouttrans > 0) {
-	  $message .= '<p>Item checked out, transaction is '.$checkouttrans.
-				', due: '.strftime('%x',mysql2date('U',$duedate)).".</p>\n";
+	  $message .= '<p>';
+          $message .= sprintf(__('Item checked out, transaction is %d, due: %s.',
+                                 'web-librarian'),
+                                 $checkouttrans,
+                                 strftime('%x',mysql2date('U',$duedate)));
+          $message .= "</p>\n";
 	} else {
-	  $message .= '<p><span id="error">Error checking out!  Result code is '.$checkouttrans.'.</span></p>';
+	  $message .= '<p><span id="error">';
+          $message .= sprintf(__('Error checking out!  Result code is %d.',
+                                 'web-librarian'),$checkouttrans);
+          $message .= '</span></p>';
 	}
       }
     } else if ($this->mode == 'checkinpage' && 
@@ -336,7 +350,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 		$this->barcode != '') {
       $outitem = WEBLIB_OutItem::OutItemByBarcode($this->barcode);
       if ($outitem == null) {
-	$message .= '<p><span id="error">Item not checked out!</span></p>';
+	$message .= '<p><span id="error">'.__('Item not checked out!','web-librarian').'</span></p>';
       } else {
 	$outitem->checkin(0.10);
 	$this->checkinlist[] = $this->barcode;
@@ -461,14 +475,11 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
     ?><div class="wrap"><div id="icon-circulation" class="icon32"><br /></div
 	<h2>Library Circulation Desk<?php
 	  switch ($this->mode) {
-	    case 'checkinpage': echo ' -- Check Items In'; break;
-	    case 'holdlist':    echo ' -- Items with Holds'; break;
-	    case 'outlist':     echo ' -- Items Checked out'; break;
-	    case 'patroncircrecord': echo ' -- '.
-			WEBLIB_Patron::NameFromId($this->patronid).
-			' Circulation Record'; break;
-	    case 'itemcircrecord': echo ' -- Circulation Record for '.
-			$this->barcode; break;
+	    case 'checkinpage': _e( ' -- Check Items In','web-librarian'); break;
+	    case 'holdlist':    _e( ' -- Items with Holds','web-librarian'); break;
+	    case 'outlist':     _e( ' -- Items Checked out','web-librarian'); break;
+	    case 'patroncircrecord': echo sprintf(__(' -- %s\'s Circulation Record','web-librarian'),WEBLIB_Patron::NameFromId($this->patronid)); break;
+	    case 'itemcircrecord': echo sprintf(__(' -- Circulation Record for %s','web-librarian'),$this->barcode); break;
 	    default: break;
 	  }
 	?></h2><?php

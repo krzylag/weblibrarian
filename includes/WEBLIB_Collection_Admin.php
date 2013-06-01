@@ -113,24 +113,24 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   function __construct() {
     global $weblib_contextual_help;
 
-    $screen_id =  add_menu_page('Collection Database', 'Collection',
+    $screen_id =  add_menu_page(__('Collection Database','web-librarian'), __('Collection','web-librarian'),
 				'manage_collection','weblib-collection-database',
 				array($this,'collection_database'),
 			WEBLIB_IMAGEURL.'/Collection_Menu.png');
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-collection-database');
     add_action("load-$screen_id", array($this,'add_per_page_option'));
     $screen_id =  add_submenu_page('weblib-collection-database',
-				'Add Item to Collection','Add New',
+				__('Add Item to Collection','web-librarian'),__('Add New','web-librarian'),
 				'manage_collection','weblib-add-item-collection',
 				array($this,'add_item'));
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-add-item-collection');
     $screen_id =  add_submenu_page('weblib-collection-database',
-				'Add Bulk Items to Collection','Add New Bulk',
+				__('Add Bulk Items to Collection','web-librarian'),__('Add New Bulk','web-librarian'),
 				'manage_collection','weblib-add-item-collection-bulk',
 				array($this,'add_item_bulk'));
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-add-item-collection-bulk');
     $screen_id =  add_submenu_page('weblib-collection-database',
-				   'DB Maintenance','DB Maint',
+				   __('DB Maintenance','web-librarian'),__('DB Maint','web-librarian'),
 				   'manage_collection',
 				   'weblib-collection-maintance',
 				   array($this,'db_maintance'));
@@ -291,7 +291,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   function collection_database() {
     $message = $this->prepare_items();
     ?><div class="wrap"><div id="icon-collection" class="icon32"><br /></div
-	<h2>Library Collection <a href="<?php
+	<h2><?php _e('Library Collection','web-librarian'); ?> <a href="<?php
 		echo add_query_arg( array('page' => 'weblib-add-item-collection',
 					  'mode' => 'add',
 					  'barcode' => false));
@@ -418,10 +418,10 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   }
   function add_item_h2() {
     switch ($this->viewmode) {
-      case 'view': return "View an item in the collection";
-      case 'edit': return "Edit an item in the collection";
+      case 'view': return __("View an item in the collection",'web-librarian');
+      case 'edit': return __("Edit an item in the collection",'web-librarian');
       default:
-      case 'add': return 'Add a new item to the collection';
+      case 'add': return __('Add a new item to the collection','web-librarian');
     }
   }
 
@@ -583,13 +583,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  ?></div><div class="hide-if-no-js">
 		<label class="screen-reader-text" 
 		       for="itemedit-new-keyword-item_keyword"><?php _e('Item Keywords','web-librarian'); ?></label>
-		<div class="keywordhint">Add New Keyword</div>
+		<div class="keywordhint"><?php _e('Add New Keyword','web-librarian'); ?></div>
 	    <p><input type="text" id="itemedit-new-keyword-item_keyword" 
 		      name="newkeyword" class="newkeyword form-input-tip" 
 		      size="16" autocomplete="off" value="" />
 	       <input type="button" class="button" value="<?php _e('Add','web-librarian'); ?>" 
 			onclick="WEBLIB_AddKeyword('itemedit');" /></p>
-	    <p class="howto">Separate keywords with commas</p></div> 
+	    <p class="howto"><?php _e('Separate keywords with commas','web-librarian'); ?></p></div> 
 		<div id="itemedit-keywordchecklist" class="keywordchecklist">
 		<script type="text/javascript">
 			WEBLIB_WriteKeywords('itemedit');</script></div><?php

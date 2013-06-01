@@ -82,6 +82,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.6 ==
+* Updated localization, added Italian translation.
+
 == 3.2.5.3 ==
 * Add insert / add buttons to Amazon item loopup. (Experimental!)
 

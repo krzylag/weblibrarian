@@ -83,7 +83,7 @@ class WEBLIB_AdminPages {
 			'manage_options','web-librarian-options',
 			array($this,'configuration_page'));
 	$weblib_contextual_help->add_contextual_help($screen_id,'web-librarian-options');
-	$screen_id =  add_menu_page('About the Web Librarian','About',
+        $screen_id =  add_menu_page(__('About the Web Librarian','web-librarian'),__('About','web-librarian'),
 				    'manage_circulation','weblib-about',
 				    array($this,'about_page'),
 				    WEBLIB_IMAGEURL.'/Circulation_Menu.png');

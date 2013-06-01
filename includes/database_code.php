@@ -610,7 +610,9 @@ class WEBLIB_Patron {
 		  }
 		  $columns[] = $col;
 		} else {
-		  $message .= '<p><span id="error">Undefined column: '.$h.'</span></p>';
+		  $message .= '<p><span id="error">'.
+                  sprintf(__('Undefined column: %s','web-librarian'),$h).
+                  '</span></p>';
 		  $dataok = false;
 		}
 	      }
@@ -622,7 +624,7 @@ class WEBLIB_Patron {
 		$manditorycolcount++;
 	    }
 	    if ($manditorycolcount < 7) {
-	      $message .= '<p><span id="error">Some manditory columns are missing!</span></p>';
+	      $message .= '<p><span id="error">' . __('Some manditory columns are missing!','web-librarian') . '</span></p>';
 	      $dataok = false;
 	    }
 	  } else {
@@ -654,8 +656,9 @@ class WEBLIB_Patron {
 				 "telephone" => "%s");
 		break;
 	      default:
-		$message .= '<p><span id="error">Bad number of columns: '.
-				count($firstline).'</span></p>';
+		$message .= '<p><span id="error">'.
+                sprintf(__('Bad number of columns: %d','web-librarian'),count($firstline)).
+                '</span></p>';
 		$dataok = false;
 	    }
 	    if ($dataok) {
@@ -684,7 +687,13 @@ class WEBLIB_Patron {
 	    $rowcount++;
 	  }
 	  fclose($fpointer);
-	  $message .= '<p>'.$rowcount.' patron'.($rowcount == 1?'':'s').' inserted.</p>';
+	  $message .= '<p>';
+          if ($rowcount == 1) {
+            $message .= sprintf(__('%d patron inserted','web-librarian'),$rowcount);
+          } else {
+            $message .= sprintf(__('%d patrons inserted','web-librarian'),$rowcount);
+          }
+          $message .= '</p>';
 	  return $message;
 	}
 	static function export_csv() {

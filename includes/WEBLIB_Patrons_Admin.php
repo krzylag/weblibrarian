@@ -331,39 +331,39 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
     $result = '';
     $newtelephone = WEBLIB_Patrons_Admin::striptelephonedashes($_REQUEST['telephone']);
     if (!preg_match('/^\d+$/',$newtelephone) && strlen($newtelephone) != 10) {
-      $result .= '<br /><span id="error">Telephone invalid</span>';
+      $result .= '<br /><span id="error">'.__('Telephone invalid','web-librarian') . '</span>';
     }
     $newlastname = $_REQUEST['lastname'];
     if ($newlastname == '') {
-      $result .= '<br /><span id="error">Last name is invalid</span>';
+      $result .= '<br /><span id="error">'.__('Last name is invalid','web-librarian') . '</span>';
     }
     $newfirstname = $_REQUEST['firstname'];
     if ($newfirstname == '') {
-      $result .= '<br /><span id="error">First name is invalid</span>';
+      $result .= '<br /><span id="error">'.__('First name is invalid','web-librarian') . '</span>';
     }
     $newaddress1 = $_REQUEST['address1'];
     if ($newaddress1 == '') {
-      $result .= '<br /><span id="error">Address 1 is invalid</span>';
+      $result .= '<br /><span id="error">'.__('Address 1 is invalid','web-librarian') . '</span>';
     }
     $newcity = $_REQUEST['city'];
     if ($newcity == '') {
-      $result .= '<br /><span id="error">City is invalid</span>';
+      $result .= '<br /><span id="error">'.__('City is invalid','web-librarian') . '</span>';
     }
     $newstate = $_REQUEST['state'];
     if ($newstate == '' || strlen($newstate) != 2) {
-      $result .= '<br /><span id="error">State is invalid</span>';
+      $result .= '<br /><span id="error">'.__('State is invalid','web-librarian') . '</span>';
     }
     $newzip = $_REQUEST['zip'];
     if (!($newzip != '' && (strlen($newzip) == 5 || strlen($newzip) == 10) &&
         preg_match('/\d+(-\d+)?/',$newzip) )) {
-      $result .= '<br /><span id="error">Zip is invalid</span>';
+      $result .= '<br /><span id="error">'.__('Zip is invalid','web-librarian') . '</span>';
     }
     $newoutstandingfines = $_REQUEST['outstandingfines'];
     if (!is_numeric($newoutstandingfines)) {
-      $result .= '<br /><span id="error">Outstanding fines invalid</span>';
+      $result .= '<br /><span id="error">'.__('Outstanding fines invalid','web-librarian') . '</span>';
     }
     $newexpiration = $_REQUEST['expiration'];
-    WEBLIB_Patrons_Admin::ValidHumanDate($newexpiration,$theexpiration,'Expiration',$result);
+    WEBLIB_Patrons_Admin::ValidHumanDate($newexpiration,$theexpiration,__('Expiration','web-librarian'),$result);
     return $result;
   }
   function getitemfromform($id) {
@@ -379,7 +379,7 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
     $patron->set_zip($_REQUEST['zip']);
     $patron->set_outstandingfines($_REQUEST['outstandingfines']);
     $dummy = '';
-    WEBLIB_Patrons_Admin::ValidHumanDate($_REQUEST['expiration'],$theexpiration,'Expiration',$dummy);
+    WEBLIB_Patrons_Admin::ValidHumanDate($_REQUEST['expiration'],$theexpiration,__('Expiration','web-librarian'),$dummy);
     $patron->set_expiration($theexpiration);
     return $patron;
   }
@@ -393,17 +393,26 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
   }
   function add_item_h2() {
     switch ($this->viewmode) {
-      case 'edit': return 'Edit Patron Info';
-      case 'view': return 'View Patron Info';
+      case 'edit': return __('Edit Patron Info','web-librarian');
+      case 'view': return __('View Patron Info','web-librarian');
       default:
-      case 'add': return 'Add new Patron';
+      case 'add': return __('Add new Patron','web-librarian');
     }
   }
 
   static function ValidHumanDate($datestring,&$mysqldate,$label,&$error) {
-    $Months = array('jan' => 1, 'feb' => 2, 'mar' => 3, 'apr' => 4,
-		      'may' => 5, 'jun' => 6, 'jul' => 7, 'aug' => 8,
-		      'sep' => 9, 'oct' =>10, 'nov' =>11, 'dec' =>12);
+    $Months = array(__('jan','web-librarian') => 1, 
+                    __('feb','web-librarian') => 2, 
+                    __('mar','web-librarian') => 3, 
+                    __('apr','web-librarian') => 4,
+                    __('may','web-librarian') => 5, 
+                    __('jun','web-librarian') => 6, 
+                    __('jul','web-librarian') => 7, 
+                    __('aug','web-librarian') => 8,
+                    __('sep','web-librarian') => 9, 
+                    __('oct','web-librarian') => 10, 
+                    __('nov','web-librarian') => 11, 
+                    __('dec','web-librarian') => 12);
     $datearry=split("/",$datestring); // splitting the array
     if (count($datearry) == 2) {/* only month and year given (presumed) */
       $month = $datearry[0];
@@ -414,7 +423,9 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
       $date  = $datearry[1];
       $year  = $datearry[2];
     } else {
-      $error .= '<br /><span id="error">Invalid '.$label.' date ('.$datestring.'). Should be mm/yyyy or mm/dd/yyyy.</span>';
+      $error .= '<br /><span id="error">';
+      $error .= sprintf(__('Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy.','web-librarian'),$label,$datestring);
+      $error .= '</span>';
       return false;
     }
     if (!is_int($month)) {
@@ -423,18 +434,22 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
       if (isset($Months[$lowmonth])) {
 	$month = $Months[$lowmonth];
       } else {
-	$error .= '<br /><span id="error">Invalid '.$label.' date ('.$datestring.'): illegal month ('.$month.'). Should be one of ';
-	$comma='';
+	$error .= '<br /><span id="error">';
+        $mlist = '';
+        $comma='';
 	foreach ($Months as $k => $dummy) {
-	  $error .= $comma.$k;
+	  $mlist .= $comma.$k;
 	  $comma = ', ';
 	}
-	$error .= '.</span>';
+        $error .= sprintf(__('Invalid %s date (%s): illegal month (%s). Should be one of %s.','web-librarian'),$label,$datestring,$month,$mlist);
+	$error .= '</span>';
 	return false;
       }
     }
     if (!checkdate($month,$date,$year)) {
-      $error .= '<br /><span id="error">Invalid '.$label.' date ('.$datestring.'). Out of range</span>';
+      $error .= '<br /><span id="error">';
+      $error .= sprintf(__('Invalid %s date (%s). Out of range.','web-librarian'),$label,$datestring);
+      $error .= '</span>';
       return false;
     }
     $mysqldate = sprintf("%04d-%02d-%02d",$year,$month,$date);
