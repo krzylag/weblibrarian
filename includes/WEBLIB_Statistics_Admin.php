@@ -16,9 +16,7 @@ if(!class_exists('WP_List_Table')){
 
 class WEBLIB_Statistics_Admin extends WP_List_Table {
 
-  private $MonthNames = 
-	array('Month Totals','January','February','March','April','May','June',
-	      'July','August','September', 'October','November','December');
+  private static $MonthNames;
 
   private $mode = 'typecount';
 
@@ -28,9 +26,26 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
   static $my_per_page = 'weblib_stats_per_page';
 
   function __construct() {
+    if (! isset($MonthNames) ) {
+      $MonthNames = array(__('Month Totals','web-librarian'),
+                          __('January','web-librarian'),
+                          __('February','web-librarian'),
+                          __('March','web-librarian'),
+                          __('April','web-librarian'),
+                          __('May','web-librarian'),
+                          __('June','web-librarian'),
+                          __('July','web-librarian'),
+                          __('August','web-librarian'),
+                          __('September','web-librarian'),
+                          __('October','web-librarian'),
+                          __('November','web-librarian'),
+                          __('December','web-librarian')
+                          );
+    }
+                          
     global $weblib_contextual_help;
 
-    $screen_id =  add_menu_page('Circulation Statsistics', 'Circulation Stats',
+    $screen_id =  add_menu_page(__('Circulation Statsistics','web-librarian'), __('Circulation Stats','web-librarian'),
 				'manage_circulation', 
 				'weblib-circulation-statistics',
 				array($this,'circulation_statistics'),
@@ -38,7 +53,7 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-circulation-statistics');
     add_action("load-$screen_id", array($this,'add_per_page_option'));
     $screen_id =  add_submenu_page('weblib-circulation-statistics',
-				   'Export Circulation Stats', 'Export',
+				   __('Export Circulation Stats','web-librarian'), __('Export','web-librarian'),
 				   'manage_circulation',
 				   'weblib-export-circulation-statistics',
 				   array($this,

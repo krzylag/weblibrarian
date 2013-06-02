@@ -21,20 +21,20 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_PATRONS . "(
-	id		int NOT NULL AUTO_INCREMENT unique,
-	firstname	varchar(32) not null check (firstname <> ''),
-	lastname	varchar(32) not null check (lastname <> ''),
-	extraname	varchar(32) not null default '',
-	address1	varchar(32) not null check (address1 <> ''),
-	address2	varchar(32) not null default '',
-	city		varchar(32) not null check(city <> ''),
-	state		char(2) not null check(state <> ''),
-	zip		char(10) not null check(zip <> ''),
-	telephone	char(10) not null check(telephone <> ''),
-	outstandingfines decimal(5,2) default 0.0,
-	expiration	date default '2015-12-31',
-	PRIMARY		KEY (id) 
+  $sql = 'CREATE TABLE ' . WEBLIB_PATRONS . " (
+  id int NOT NULL AUTO_INCREMENT unique,
+  firstname varchar(32) not null check (firstname <> ''),
+  lastname varchar(32) not null check (lastname <> ''),
+  extraname varchar(32) not null default '',
+  address1 varchar(32) not null check (address1 <> ''),
+  address2 varchar(32) not null default '',
+  city varchar(32) not null check(city <> ''),
+  state char(2) not null check(state <> ''),
+  zip char(10) not null check(zip <> ''),
+  telephone char(10) not null check(telephone <> ''),
+  outstandingfines decimal(5,2) default 0.0,
+  expiration date default '2015-12-31',
+  PRIMARY KEY  (id) 
   );";
 
   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -45,40 +45,40 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_COLLECTION . "(
-	barcode		varchar(16) not null unique check (barcode <> ''),
-	title		varchar(128) not null check (title <> ''),
-	author		varchar(64) not null check (author <> ''),
-	subject		varchar(128) not null check (subject <> ''),
-	description		text not null,
-	category		varchar(36) not null default '',
-	media		varchar(36) not null default '',
-	publisher		varchar(36) not null default '',
-	publocation		varchar(36) not null default '',
-	pubdate		date not null default '0000-01-01',
-	edition		varchar(36) not null default '',
-	isbn		varchar(20) not null default '',
-	type		varchar(16) not null check (type <> ''),
-	thumburl		varchar(256) not null default '',
-	PRIMARY		KEY (barcode),
-	INDEX		(title),
-	INDEX		(author),
-	INDEX		(subject),
-	INDEX		(isbn)
+  $sql = 'CREATE TABLE ' . WEBLIB_COLLECTION . " (
+  barcode varchar(16) not null unique check (barcode <> ''),
+  title varchar(128) not null check (title <> ''),
+  author varchar(64) not null check (author <> ''),
+  subject varchar(128) not null check (subject <> ''),
+  description text not null,
+  category varchar(36) not null default '',
+  media varchar(36) not null default '',
+  publisher varchar(36) not null default '',
+  publocation varchar(36) not null default '',
+  pubdate date not null default '0000-01-01',
+  edition varchar(36) not null default '',
+  isbn varchar(20) not null default '',
+  type varchar(16) not null check (type <> ''),
+  thumburl varchar(256) not null default '',
+  callnumber varchar(36) not null default '',
+  PRIMARY KEY  (barcode),
+  KEY (title),
+  KEY (author),
+  KEY (subject),
+  KEY (isbn)
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
   $result = dbDelta($sql);
 
   /*
-   *	Keywords table:
+   *    Keywords table:
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_KEYWORDS . "(
-  $keywords_columns = array(
-	keyword		VARCHAR(64) NOT NULL,
-	barcode		varchar(16) not null check (barcode <> ''),
-	INDEX		(keyword) 
+  $sql = 'CREATE TABLE ' . WEBLIB_KEYWORDS . " (
+  keyword VARCHAR(64) NOT NULL,
+  barcode varchar(16) not null check (barcode <> ''),
+  KEY  (keyword) 
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -89,16 +89,16 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_OUTITEMS . "(
-	transaction	serial,
-	barcode		varchar(16) not null check (barcode <> ''),
-	title		varchar(128) not null check (title <> ''),
-	source		varchar(16) not null check (source <> ''),
-	type		varchar(16) not null check (type <> ''),
-	patronid	int not null,
-	dateout		date not null check (dateout <> ''),
-	datedue		date not null check (datedue <> ''),
-	PRIMARY		KEY (transaction)
+  $sql = 'CREATE TABLE ' . WEBLIB_OUTITEMS . " (
+  transaction serial,
+  barcode varchar(16) not null check (barcode <> ''),
+  title varchar(128) not null check (title <> ''),
+  source varchar(16) not null check (source <> ''),
+  type varchar(16) not null check (type <> ''),
+  patronid int not null,
+  dateout date not null check (dateout <> ''),
+  datedue date not null check (datedue <> ''),
+  PRIMARY KEY  (transaction)
   );";
 
 
@@ -110,16 +110,16 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_HOLDITEMS . "(
-	transaction	serial,
-	barcode		varchar(16)  not null check (barcode <> ''),
-	title		varchar(128) not null check (title <> ''),
-	source		varchar(16) not null check (source <> ''),
-	type		varchar(16) not null check (type <> ''),
-	patronid	int not null,
-	dateheld	date not null check (dateheld <> ''),
-	dateexpire	date not null check (dateexpire <> ''),
-	PRIMARY		KEY (transaction) 
+  $sql = 'CREATE TABLE ' . WEBLIB_HOLDITEMS . " (
+  transaction serial,
+  barcode varchar(16) not null check (barcode <> ''),
+  title varchar(128) not null check (title <> ''),
+  source varchar(16) not null check (source <> ''),
+  type varchar(16) not null check (type <> ''),
+  patronid int not null,
+  dateheld date not null check (dateheld <> ''),
+  dateexpire date not null check (dateexpire <> ''),
+  PRIMARY KEY  (transaction) 
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -130,12 +130,12 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_STATISICS . "(
-	type	varchar(16) not null check (type <> ''),
-	year	numeric(4) unsigned not null check (year <> ''),
-	month	numeric(2) unsigned not null check (month <> ''),
-	count	integer unsigned not null default 0,
-	PRIMARY	KEY (type)
+  $sql = 'CREATE TABLE ' . WEBLIB_STATISICS . " (
+  type varchar(16) not null check (type <> ''),
+  year numeric(4) unsigned not null,
+  month numeric(2) unsigned not null,
+  count integer unsigned not null default 0,
+  PRIMARY KEY  (type)
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -146,10 +146,10 @@ function WEBLIB_make_tables() {
    *
    */
 
-  $sql = 'CREATE TABLE ' . WEBLIB_TYPES . "(
-	type		varchar(16) not null unique check (type <> ''),
-	loanperiod		integer unsigned not null default 14,
-	PRIMARY		KEY (type) 
+  $sql = 'CREATE TABLE ' . WEBLIB_TYPES . " (
+  type varchar(16) not null unique check (type <> ''),
+  loanperiod integer unsigned not null default 14,
+  PRIMARY KEY  (type) 
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -344,6 +344,8 @@ class WEBLIB_Patron {
 	  if ($this->insert) return true;
 	  $this->dirty = false;
 	  WEBLIB_Patron::DeletePatronByID($this->theid);
+	  WEBLIB_HoldItem::DeleteHoldsByPatronId($this->theid);
+	  WEBLIB_OutItem::DeleteCheckoutsByPatronId($this->theid);
 	  $this->insert = true;
 	  return true;
 	}
@@ -608,7 +610,9 @@ class WEBLIB_Patron {
 		  }
 		  $columns[] = $col;
 		} else {
-		  $message .= '<p><span id="error">Undefined column: '.$h.'</span></p>';
+		  $message .= '<p><span id="error">'.
+                  sprintf(__('Undefined column: %s','web-librarian'),$h).
+                  '</span></p>';
 		  $dataok = false;
 		}
 	      }
@@ -620,7 +624,7 @@ class WEBLIB_Patron {
 		$manditorycolcount++;
 	    }
 	    if ($manditorycolcount < 7) {
-	      $message .= '<p><span id="error">Some manditory columns are missing!</span></p>';
+	      $message .= '<p><span id="error">' . __('Some manditory columns are missing!','web-librarian') . '</span></p>';
 	      $dataok = false;
 	    }
 	  } else {
@@ -652,8 +656,9 @@ class WEBLIB_Patron {
 				 "telephone" => "%s");
 		break;
 	      default:
-		$message .= '<p><span id="error">Bad number of columns: '.
-				count($firstline).'</span></p>';
+		$message .= '<p><span id="error">'.
+                sprintf(__('Bad number of columns: %d','web-librarian'),count($firstline)).
+                '</span></p>';
 		$dataok = false;
 	    }
 	    if ($dataok) {
@@ -682,7 +687,13 @@ class WEBLIB_Patron {
 	    $rowcount++;
 	  }
 	  fclose($fpointer);
-	  $message .= '<p>'.$rowcount.' patron'.($rowcount == 1?'':'s').' inserted.</p>';
+	  $message .= '<p>';
+          if ($rowcount == 1) {
+            $message .= sprintf(__('%d patron inserted','web-librarian'),$rowcount);
+          } else {
+            $message .= sprintf(__('%d patrons inserted','web-librarian'),$rowcount);
+          }
+          $message .= '</p>';
 	  return $message;
 	}
 	static function export_csv() {
@@ -760,7 +771,8 @@ class WEBLIB_ItemInCollection {
 				   'publisher' => "", 'publocation' => "", 
 				   'pubdate'   => "0000-01-01", 
 				   'edition'   => "", 'isbn'	  => "", 
-				   'type'      => "unknown", 'thumburl' => "" );
+				   'type'      => "unknown", 'thumburl' => "",
+				   'callnumber'   => "" );
 	  }
 	}
 
@@ -791,6 +803,8 @@ class WEBLIB_ItemInCollection {
 	function set_isbn($s) {$this->record['isbn'] = $s;$this->dirty = true;}
 	function thumburl() {return $this->record['thumburl'];}
 	function set_thumburl($s) {$this->record['thumburl'] = $s;$this->dirty = true;}
+	function callnumber() {return $this->record['callnumber'];}
+	function set_callnumber($s) {$this->record['callnumber'] = $s;$this->dirty = true;}
 	function type() {return $this->record['type'];}
 	function set_type($t) {$this->record['type'] = $t;$this->dirty = true;}
 	function clean() {$this->dirty = false;}
@@ -801,6 +815,8 @@ class WEBLIB_ItemInCollection {
 	  $this->dirty = false;
 	  WEBLIB_ItemInCollection::DeleteItemByBarCode($this->thebarcode);
 	  WEBLIB_ItemInCollection::DeleteKeywordsByBarCode($this->thebarcode);
+	  WEBLIB_HoldItem::DeleteHeldItemByBarcode($this->thebarcode);
+	  WEBLIB_OutItem::DeleteOutItemByBarcode($this->thebarcode);
 	  $this->insert = true;
 	  return true;
 	}
@@ -834,10 +850,11 @@ class WEBLIB_ItemInCollection {
 		'edition' => $this->record['edition'],
 		'isbn' => $this->record['isbn'],
 		'type'    => $this->record['type'],
-		'thumburl'    => $this->record['thumburl']
+		'thumburl'    => $this->record['thumburl'],
+		'callnumber'  => $this->record['callnumber']
 		);
 	      $insertfmt = array('%s','%s','%s','%s','%s','%s','%s','%s',
-				 '%s','%s','%s','%s','%s','%s');
+				 '%s','%s','%s','%s','%s','%s','%s');
 	    } else {
 	      $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
 	      $lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
@@ -857,9 +874,10 @@ class WEBLIB_ItemInCollection {
 		'edition' => $this->record['edition'],
 		'isbn' => $this->record['isbn'],
 		'type'    => $this->record['type'],
-		'thumburl' => $this->record['thumburl']);
+		'thumburl' => $this->record['thumburl'],
+		'callnumber'  => $this->record['callnumber']);
 	      $insertfmt = array('%s', '%s','%s','%s','%s','%s','%s','%s','%s',
-				 '%s','%s','%s','%s','%s');
+				 '%s','%s','%s','%s','%s','%s');
 	    }
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
 	    $result = $wpdb->insert(WEBLIB_COLLECTION, $insertrec, $insertfmt);
@@ -880,12 +898,14 @@ class WEBLIB_ItemInCollection {
 		'edition' => $this->record['edition'],
 		'isbn' => $this->record['isbn'],
 		'type'    => $this->record['type'],
-		'thumburl' => $this->record['thumburl']);
+		'thumburl' => $this->record['thumburl'],
+		'callnumber'  => $this->record['callnumber']);
 	    $updatefmt = array('%s','%s','%s','%s','%s','%s','%s','%s',
-			       '%s','%s','%s','%s','%s');
+			       '%s','%s','%s','%s','%s','%s');
 	    $where = array('barcode' => $this->thebarcode );
 	    $wherefmt = '%s';
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	    file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store(): updaterec = ".print_r($updaterec,true)."\n");
 	    $wpdb->update(WEBLIB_COLLECTION, $updaterec, $where, $updatefmt, 
 					   $wherefmt);
 	    $wpdb->show_errors($olderror);
@@ -1185,7 +1205,7 @@ class WEBLIB_ItemInCollection {
 					'description','category','media',
 					'publisher','publocation','pubdate',
 					'edition','isbn','type','thumburl',
-					'keywords'))) {
+					'keywords','callnumber'))) {
 		  $columns[] = $col;
 		  if ($col == 'barcode') $generatebarcode = false;
 		} else {
@@ -1272,6 +1292,11 @@ class WEBLIB_ItemInCollection {
 				'type','thumburl','keywords');
 		$generatebarcode = false;
 		break;
+	      case 16:
+		$columns = array('barcode','title','author','subject',
+				 'description','category','media','publisher',
+				 'publocation','pubdate','edition','isbn',
+				 'type','thumburl','callnumber','keywords');
 	      default:
 		$message .= '<p><span id="error">Bad number of columns: '.
 				count($firstline).'</span></p>';
@@ -1313,7 +1338,7 @@ class WEBLIB_ItemInCollection {
 		$message .= '<p class="error">Replaced bad barcode: '.$$data['barcode'].' with ';
 		$lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
 		$data['barcode'] = WEBLIB_ItemInCollection::incrstring($lastbarcode);
-		$message .= $$data['barcode'].'.</p>';
+		$message .= $data['barcode'].'.</p>';
 		$numberfixedbc++;
 	      }
 	    }		
@@ -1342,7 +1367,7 @@ class WEBLIB_ItemInCollection {
 					'description','category','media',
 					'publisher','publocation','pubdate',
 					'edition','isbn','type','thumburl',
-					'keywords');
+					'callnumber','keywords');
 	  $csv = '';
 	  $comma = '';
 	  foreach ($allcols as $col) {
@@ -1552,6 +1577,22 @@ class WEBLIB_OutItem {
 	  $wpdb->query($sql);
 	  $wpdb->show_errors($olderror);
 	}
+	static function DeleteCheckoutsByPatronId($patronid) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_OUTITEMS.
+				' where patronid = %d',$patronid);
+	  $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
+	static function DeleteOutItemByBarcode($barcode) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_OUTITEMS.
+			 ' where barcode = %s',$barcode);
+	  $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
 	static function RenewByBarcodeAndPatronID($barcode,$patronid = '*') {
 	  $outitem = WEBLIB_OutItem::OutItemByBarcode($barcode);
 	  if ($outitem == null) {
@@ -1590,6 +1631,32 @@ class WEBLIB_OutItem {
 	  $wpdb->show_errors($olderror);
 	  return $transactions;
 	}
+	static function RemoveOrphanCheckouts() {
+	  global $wpdb;
+	  $transactions = WEBLIB_OutItem::AllOutItems();
+	  $orphans = array();
+	  foreach ($transactions as $trans) {
+	    $out = new WEBLIB_OutItem($trans);
+	    if (!WEBLIB_ItemInCollection::IsItemInCollection($out->barcode())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $out->barcode(),
+				 'patronid' => $out->patronid(),
+				 'title' => $out->title(),
+				 'dateout' => $out->dateout(),
+				 'datedue' => $out->datedue());
+	      $out->delete();
+	    } else if (!WEBLIB_Patron::ValidPatronID($out->patronid())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $out->barcode(),
+				 'patronid' => $out->patronid(),
+				 'title' => $out->title(),
+				 'dateout' => $out->dateout(),
+				 'datedue' => $out->datedue());
+	      $out->delete();
+	    }
+	  }
+	  return $orphans;
+        }
 	static function OutItemsOfPatron($patronid) {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
@@ -1797,6 +1864,22 @@ class WEBLIB_HoldItem {
 	  $status = $wpdb->query($sql);
 	  $wpdb->show_errors($olderror);
 	}
+	static function DeleteHoldsByPatronId($patronid) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_HOLDITEMS.
+				' where patronid = %d',$patronid);
+	  $status = $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
+	static function DeleteHeldItemByBarcode($barcode) {
+	  global $wpdb;
+	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
+	  $sql = $wpdb->prepare('DELETE FROM '.WEBLIB_HOLDITEMS.
+				' where barcode = %s',$barcode);
+	  $status = $wpdb->query($sql);
+	  $wpdb->show_errors($olderror);
+	}
 	static function AllHeldItems() {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
@@ -1806,6 +1889,32 @@ class WEBLIB_HoldItem {
 	  $wpdb->show_errors($olderror);
 	  return $transactions;
 	}
+	static function RemoveOrphanHolds() {
+	  global $wpdb;
+	  $transactions = WEBLIB_HoldItem::AllHeldItems();
+	  $orphans = array();
+	  foreach ($transactions as $trans) {
+	    $hold = new WEBLIB_HoldItem($trans);
+	    if (!WEBLIB_ItemInCollection::IsItemInCollection($hold->barcode())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $hold->barcode(),
+				 'patronid' => $hold->patronid(),
+				 'title' => $hold->title(),
+				 'dateheld' => $hold->dateheld(),
+				 'dateexpire' => $hold->dateexpire());
+	      $hold->delete();
+	    } else if (!WEBLIB_Patron::ValidPatronID($hold->patronid())) {
+	      $orphans[] = array('transaction' => $trans,
+				 'barcode' => $hold->barcode(),
+				 'patronid' => $hold->patronid(),
+				 'title' => $hold->title(),
+				 'dateheld' => $hold->dateheld(),
+				 'dateexpire' => $hold->dateexpire());
+	      $hold->delete();
+	    }
+	  }
+	  return $orphans;
+        }
 	static function HeldItemsOfPatron($patronid) {
 	  global $wpdb;
 	  $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');

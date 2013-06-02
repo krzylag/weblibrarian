@@ -60,6 +60,10 @@
   background: transparent url(../images/Collection_Icon.png) no-repeat;
 }
 
+#icon-weblib-db-maint {
+  background: transparent url(../images/Collection_Icon.png) no-repeat;
+}
+
 #icon-circulation {
   background: transparent url(../images/Circulation_Icon.png) no-repeat;
 }
@@ -76,6 +80,20 @@
   background-color: transparent;
   background-image: url(../images/AmazonLogo.gif);
   background-repeat: no-repeat;
+}
+
+img.WEBLIB_AWS_addinsertbutton {
+    margin: 2px;
+}
+
+img.WEBLIB_AWS_addinsertbutton:hover {
+    
+}
+
+.update_field {
+    background: transparent url(../images/update_field.png) no-repeat;
+    width:16;
+    height:16;
 }
 
 /* Error messages are in <span id="error">...</span>.

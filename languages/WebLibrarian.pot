@@ -1,751 +1,1284 @@
-# Messages for Web Librarian.
-# Copyright (C) 2012 Robert Heller
-# This file is distributed under the same license as the weblibrarian package.
-# Robert Heller <heller@deepsoft.com>, 2012.
-#
-#, fuzzy
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
-"Project-Id-Version: weblibrarian 2.6.3.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-10 09:30-0500\n"
-"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
+"POT-Creation-Date: 2013-06-02 17:15:36+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ascii\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-#: includes/admin_page_classes.php:30
-msgid "Web Librarian User Manual (PDF)"
-msgstr ""
-
-#: includes/admin_page_classes.php:69
-msgid "Web Librarian Configuration"
-msgstr ""
-
-#: includes/admin_page_classes.php:69
-msgid "Web Librarian"
-msgstr ""
-
-#: includes/admin_page_classes.php:78 includes/admin_page_classes.php:363
-#: includes/admin_page_classes.php:569 includes/admin_page_classes.php:690
-#: includes/admin_page_classes.php:1171 includes/admin_page_classes.php:1555
-#: includes/admin_page_classes.php:2203 includes/admin_page_classes.php:2679
 #: AWSXmlGet.php:139 ExportLibraryData.php:46 ExportLibraryData.php:53
 #: ExportLibraryStats.php:31 FindPatron.php:31
+#: includes/WEBLIB_Circulation_Admin.php:498
+#: includes/WEBLIB_Collection_Admin.php:228
+#: includes/WEBLIB_Collection_Admin.php:822
+#: includes/WEBLIB_Patrons_Admin.php:157 includes/WEBLIB_Patrons_Admin.php:273
+#: includes/WEBLIB_Statistics_Admin.php:112
+#: includes/WEBLIB_Types_Database_Admin.php:98
+#: includes/WEBLIB_Users_Admin.php:110 includes/admin_page_classes.php:95
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: includes/admin_page_classes.php:101
-msgid "Public Key missing!"
+#: AWSXmlGet.php:145 ExportLibraryData.php:33 ExportLibraryStats.php:37
+#: FindPatron.php:37 PlaceHoldOnItem.php:33 RenewItem.php:33
+#: UpdatePatronID.php:33
+msgid ""
+"The headers have been sent by another plugin - there may be a plugin "
+"conflict."
 msgstr ""
 
-#: includes/admin_page_classes.php:105
-msgid "Private Key missing!"
+#: ExportLibraryData.php:61
+msgid "Bad value for dataselection!"
 msgstr ""
 
-#: includes/admin_page_classes.php:109
-msgid "Region Domain missing!"
+#: WebLibrarian.php:119
+msgid "Librarian"
 msgstr ""
 
-#: includes/admin_page_classes.php:113
-msgid "Associate Tag missing!"
+#: WebLibrarian.php:132
+msgid "Senior Aid"
 msgstr ""
 
-#: includes/admin_page_classes.php:122
-msgid "Options Saved"
+#: WebLibrarian.php:141
+msgid "Volunteer"
 msgstr ""
 
-#: includes/admin_page_classes.php:132
-msgid "Configure Options"
+#: WebLibrarian.php:172 WebLibrarian.php:181
+msgid "Hold"
 msgstr ""
 
-#: includes/admin_page_classes.php:138
-msgid "AWS Public Key:"
+#: WebLibrarian.php:173 WebLibrarian.php:182
+msgid "Holds"
 msgstr ""
 
-#: includes/admin_page_classes.php:145
-msgid "AWS Private Key:"
+#: WebLibrarian.php:174 WebLibrarian.php:183
+msgid "Ajax error:  No Data Received"
 msgstr ""
 
-#: includes/admin_page_classes.php:152
-msgid "AWS Region:"
+#: WebLibrarian.php:175 WebLibrarian.php:184
+msgid "Ajax error: "
 msgstr ""
 
-#: includes/admin_page_classes.php:158
-msgid "United States"
+#: WebLibrarian.php:185
+msgid "total results found"
 msgstr ""
 
-#: includes/admin_page_classes.php:161
-msgid "Canada"
+#: WebLibrarian.php:186
+msgid "Loading"
 msgstr ""
 
-#: includes/admin_page_classes.php:164
-msgid "Germany"
+#: WebLibrarian.php:187
+msgid "Lookup Item"
 msgstr ""
 
-#: includes/admin_page_classes.php:167
-msgid "France"
+#: WebLibrarian.php:188
+msgid "Insert Item"
 msgstr ""
 
-#: includes/admin_page_classes.php:170
-msgid "Japan"
+#: WebLibrarian.php:189
+msgid "Lookup Complete."
 msgstr ""
 
-#: includes/admin_page_classes.php:173
-msgid "United Kingdom"
+#: WebLibrarian.php:190
+msgid "Form insertion complete."
 msgstr ""
 
-#: includes/admin_page_classes.php:177
-msgid "Amazon Associate Tag:"
+#: WebLibrarian.php:191
+msgid "Looking up Patron"
 msgstr ""
 
-#: includes/admin_page_classes.php:184
-msgid "Debug Database:"
+#: WebLibrarian.php:192
+msgid "No matching patrons found."
 msgstr ""
 
-#: includes/admin_page_classes.php:187
-msgid "On"
+#: WebLibrarian.php:193
+msgid "Select Patron"
 msgstr ""
 
-#: includes/admin_page_classes.php:189
-msgid "Off"
+#: WebLibrarian.php:194
+msgid "Insert Title"
 msgstr ""
 
-#: includes/admin_page_classes.php:194
-msgid "Save Options"
+#: WebLibrarian.php:195
+msgid "Insert ISBN"
 msgstr ""
 
-#: includes/admin_page_classes.php:197
-msgid "Make Database"
+#: WebLibrarian.php:196
+msgid "Insert Thumbnail"
 msgstr ""
 
-#: includes/admin_page_classes.php:199
-msgid "Dump Database"
+#: WebLibrarian.php:197
+msgid "Add to Author"
 msgstr ""
 
-#: includes/admin_page_classes.php:205
-msgid "Circulation Quick Stats"
+#: WebLibrarian.php:198
+msgid "Insert as date"
 msgstr ""
 
-#: includes/admin_page_classes.php:212
-msgid "Patron Circulation Stats"
+#: WebLibrarian.php:199
+msgid "Insert As Publisher"
 msgstr ""
 
-#: includes/admin_page_classes.php:228
-msgid "Circulation Type"
+#: WebLibrarian.php:200
+msgid "Insert Edition"
 msgstr ""
 
-#: includes/admin_page_classes.php:229 includes/admin_page_classes.php:2810
-#: includes/admin_page_classes.php:2813
-msgid "Count"
+#: WebLibrarian.php:201
+msgid "Add to Media"
 msgstr ""
 
-#: includes/admin_page_classes.php:236
-msgid "Total"
+#: WebLibrarian.php:202
+msgid "Add to description"
 msgstr ""
 
-#: includes/admin_page_classes.php:245
-#, php-format
-msgid "Circulation Statistics for %s"
+#: WebLibrarian.php:203
+msgid "Add to keywords"
 msgstr ""
 
-#: includes/admin_page_classes.php:248
-msgid "Items on hold:"
+#: WebLibrarian.php:247
+msgid "Log in/out, admin"
 msgstr ""
 
-#: includes/admin_page_classes.php:249
-msgid "Items checked out:"
+#: WebLibrarian.php:248
+msgid "Stripped Meta"
 msgstr ""
 
-#: includes/admin_page_classes.php:263
-msgid "Edit your Patron info"
+#: includes/WEBLIB_Circulation_Admin.php:22
+msgid "Circulation Desk"
 msgstr ""
 
-#: includes/admin_page_classes.php:264
-msgid "Edit Patron info"
-msgstr ""
-
-#: includes/admin_page_classes.php:268
-msgid "Add Patron ID to a user"
-msgstr ""
-
-#: includes/admin_page_classes.php:269
-msgid "Add Patron ID"
-msgstr ""
-
-#: includes/admin_page_classes.php:274
-msgid "user"
-msgstr ""
-
-#: includes/admin_page_classes.php:275
-msgid "users"
-msgstr ""
-
-#: includes/admin_page_classes.php:281
-msgid "Users"
-msgstr ""
-
-#: includes/admin_page_classes.php:304
-msgid "Your Patron ID has been set. Thank you."
-msgstr ""
-
-#: includes/admin_page_classes.php:309
-msgid "Edit your patron info"
-msgstr ""
-
-#: includes/admin_page_classes.php:321
-msgid "Set Your Patron Id"
-msgstr ""
-
-#: includes/admin_page_classes.php:331
-msgid "Add Patron Ids to Users"
-msgstr ""
-
-#: includes/admin_page_classes.php:337
-msgid "Search Users"
-msgstr ""
-
-#: includes/admin_page_classes.php:345 includes/admin_page_classes.php:555
-msgid "Username"
-msgstr ""
-
-#: includes/admin_page_classes.php:346
-msgid "Patron ID"
-msgstr ""
-
-#: includes/admin_page_classes.php:347 includes/admin_page_classes.php:553
-msgid "Patron Name"
-msgstr ""
-
-#: includes/admin_page_classes.php:348
-msgid "Update"
-msgstr ""
-
-#: includes/admin_page_classes.php:379
-#, php-format
-msgid "Patron ID %d (%s) has been set for user %d (%s)."
-msgstr ""
-
-#: includes/admin_page_classes.php:410
-msgid "No matching users were found."
-msgstr ""
-
-#: includes/admin_page_classes.php:449
-msgid "Update Id"
-msgstr ""
-
-#: includes/admin_page_classes.php:467 includes/admin_page_classes.php:508
-msgid "Library Patrons"
-msgstr ""
-
-#: includes/admin_page_classes.php:468 includes/admin_page_classes.php:497
-#: includes/admin_page_classes.php:502
-msgid "Patrons"
-msgstr ""
-
-#: includes/admin_page_classes.php:473
-msgid "Add Library Patron"
-msgstr ""
-
-#: includes/admin_page_classes.php:474 includes/admin_page_classes.php:513
-#: includes/admin_page_classes.php:1099 includes/admin_page_classes.php:1128
-#: includes/admin_page_classes.php:1533
-msgid "Add New"
-msgstr ""
-
-#: includes/admin_page_classes.php:477
-msgid "Add Bulk Library Patrons"
-msgstr ""
-
-#: includes/admin_page_classes.php:478 includes/admin_page_classes.php:517
-#: includes/admin_page_classes.php:1535
-msgid "Add New Bulk"
-msgstr ""
-
-#: includes/admin_page_classes.php:484 includes/admin_page_classes.php:1106
-#: includes/admin_page_classes.php:1508
-msgid "Edit"
-msgstr ""
-
-#: includes/admin_page_classes.php:487 includes/admin_page_classes.php:1512
-msgid "View"
-msgstr ""
-
-#: includes/admin_page_classes.php:490 includes/admin_page_classes.php:623
-#: includes/admin_page_classes.php:1516 includes/admin_page_classes.php:1560
-msgid "Delete"
-msgstr ""
-
-#: includes/admin_page_classes.php:496 includes/admin_page_classes.php:2220
-msgid "Patron"
-msgstr ""
-
-#: includes/admin_page_classes.php:521 includes/admin_page_classes.php:1539
-msgid "Export as CSV"
-msgstr ""
-
-#: includes/admin_page_classes.php:528
-msgid "Search Patrons"
-msgstr ""
-
-#: includes/admin_page_classes.php:552
-msgid "Patron Id"
-msgstr ""
-
-#: includes/admin_page_classes.php:554
-msgid "Telephone Number"
-msgstr ""
-
-#: includes/admin_page_classes.php:703
-#, php-format
-msgid "%s, %s %s inserted with Patron Id %d."
-msgstr ""
-
-#: includes/admin_page_classes.php:720
-#, php-format
-msgid "%s, %s %s updated."
-msgstr ""
-
-#: includes/admin_page_classes.php:894
-msgid "Patron ID:"
-msgstr ""
-
-#: includes/admin_page_classes.php:903
-msgid "Telephone:"
-msgstr ""
-
-#: includes/admin_page_classes.php:911
-msgid "Last Name:"
-msgstr ""
-
-#: includes/admin_page_classes.php:918
-msgid "First Name:"
-msgstr ""
-
-#: includes/admin_page_classes.php:925
-msgid "Extra Name:"
-msgstr ""
-
-#: includes/admin_page_classes.php:932
-msgid "Address 1:"
-msgstr ""
-
-#: includes/admin_page_classes.php:939
-msgid "Address 2:"
-msgstr ""
-
-#: includes/admin_page_classes.php:946
-msgid "City:"
-msgstr ""
-
-#: includes/admin_page_classes.php:953
-msgid "State:"
-msgstr ""
-
-#: includes/admin_page_classes.php:960
-msgid "Zip:"
-msgstr ""
-
-#: includes/admin_page_classes.php:967
-msgid "Outstanding Fines: $"
-msgstr ""
-
-#: includes/admin_page_classes.php:973
-msgid "Expires on:"
-msgstr ""
-
-#: includes/admin_page_classes.php:982
-msgid "Add Patron"
-msgstr ""
-
-#: includes/admin_page_classes.php:985
-msgid "Update Patron"
-msgstr ""
-
-#: includes/admin_page_classes.php:989 includes/admin_page_classes.php:1076
-#: includes/admin_page_classes.php:1363 includes/admin_page_classes.php:2011
-#: includes/admin_page_classes.php:2151
-msgid "Return"
-msgstr ""
-
-#: includes/admin_page_classes.php:996
-msgid "Add Library Patrons in bulk"
-msgstr ""
-
-#: includes/admin_page_classes.php:1034 includes/admin_page_classes.php:2109
-msgid "CSV File:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1037 includes/admin_page_classes.php:2112
-msgid "Use CSV Header?"
-msgstr ""
-
-#: includes/admin_page_classes.php:1041 includes/admin_page_classes.php:2116
-msgid "Field Separater Character:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1051 includes/admin_page_classes.php:2126
-msgid "TAB"
-msgstr ""
-
-#: includes/admin_page_classes.php:1053 includes/admin_page_classes.php:2128
-msgid "Enclosure Character:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1075 includes/admin_page_classes.php:2150
-msgid "Upload File"
-msgstr ""
-
-#: includes/admin_page_classes.php:1091
-msgid "Circulation Types Database"
-msgstr ""
-
-#: includes/admin_page_classes.php:1091 includes/admin_page_classes.php:1123
-msgid "Circulation Types"
-msgstr ""
-
-#: includes/admin_page_classes.php:1099
-msgid "Add New Item Type"
-msgstr ""
-
-#: includes/admin_page_classes.php:1112 includes/admin_page_classes.php:1156
-#: includes/admin_page_classes.php:1568 includes/admin_page_classes.php:2212
-#: includes/admin_page_classes.php:2218 includes/admin_page_classes.php:2812
-#: includes/admin_page_classes.php:2959 includes/short_codes.php:366
-msgid "Type"
-msgstr ""
-
-#: includes/admin_page_classes.php:1113 includes/admin_page_classes.php:1117
-msgid "Types"
-msgstr ""
-
-#: includes/admin_page_classes.php:1157
-msgid "Loan Period (days)"
-msgstr ""
-
-#: includes/admin_page_classes.php:1273
-#, php-format
-msgid "%s inserted, with a loan period of %d."
-msgstr ""
-
-#: includes/admin_page_classes.php:1289
-#, php-format
-msgid "%s updated, with a loan period of %d."
-msgstr ""
-
-#: includes/admin_page_classes.php:1338
-msgid "Type name:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1348
-msgid "Loan Period:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1357
-msgid "Add New Type"
-msgstr ""
-
-#: includes/admin_page_classes.php:1360
-msgid "Update Type"
-msgstr ""
-
-#: includes/admin_page_classes.php:1373 includes/admin_page_classes.php:2872
-msgid "Item"
-msgstr ""
-
-#: includes/admin_page_classes.php:1374 includes/admin_page_classes.php:1380
-#: includes/admin_page_classes.php:2873 includes/admin_page_classes.php:2879
+#: includes/WEBLIB_Circulation_Admin.php:33
+#: includes/WEBLIB_Collection_Admin.php:21
+#: includes/WEBLIB_Collection_Admin.php:144
+#: includes/WEBLIB_PatronRecord_Admin.php:20
+#: includes/WEBLIB_PatronRecord_Admin.php:175
+#: includes/WEBLIB_PatronRecord_Admin.php:298
 msgid "Items"
 msgstr ""
 
-#: includes/admin_page_classes.php:1456 includes/admin_page_classes.php:2932
-msgid "barcode"
+#: includes/WEBLIB_Circulation_Admin.php:55
+msgid "Select"
 msgstr ""
 
-#: includes/admin_page_classes.php:1457 includes/admin_page_classes.php:2933
-msgid "title"
+#: includes/WEBLIB_Circulation_Admin.php:80
+#: includes/WEBLIB_PatronRecord_Admin.php:105
+msgid "Renew"
 msgstr ""
 
-#: includes/admin_page_classes.php:1458 includes/admin_page_classes.php:2934
-msgid "author"
+#: includes/WEBLIB_Circulation_Admin.php:89 includes/short_codes.php:324
+msgid "Check Shelves"
 msgstr ""
 
-#: includes/admin_page_classes.php:1546 includes/admin_page_classes.php:2197
-msgid "Search Collection"
+#: includes/WEBLIB_Circulation_Admin.php:95 includes/short_codes.php:328
+#: includes/short_codes.php:433
+msgid "%d Holds"
 msgstr ""
 
-#: includes/admin_page_classes.php:1547
-msgid "Fix Broken Barcodes"
+#: includes/WEBLIB_Circulation_Admin.php:97
+msgid "%d Hold"
 msgstr ""
 
-#: includes/admin_page_classes.php:1565 includes/admin_page_classes.php:2209
-#: includes/admin_page_classes.php:2215 includes/admin_page_classes.php:2956
+#: includes/WEBLIB_Circulation_Admin.php:114
+msgid "Place Hold"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:124
+#: includes/WEBLIB_Circulation_Admin.php:131
+#: includes/WEBLIB_Collection_Admin.php:189
+#: includes/WEBLIB_Collection_Admin.php:835
+#: includes/WEBLIB_Collection_Admin.php:841
+#: includes/WEBLIB_Collection_Admin.php:860
+#: includes/WEBLIB_Collection_Admin.php:866
+#: includes/WEBLIB_PatronRecord_Admin.php:76
 msgid "Barcode"
 msgstr ""
 
-#: includes/admin_page_classes.php:1566 includes/admin_page_classes.php:1989
-#: includes/admin_page_classes.php:2210 includes/admin_page_classes.php:2216
-#: includes/admin_page_classes.php:2957 includes/short_codes.php:11
+#: includes/WEBLIB_Circulation_Admin.php:125
+#: includes/WEBLIB_Circulation_Admin.php:132
+#: includes/WEBLIB_Circulation_Admin.php:238
+#: includes/WEBLIB_Collection_Admin.php:190
+#: includes/WEBLIB_Collection_Admin.php:638
+#: includes/WEBLIB_Collection_Admin.php:837
+#: includes/WEBLIB_Collection_Admin.php:843
+#: includes/WEBLIB_Collection_Admin.php:862
+#: includes/WEBLIB_Collection_Admin.php:868
+#: includes/WEBLIB_PatronRecord_Admin.php:77 includes/short_codes.php:11
 #: includes/short_codes.php:49 includes/short_codes.php:272
 msgid "Title"
 msgstr ""
 
-#: includes/admin_page_classes.php:1567 includes/admin_page_classes.php:1987
-#: includes/admin_page_classes.php:2211 includes/admin_page_classes.php:2217
-#: includes/admin_page_classes.php:2958 includes/short_codes.php:12
+#: includes/WEBLIB_Circulation_Admin.php:126
+#: includes/WEBLIB_Circulation_Admin.php:133
+#: includes/WEBLIB_Circulation_Admin.php:239
+#: includes/WEBLIB_Collection_Admin.php:191
+#: includes/WEBLIB_Collection_Admin.php:640
+#: includes/WEBLIB_PatronRecord_Admin.php:78 includes/short_codes.php:12
 #: includes/short_codes.php:50 includes/short_codes.php:268
 msgid "Author"
 msgstr ""
 
-#: includes/admin_page_classes.php:1602
-#, php-format
-msgid "Broken barcodes fixed: %d"
+#: includes/WEBLIB_Circulation_Admin.php:127
+#: includes/WEBLIB_Circulation_Admin.php:134
+#: includes/WEBLIB_Collection_Admin.php:192
+#: includes/WEBLIB_PatronRecord_Admin.php:79
+#: includes/WEBLIB_Statistics_Admin.php:103
+#: includes/WEBLIB_Types_Database_Admin.php:47
+#: includes/WEBLIB_Types_Database_Admin.php:90 includes/short_codes.php:372
+msgid "Type"
 msgstr ""
 
-#: includes/admin_page_classes.php:1705
-#, php-format
-msgid "%s inserted with barcode %s."
+#: includes/WEBLIB_Circulation_Admin.php:128
+#: includes/WEBLIB_Circulation_Admin.php:135
+#: includes/WEBLIB_Collection_Admin.php:193
+#: includes/WEBLIB_PatronRecord_Admin.php:80 includes/short_codes.php:366
+msgid "Call Number"
 msgstr ""
 
-#: includes/admin_page_classes.php:1733
-#, php-format
-msgid "%s updated."
-msgstr ""
-
-#: includes/admin_page_classes.php:1803
-msgid "Barcode:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1813
-msgid "Title:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1820
-msgid "Author:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1827
-msgid "Subject:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1834
-msgid "Description:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1841
-msgid "Category:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1848
-msgid "Media:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1855
-msgid "Publisher:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1862
-msgid "Publisher Location:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1869
-msgid "Publish Date:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1876
-msgid "Edition:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1883
-msgid "ISBN:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1890
-msgid "Type:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1911
-msgid "Thumbnail URL:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1925
-msgid "Keywords:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1933
-msgid "Item Keywords"
-msgstr ""
-
-#: includes/admin_page_classes.php:1938
-msgid "Add"
-msgstr ""
-
-#: includes/admin_page_classes.php:1962
-msgid "Goto Page:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1977
-msgid "Search In:"
-msgstr ""
-
-#: includes/admin_page_classes.php:1979
-msgid "Books"
-msgstr ""
-
-#: includes/admin_page_classes.php:1980
-msgid "DVD"
-msgstr ""
-
-#: includes/admin_page_classes.php:1981
-msgid "Music"
-msgstr ""
-
-#: includes/admin_page_classes.php:1982
-msgid "Video"
-msgstr ""
-
-#: includes/admin_page_classes.php:1984 includes/short_codes.php:45
-msgid "for"
-msgstr ""
-
-#: includes/admin_page_classes.php:1986
-msgid "Artist"
-msgstr ""
-
-#: includes/admin_page_classes.php:1988 includes/short_codes.php:379
-msgid "Keywords"
-msgstr ""
-
-#: includes/admin_page_classes.php:1992
-msgid "Go"
-msgstr ""
-
-#: includes/admin_page_classes.php:2005
-msgid "Add New Item"
-msgstr ""
-
-#: includes/admin_page_classes.php:2008
-msgid "Update Item"
-msgstr ""
-
-#: includes/admin_page_classes.php:2071
-msgid "Add Items to the collection in bulk"
-msgstr ""
-
-#: includes/admin_page_classes.php:2213 includes/admin_page_classes.php:2219
-#: includes/admin_page_classes.php:2960
+#: includes/WEBLIB_Circulation_Admin.php:129
+#: includes/WEBLIB_Circulation_Admin.php:136
+#: includes/WEBLIB_PatronRecord_Admin.php:81
 msgid "Status"
 msgstr ""
 
-#: includes/admin_page_classes.php:2229
-msgid "Select"
+#: includes/WEBLIB_Circulation_Admin.php:137
+#: includes/WEBLIB_Patrons_Admin.php:47
+msgid "Patron"
 msgstr ""
 
-#: includes/admin_page_classes.php:2251 includes/admin_page_classes.php:2982
-msgid "Renew"
-msgstr ""
-
-#: includes/admin_page_classes.php:2282
-msgid "Place Hold"
-msgstr ""
-
-#: includes/admin_page_classes.php:2301
+#: includes/WEBLIB_Circulation_Admin.php:152
 msgid "Scanned Barcode"
 msgstr ""
 
-#: includes/admin_page_classes.php:2304
+#: includes/WEBLIB_Circulation_Admin.php:155
 msgid "Check in Item"
 msgstr ""
 
-#: includes/admin_page_classes.php:2307
+#: includes/WEBLIB_Circulation_Admin.php:158
 msgid "Checkout Item"
 msgstr ""
 
-#: includes/admin_page_classes.php:2310
+#: includes/WEBLIB_Circulation_Admin.php:161
 msgid "Lookup Barcode"
 msgstr ""
 
-#: includes/admin_page_classes.php:2316
+#: includes/WEBLIB_Circulation_Admin.php:167
 msgid "Find Patron:"
 msgstr ""
 
-#: includes/admin_page_classes.php:2319
+#: includes/WEBLIB_Circulation_Admin.php:170
 msgid "Find Patron"
 msgstr ""
 
-#: includes/admin_page_classes.php:2325
+#: includes/WEBLIB_Circulation_Admin.php:176
 msgid "Lookup Patron"
 msgstr ""
 
-#: includes/admin_page_classes.php:2331
+#: includes/WEBLIB_Circulation_Admin.php:182
 msgid "Check in"
 msgstr ""
 
-#: includes/admin_page_classes.php:2332
+#: includes/WEBLIB_Circulation_Admin.php:183
 msgid "List Holds"
 msgstr ""
 
-#: includes/admin_page_classes.php:2333
+#: includes/WEBLIB_Circulation_Admin.php:184
 msgid "List Checked Out Items"
 msgstr ""
 
-#: includes/admin_page_classes.php:2336
+#: includes/WEBLIB_Circulation_Admin.php:187
 msgid "Back to Main Circulation"
 msgstr ""
 
-#: includes/admin_page_classes.php:2674
-msgid "Rows"
-msgstr ""
-
-#: includes/admin_page_classes.php:2689
-msgid "Export Stats"
-msgstr ""
-
-#: includes/admin_page_classes.php:2705 includes/admin_page_classes.php:2845
-msgid "Year"
-msgstr ""
-
-#: includes/admin_page_classes.php:2714 includes/admin_page_classes.php:2809
-#: includes/admin_page_classes.php:2855
-msgid "Month"
-msgstr ""
-
-#: includes/admin_page_classes.php:2721
-msgid "Export"
-msgstr ""
-
-#: includes/admin_page_classes.php:2863
-msgid "Filter"
-msgstr ""
-
-#: includes/admin_page_classes.php:2885
-msgid "You do not have a patron ID yet."
-msgstr ""
-
-#: includes/admin_page_classes.php:3061
-msgid "Release Selected Holds"
-msgstr ""
-
-#: includes/admin_page_classes.php:3154
-msgid "Renew Selected Items"
-msgstr ""
-
-#: includes/database_code.php:202
-msgid "Table: "
-msgstr ""
-
-#: includes/short_codes.php:13 includes/short_codes.php:336
+#: includes/WEBLIB_Circulation_Admin.php:240 includes/short_codes.php:13
+#: includes/short_codes.php:336
 msgid "Subject"
 msgstr ""
 
-#: includes/short_codes.php:14
+#: includes/WEBLIB_Circulation_Admin.php:241 includes/short_codes.php:15
+#: includes/short_codes.php:360
+msgid "ISBN"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:242 includes/short_codes.php:14
 msgid "Keyword"
 msgstr ""
 
-#: includes/short_codes.php:15 includes/short_codes.php:360
-msgid "ISBN"
+#: includes/WEBLIB_Circulation_Admin.php:297
+msgid "Item is already checked out!"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:318
+msgid "Someone else has a hold on this item!"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:326
+msgid "Local"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:330
+msgid "Item is not in the collection!"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:336
+msgid "Item checked out, transaction is %d, due: %s."
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:343
+msgid "Error checking out!  Result code is %d."
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:353
+msgid "Item not checked out!"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:478
+msgid " -- Check Items In"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:479
+msgid " -- Items with Holds"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:480
+msgid " -- Items Checked out"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:481
+msgid " -- %s's Circulation Record"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:482
+msgid " -- Circulation Record for %s"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:492
+#: includes/WEBLIB_Collection_Admin.php:311
+msgid "Search Collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:20
+#: includes/WEBLIB_PatronRecord_Admin.php:19
+msgid "Item"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:116
+msgid "Collection Database"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:116
+msgid "Collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:123
+msgid "Add Item to Collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:123
+#: includes/WEBLIB_Collection_Admin.php:298
+#: includes/WEBLIB_Patrons_Admin.php:37 includes/WEBLIB_Patrons_Admin.php:208
+#: includes/WEBLIB_Types_Database_Admin.php:40
+#: includes/WEBLIB_Types_Database_Admin.php:141
+msgid "Add New"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:128
+msgid "Add Bulk Items to Collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:128
+#: includes/WEBLIB_Collection_Admin.php:300
+#: includes/WEBLIB_Patrons_Admin.php:41 includes/WEBLIB_Patrons_Admin.php:212
+msgid "Add New Bulk"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:133
+msgid "DB Maintenance"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:133
+msgid "DB Maint"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:172
+#: includes/WEBLIB_Patrons_Admin.php:91
+#: includes/WEBLIB_Types_Database_Admin.php:80
+msgid "Edit"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:177
+#: includes/WEBLIB_Patrons_Admin.php:96
+msgid "View"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:182
+#: includes/WEBLIB_Collection_Admin.php:197
+#: includes/WEBLIB_Patrons_Admin.php:101 includes/WEBLIB_Patrons_Admin.php:130
+msgid "Delete"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:244
+msgid "Broken barcodes fixed: %d"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:294
+msgid "Library Collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:304
+#: includes/WEBLIB_Patrons_Admin.php:216
+msgid "Export as CSV"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:312
+msgid "Fix Broken Barcodes"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:349
+msgid "%s inserted with barcode %s."
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:377
+msgid "%s updated."
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:421
+msgid "View an item in the collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:422
+msgid "Edit an item in the collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:424
+msgid "Add a new item to the collection"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:448
+msgid "Barcode:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:458
+msgid "Title:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:465
+msgid "Author:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:472
+msgid "Subject:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:479
+msgid "Description:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:486
+msgid "Category:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:493
+msgid "Media:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:500
+msgid "Publisher:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:507
+msgid "Publisher Location:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:514
+msgid "Publish Date:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:521
+msgid "Edition:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:528
+msgid "ISBN:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:535
+msgid "Type:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:556
+msgid "Thumbnail URL:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:563 includes/short_codes.php:417
+msgid "Call Number:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:577
+msgid "Keywords:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:585
+msgid "Item Keywords"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:586
+msgid "Add New Keyword"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:590
+msgid "Add"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:592
+msgid "Separate keywords with commas"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:614
+msgid "Goto Page:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:629
+msgid "Search In:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:631
+msgid "Books"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:632
+msgid "DVD"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:633
+msgid "Music"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:634
+msgid "Video"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:636 includes/short_codes.php:45
+msgid "for"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:639
+msgid "Artist"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:641 includes/short_codes.php:385
+msgid "Keywords"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:644
+msgid "Go"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:657
+msgid "Add New Item"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:660
+msgid "Update Item"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:663
+#: includes/WEBLIB_Collection_Admin.php:815
+#: includes/WEBLIB_Patrons_Admin.php:587 includes/WEBLIB_Patrons_Admin.php:674
+#: includes/WEBLIB_Types_Database_Admin.php:310
+msgid "Return"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:735
+msgid "Add Items to the collection in bulk"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:773
+#: includes/WEBLIB_Patrons_Admin.php:632
+msgid "CSV File:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:776
+#: includes/WEBLIB_Patrons_Admin.php:635
+msgid "Use CSV Header?"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:780
+#: includes/WEBLIB_Patrons_Admin.php:639
+msgid "Field Separater Character:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:790
+#: includes/WEBLIB_Patrons_Admin.php:649
+msgid "TAB"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:792
+#: includes/WEBLIB_Patrons_Admin.php:651
+msgid "Enclosure Character:"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:814
+#: includes/WEBLIB_Patrons_Admin.php:673
+msgid "Upload File"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:831
+msgid "Database Maintenance"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:834
+#: includes/WEBLIB_Collection_Admin.php:840
+#: includes/WEBLIB_Collection_Admin.php:859
+#: includes/WEBLIB_Collection_Admin.php:865
+msgid "Transaction"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:836
+#: includes/WEBLIB_Collection_Admin.php:842
+#: includes/WEBLIB_Collection_Admin.php:861
+#: includes/WEBLIB_Collection_Admin.php:867 includes/WEBLIB_Users_Admin.php:99
+msgid "Patron ID"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:838
+#: includes/WEBLIB_Collection_Admin.php:844
+msgid "Date Out"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:839
+msgid "Due Data"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:845
+msgid "Due Date"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:863
+#: includes/WEBLIB_Collection_Admin.php:869
+msgid "Hold Date"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:864
+#: includes/WEBLIB_Collection_Admin.php:870
+msgid "Expiration Date"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:888
+msgid "Delete orphan holds and checkouts"
+msgstr ""
+
+#: includes/WEBLIB_PatronRecord_Admin.php:28
+msgid "You do not have a patron ID yet."
+msgstr ""
+
+#: includes/WEBLIB_PatronRecord_Admin.php:205
+msgid "Release Selected Holds"
+msgstr ""
+
+#: includes/WEBLIB_PatronRecord_Admin.php:327
+msgid "Renew Selected Items"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:28 includes/WEBLIB_Patrons_Admin.php:203
+msgid "Library Patrons"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:29 includes/WEBLIB_Patrons_Admin.php:48
+#: includes/WEBLIB_Patrons_Admin.php:54
+msgid "Patrons"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:36
+msgid "Add Library Patron"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:40
+msgid "Add Bulk Library Patrons"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:119
+msgid "Patron Id"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:120 includes/WEBLIB_Users_Admin.php:100
+msgid "Patron Name"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:121
+msgid "Telephone Number"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:122 includes/WEBLIB_Users_Admin.php:98
+msgid "Username"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:223
+msgid "Search Patrons"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:286
+msgid "%s, %s %s inserted with Patron Id %d."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:303
+msgid "%s, %s %s updated."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:334
+msgid "Telephone invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:338
+msgid "Last name is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:342
+msgid "First name is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:346
+msgid "Address 1 is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:350
+msgid "City is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:354
+msgid "State is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:359
+msgid "Zip is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:363
+msgid "Outstanding fines invalid"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:366 includes/WEBLIB_Patrons_Admin.php:382
+msgid "Expiration"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:396
+msgid "Edit Patron Info"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:397
+msgid "View Patron Info"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:399
+msgid "Add new Patron"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:404
+msgid "jan"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:405
+msgid "feb"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:406
+msgid "mar"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:407
+msgid "apr"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:408
+msgid "may"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:409
+msgid "jun"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:410
+msgid "jul"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:411
+msgid "aug"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:412
+msgid "sep"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:413
+msgid "oct"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:414
+msgid "nov"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:415
+msgid "dec"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:427
+msgid "Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:444
+msgid "Invalid %s date (%s): illegal month (%s). Should be one of %s."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:451
+msgid "Invalid %s date (%s). Out of range."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:492
+msgid "Patron ID:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:501
+msgid "Telephone:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:509
+msgid "Last Name:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:516
+msgid "First Name:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:523
+msgid "Extra Name:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:530
+msgid "Address 1:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:537
+msgid "Address 2:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:544
+msgid "City:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:551
+msgid "State:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:558
+msgid "Zip:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:565
+msgid "Outstanding Fines: $"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:571
+msgid "Expires on:"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:580
+msgid "Add Patron"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:583
+msgid "Update Patron"
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:594
+msgid "Add Library Patrons in bulk"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:30
+msgid "Month Totals"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:31
+msgid "January"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:32
+msgid "February"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:33
+msgid "March"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:34
+msgid "April"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:35
+msgid "May"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:36
+msgid "June"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:37
+msgid "July"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:38
+msgid "August"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:39
+msgid "September"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:40
+msgid "October"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:41
+msgid "November"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:42
+msgid "December"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:48
+msgid "Circulation Statsistics"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:48
+msgid "Circulation Stats"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:56
+msgid "Export Circulation Stats"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:56
+#: includes/WEBLIB_Statistics_Admin.php:266
+msgid "Export"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:71
+msgid "Stats"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:100
+#: includes/WEBLIB_Statistics_Admin.php:143
+#: includes/WEBLIB_Statistics_Admin.php:259
+msgid "Month"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:101
+#: includes/WEBLIB_Statistics_Admin.php:104
+#: includes/admin_page_classes.php:265
+msgid "Count"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:133
+#: includes/WEBLIB_Statistics_Admin.php:250
+msgid "Year"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:151
+msgid "Filter"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:234
+msgid "Export Stats"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:32
+msgid "Circulation Types Database"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:32
+#: includes/WEBLIB_Types_Database_Admin.php:136
+msgid "Circulation Types"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:40
+msgid "Add New Item Type"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:48
+#: includes/WEBLIB_Types_Database_Admin.php:53
+msgid "Types"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:91
+msgid "Loan Period (days)"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:220
+msgid "%s inserted, with a loan period of %d."
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:236
+msgid "%s updated, with a loan period of %d."
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:285
+msgid "Type name:"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:295
+msgid "Loan Period:"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:304
+msgid "Add New Type"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:307
+msgid "Update Type"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:24
+msgid "Edit your Patron info"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:25
+msgid "Edit Patron info"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:29
+msgid "Add Patron ID to a user"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:30
+msgid "Add Patron ID"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:35
+msgid "user"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:36
+msgid "users"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:42
+msgid "Users"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:92
+msgid "Update Id"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:101
+msgid "Update"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:136
+msgid "Patron ID %d (%s) has been set for user %d (%s)."
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:170
+msgid "No matching users were found."
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:193
+msgid "Your Patron ID has been set. Thank you."
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:198
+msgid "Edit your patron info"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:210
+msgid "Set Your Patron Id"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:220
+msgid "Add Patron Ids to Users"
+msgstr ""
+
+#: includes/WEBLIB_Users_Admin.php:226
+msgid "Search Users"
+msgstr ""
+
+#: includes/admin_page_classes.php:30 includes/admin_page_classes.php:228
+msgid "Web Librarian User Manual (PDF)"
+msgstr ""
+
+#: includes/admin_page_classes.php:31 includes/admin_page_classes.php:229
+msgid "Donate to the Web Librarian plugin software effort."
+msgstr ""
+
+#: includes/admin_page_classes.php:37 includes/admin_page_classes.php:235
+msgid "Buy some Deepwoods Software merchandise"
+msgstr ""
+
+#: includes/admin_page_classes.php:38 includes/admin_page_classes.php:236
+msgid "Deepwoods Software's Amazon Wish List"
+msgstr ""
+
+#: includes/admin_page_classes.php:82
+msgid "Web Librarian Configuration"
+msgstr ""
+
+#: includes/admin_page_classes.php:82
+msgid "Web Librarian"
+msgstr ""
+
+#: includes/admin_page_classes.php:86 includes/admin_page_classes.php:221
+msgid "About the Web Librarian"
+msgstr ""
+
+#: includes/admin_page_classes.php:86
+msgid "About"
+msgstr ""
+
+#: includes/admin_page_classes.php:118
+msgid "Public Key missing!"
+msgstr ""
+
+#: includes/admin_page_classes.php:122
+msgid "Private Key missing!"
+msgstr ""
+
+#: includes/admin_page_classes.php:126
+msgid "Region Domain missing!"
+msgstr ""
+
+#: includes/admin_page_classes.php:130
+msgid "Associate Tag missing!"
+msgstr ""
+
+#: includes/admin_page_classes.php:139
+msgid "Options Saved"
+msgstr ""
+
+#: includes/admin_page_classes.php:149
+msgid "Configure Options"
+msgstr ""
+
+#: includes/admin_page_classes.php:155
+msgid "AWS Public Key:"
+msgstr ""
+
+#: includes/admin_page_classes.php:162
+msgid "AWS Private Key:"
+msgstr ""
+
+#: includes/admin_page_classes.php:169
+msgid "AWS Region:"
+msgstr ""
+
+#: includes/admin_page_classes.php:175
+msgid "United States"
+msgstr ""
+
+#: includes/admin_page_classes.php:178
+msgid "Canada"
+msgstr ""
+
+#: includes/admin_page_classes.php:181
+msgid "Germany"
+msgstr ""
+
+#: includes/admin_page_classes.php:184
+msgid "France"
+msgstr ""
+
+#: includes/admin_page_classes.php:187
+msgid "Japan"
+msgstr ""
+
+#: includes/admin_page_classes.php:190
+msgid "United Kingdom"
+msgstr ""
+
+#: includes/admin_page_classes.php:194
+msgid "Amazon Associate Tag:"
+msgstr ""
+
+#: includes/admin_page_classes.php:201
+msgid "Debug Database:"
+msgstr ""
+
+#: includes/admin_page_classes.php:204
+msgid "On"
+msgstr ""
+
+#: includes/admin_page_classes.php:206
+msgid "Off"
+msgstr ""
+
+#: includes/admin_page_classes.php:211
+msgid "Save Options"
+msgstr ""
+
+#: includes/admin_page_classes.php:214
+msgid "Make Database"
+msgstr ""
+
+#: includes/admin_page_classes.php:216
+msgid "Dump Database"
+msgstr ""
+
+#: includes/admin_page_classes.php:224
+msgid "This is version %s of the Web Librarian."
+msgstr ""
+
+#: includes/admin_page_classes.php:241
+msgid "Circulation Quick Stats"
+msgstr ""
+
+#: includes/admin_page_classes.php:248
+msgid "Patron Circulation Stats"
+msgstr ""
+
+#: includes/admin_page_classes.php:264
+msgid "Circulation Type"
+msgstr ""
+
+#: includes/admin_page_classes.php:272
+msgid "Total"
+msgstr ""
+
+#: includes/admin_page_classes.php:281
+msgid "Circulation Statistics for %s"
+msgstr ""
+
+#: includes/admin_page_classes.php:284
+msgid "Items on hold:"
+msgstr ""
+
+#: includes/admin_page_classes.php:285
+msgid "Items checked out:"
+msgstr ""
+
+#: includes/database_code.php:169
+msgid "Table: "
+msgstr ""
+
+#: includes/database_code.php:614
+msgid "Undefined column: %s"
+msgstr ""
+
+#: includes/database_code.php:627
+msgid "Some manditory columns are missing!"
+msgstr ""
+
+#: includes/database_code.php:660
+msgid "Bad number of columns: %d"
+msgstr ""
+
+#: includes/database_code.php:692
+msgid "%d patron inserted"
+msgstr ""
+
+#: includes/database_code.php:694
+msgid "%d patrons inserted"
 msgstr ""
 
 #: includes/short_codes.php:37
@@ -777,7 +1310,6 @@ msgid "1 Item Matched."
 msgstr ""
 
 #: includes/short_codes.php:145
-#, php-format
 msgid "%d Items Matched."
 msgstr ""
 
@@ -786,7 +1318,6 @@ msgid "Goto Page"
 msgstr ""
 
 #: includes/short_codes.php:256
-#, php-format
 msgid "No such item: %s"
 msgstr ""
 
@@ -794,7 +1325,7 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
-#: includes/short_codes.php:302 includes/short_codes.php:430
+#: includes/short_codes.php:302 includes/short_codes.php:439
 msgid "Request"
 msgstr ""
 
@@ -802,20 +1333,11 @@ msgstr ""
 msgid "Status:"
 msgstr ""
 
-#: includes/short_codes.php:316 includes/short_codes.php:413
+#: includes/short_codes.php:316 includes/short_codes.php:422
 msgid "Due "
 msgstr ""
 
-#: includes/short_codes.php:324
-msgid "Check Shelves"
-msgstr ""
-
-#: includes/short_codes.php:328 includes/short_codes.php:424
-#, php-format
-msgid "%d Holds"
-msgstr ""
-
-#: includes/short_codes.php:329 includes/short_codes.php:425
+#: includes/short_codes.php:329 includes/short_codes.php:434
 msgid "1 Hold"
 msgstr ""
 
@@ -829,76 +1351,4 @@ msgstr ""
 
 #: includes/short_codes.php:354
 msgid "Edition"
-msgstr ""
-
-#: AWSXmlGet.php:145 ExportLibraryData.php:33 ExportLibraryStats.php:37
-#: FindPatron.php:37 PlaceHoldOnItem.php:33 RenewItem.php:33
-#: UpdatePatronID.php:33
-msgid ""
-"The headers have been sent by another plugin - there may be a plugin "
-"conflict."
-msgstr ""
-
-#: ExportLibraryData.php:61
-msgid "Bad value for dataselection!"
-msgstr ""
-
-#: WebLibrarian.php:147 WebLibrarian.php:156
-msgid "Hold"
-msgstr ""
-
-#: WebLibrarian.php:148 WebLibrarian.php:157
-msgid "Holds"
-msgstr ""
-
-#: WebLibrarian.php:149 WebLibrarian.php:158
-msgid "Ajax error:  No Data Received"
-msgstr ""
-
-#: WebLibrarian.php:150 WebLibrarian.php:159
-msgid "Ajax error: "
-msgstr ""
-
-#: WebLibrarian.php:160
-msgid "total results found"
-msgstr ""
-
-#: WebLibrarian.php:161
-msgid "Loading"
-msgstr ""
-
-#: WebLibrarian.php:162
-msgid "Lookup Item"
-msgstr ""
-
-#: WebLibrarian.php:163
-msgid "Insert Item"
-msgstr ""
-
-#: WebLibrarian.php:164
-msgid "Lookup Complete."
-msgstr ""
-
-#: WebLibrarian.php:165
-msgid "Form insertion complete."
-msgstr ""
-
-#: WebLibrarian.php:166
-msgid "Looking up Patron"
-msgstr ""
-
-#: WebLibrarian.php:167
-msgid "No matching patrons found."
-msgstr ""
-
-#: WebLibrarian.php:168
-msgid "Select Patron"
-msgstr ""
-
-#: WebLibrarian.php:217
-msgid "Log in/out, admin"
-msgstr ""
-
-#: WebLibrarian.php:218
-msgid "Stripped Meta"
 msgstr ""

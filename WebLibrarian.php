@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.0
+ * Version: 3.2.6
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -48,7 +48,7 @@ require_once(WEBLIB_INCLUDES . '/admin_page_classes.php');
 require_once(WEBLIB_INCLUDES . '/short_codes.php');
 class WebLibrarian {
 
-    private $version = '3.0';
+    private $version;
     private $admin_page;
     private $short_code_class;
 
@@ -56,6 +56,17 @@ class WebLibrarian {
      * add in our actions.
      */
     function __construct() {
+	$fp = fopen(__FILE__,'r');
+	if ($fp) {
+	  while ($line = fgets($fp)) {
+	    if (preg_match("/^\s*\*\s*$/",$line) > 0) {break;}
+	    if (preg_match('/^\s*\*\s*Version:\s*(.*)$/',$line,$matches) > 0) {
+	      $this->version = $matches[1];
+	      break;
+	    }
+	  }
+	  fclose($fp);
+	}
 	// Add the installation and uninstallation hooks
 	register_activation_hook(WEBLIB_DIR . '/' . WEBLIB_FILE, 
 				array($this,'install'));
@@ -76,7 +87,10 @@ class WebLibrarian {
 	add_option('weblib_associate_tag','');
 	add_option('weblib_debugdb','off');
 
-	$this->short_code_class = new WEBLIB_ShortCodes();
+	load_plugin_textdomain('web-librarian',WEBLIB_BASEURL.'/languages/',
+                                          basename(WEBLIB_DIR).'/languages/');
+	
+        $this->short_code_class = new WEBLIB_ShortCodes();
 
 	//if (is_admin()) {
 	//  wp_enqueue_script('jquery-ui-sortable');
@@ -88,6 +102,7 @@ class WebLibrarian {
 			array('weblib-front-style'),$this->version);
 	}
     }
+    function MyVersion() {return $this->version;}
     function install() {
 	$this->add_roles_and_caps();
 	WEBLIB_make_tables();
@@ -101,7 +116,7 @@ class WebLibrarian {
 	global $wp_roles;
 	$librarian = get_role('librarian');
 	if ($librarian == null) {
-	    add_role('librarian', 'Librarian', array('read' => true,
+	    add_role('librarian', __('Librarian','web-librarian'), array('read' => true,
 						     'edit_users' => true,
 						     'manage_patrons' => true,
 						     'manage_collection' => true,
@@ -114,7 +129,7 @@ class WebLibrarian {
 	}
 	$senioraid = get_role('senioraid');
 	if ($senioraid == null) {
-	    add_role('senioraid', 'Senior Aid', array('read' => true,
+	    add_role('senioraid', __('Senior Aid','web-librarian'), array('read' => true,
 						      'manage_collection' => true,
 						      'manage_circulation' => true));
 	} else {
@@ -123,7 +138,7 @@ class WebLibrarian {
 	}
 	$volunteer = get_role('volunteer');
 	if ($volunteer == null) {
-	    add_role('volunteer', 'Volunteer', array('read' => true,
+	    add_role('volunteer', __('Volunteer','web-librarian'), array('read' => true,
 						     'manage_circulation' => true));
 	} else {
 	    $volunteer->add_cap('manage_circulation');
@@ -137,16 +152,19 @@ class WebLibrarian {
 	    $librarian->remove_cap ( 'manage_collection' );
 	    $librarian->remove_cap ( 'manage_circulation' );
 	    $librarian->remove_cap ( 'edit_users' );
-	}
+        }
+        remove_role('librarian');   
 	$senioraid = get_role('senioraid');
 	if ($senioraid  != null) {
 	    $senioraid->remove_cap ( 'manage_collection' );
 	    $senioraid->remove_cap ( 'manage_circulation' );
-	}
+        }
+        remove_role('senioraid');
 	$volunteer = get_role('volunteer');
 	if ($volunteer  != null) {
 	    $volunteer->remove_cap ( 'manage_circulation' );
-	}
+        }
+        remove_role('volunteer');  
     }
     function localize_vars_front() {
 	return array(
@@ -172,16 +190,26 @@ class WebLibrarian {
 		'formInsertionComplete' => __('Form insertion complete.','web-librarian'),
 		'lookingUpPatron' => __('Looking up Patron','web-librarian'),
 		'noMatchingPatrons' => __('No matching patrons found.','web-librarian'),
-		'selectPatron' => __('Select Patron','web-librarian')
+		'selectPatron' => __('Select Patron','web-librarian'),
+                'insertTitle' => __('Insert Title','web-librarian'),
+                'insertISBN' => __('Insert ISBN','web-librarian'),
+                'insertThumbnail' => __('Insert Thumbnail','web-librarian'),
+                'addToAuthor' => __('Add to Author','web-librarian'),
+                'insertAsDate' => __('Insert as date','web-librarian'),
+                'insertAsPublisher' => __('Insert As Publisher','web-librarian'),
+                'insertEdition' => __('Insert Edition','web-librarian'),
+                'addToMedia' => __('Add to Media','web-librarian'),
+                'addToDescription' => __('Add to description','web-librarian'),
+                'addToKeywords' => __('Add to keywords','web-librarian')
 	);
     }
     function add_admin_scripts() {
 	//$this->add_front_scripts();
-	wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js'), '2.6.3.2');
+	wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js'), $this->version);
 	wp_localize_script( 'admin_js','admin_js',$this->localize_vars_admin() );
     }
     function add_front_scripts() {
-	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), '2.6.3.2');
+	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), $this->version);
 	wp_localize_script( 'front_js','front_js',$this->localize_vars_front() );
     }
     function wp_head() {

@@ -8,6 +8,19 @@ function log (message) {
 
 log('*** admin.js loading');
 
+function QuoteString(s) {
+    //log('*** QuoteString('+s+')');
+    var result = s.replace(/"/g,'&quot;');
+    //log('*** QuoteString: result ("s) is '+result);
+    result = result.replace(/\\/g,'\\\\');
+    //log('*** QuoteString: result \\s is '+result);
+    result = result.replace(/\'/g,"\\'");
+    //log('*** QuoteString: result \'s is '+result);
+    return result;
+}
+                        
+                     
+
 function ajaxRequest() {
    try
    {
@@ -163,90 +176,6 @@ function AWSLookupItem(asin)
   params["ItemId"] = asin;
 
   AWSRequest(params,AWSLookupCallback);
-}
-
-function AWSLookupCallback()
-{
-  var outHTML = '';
-  if (this.readyState == 1) 
-  {
-    document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<p>'+admin_js.loading+'...</p>';
-    document.getElementById('amazon-item-lookup-display').innerHTML = '';
-  } else if (this.readyState == 4)
-  {
-    if (this.status == 200)
-    {
-      if (this.responseXML != null)
-      {
-	var ErrorsElts = this.responseXML.getElementsByTagName('Error');
-	if (ErrorsElts != null && ErrorsElts.length > 0) {
-	  var ierr;
-	  var WorkStatus = document.getElementById('amazon-search-workstatus');
-	  WorkStatus.innerHTML = '';
-	  for (ierr = 0; ierr < ErrorsElts.length; ierr++) {
-	    var theError = ErrorsElts[ierr];
-	    var theMessage = theError.getElementsByTagName('Message')[0].childNodes[0].nodeValue;
-	    WorkStatus.innerHTML += '<p class="error">'+theMessage+'</p>';
-	  }
-	  return;
-	}
-	var item = this.responseXML.getElementsByTagName('Item')[0];
-	var title = item.getElementsByTagName('Title')[0].childNodes[0].nodeValue;
-	var asin  = item.getElementsByTagName('ASIN')[0].childNodes[0].nodeValue;
-	outHTML += '<h3>'+title+' ('+asin+")</h3>\n";
-
-	var smallimage = item.getElementsByTagName('SmallImage')[0];
-	if (smallimage != null)
-	{
-	  var smallimageURL = smallimage.getElementsByTagName('URL')[0].childNodes[0].nodeValue;
-	  var smallimageHeight = smallimage.getElementsByTagName('Height')[0].childNodes[0].nodeValue;
-	  var smallimageWidth = smallimage.getElementsByTagName('Width')[0].childNodes[0].nodeValue;
-	      
-	  outHTML += '<img src="'+smallimageURL+'" height="'+smallimageHeight+
-			'" width="'+smallimageWidth+'" border="0">';
-	}
-	var ItemAttributesList = item.getElementsByTagName('ItemAttributes');
-	outHTML += '<ul>';
-	var k;
-	for (k = 0; k < ItemAttributesList.length; k++)
-	{
-	  var ItemAttributes = ItemAttributesList[k];
-	  outHTML += '<table>';
-	  for (j = 0; j < ItemAttributes.childNodes.length; j++)
-	  {
-	    var attribute = ItemAttributes.childNodes[j];
-	    var value = attribute.childNodes[0].nodeValue;
-	    if (value != null)
-	    {
-	      outHTML += '<tr>';
-	      outHTML += '<th valign="top" width="20%">'+attribute.tagName+'</th>';
-	      outHTML += '<td valign="top" width="80%">'+attribute.childNodes[0].nodeValue+'</td>';
-	      outHTML += '</tr>';
-	    }
-	  }
-	  outHTML += '</table>';
-	}
-	outHTML += '</ul>';
-	var keywords = item.getElementsByTagName('Keywords');
-	var needcomma = false;
-	outHTML += '<p>';
-	for (k = 0; k < keywords.length; k++)
-	{
-	  var keyword = keywords[0];
-	  var j;
-	  for (j = 0; j < keyword.childNodes.length; j++)
-	  {
-	    if (needcomma) outHTML += ', ';
-	    outHTML += keyword.childNodes[j].nodeValue;
-	    needcomma = true;
-	  }
-	}
-	outHTML += '</p>'
-        document.getElementById('amazon-item-lookup-display').innerHTML = outHTML;
-        document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<p>'+admin_js.lookupComplete+'</p>';
-      } else document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<h1>'+admin_js.nodata+'</h1>';
-    } else document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<h1>'+admin_js.ajaxerr+this.status+'</h1>';
-  } 
 }
 
 function AWSInsertItem(asin)
@@ -715,4 +644,232 @@ function WEBLIB_DeleteKeyword(name,keyword) {
   WEBLIB_WriteKeywords(name);  
 }
 
+
+function AWSLookupCallback()
+{
+  var outHTML = '';
+  if (this.readyState == 1) 
+  {
+    document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<p>'+admin_js.loading+'...</p>';
+    document.getElementById('amazon-item-lookup-display').innerHTML = '';
+  } else if (this.readyState == 4)
+  {
+    if (this.status == 200)
+    {
+      if (this.responseXML != null)
+      {
+	var ErrorsElts = this.responseXML.getElementsByTagName('Error');
+	if (ErrorsElts != null && ErrorsElts.length > 0) {
+	  var ierr;
+	  var WorkStatus = document.getElementById('amazon-search-workstatus');
+	  WorkStatus.innerHTML = '';
+	  for (ierr = 0; ierr < ErrorsElts.length; ierr++) {
+	    var theError = ErrorsElts[ierr];
+	    var theMessage = theError.getElementsByTagName('Message')[0].childNodes[0].nodeValue;
+	    WorkStatus.innerHTML += '<p class="error">'+theMessage+'</p>';
+	  }
+	  return;
+	}
+	var item = this.responseXML.getElementsByTagName('Item')[0];
+	var title = item.getElementsByTagName('Title')[0].childNodes[0].nodeValue;
+	var asin  = item.getElementsByTagName('ASIN')[0].childNodes[0].nodeValue;
+	outHTML += '<h3>'+title;
+        outHTML += '<img class="WEBLIB_AWS_addinsertbutton"';
+        outHTML += ' src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16"';
+        outHTML += ' alt="'+admin_js.insertTitle+'"';
+        outHTML += ' title="'+admin_js.insertTitle+'"';
+        outHTML += ' onclick="WEBLIB_InsertTitle('+"'"+QuoteString(title)+"'"+');" />';
+        outHTML += ' ('+asin;
+        outHTML += '<img class="WEBLIB_AWS_addinsertbutton"';
+        outHTML += ' src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16"';
+        outHTML += ' alt="'+admin_js.insertISBN+'"' ;
+        outHTML += ' title="'+admin_js.insertISBN+'"' ;
+        outHTML += ' onclick="WEBLIB_InsertISBN('+"'"+QuoteString(asin)+"'"+');" />';
+        outHTML += ")</h3>\n";
+
+	var smallimage = item.getElementsByTagName('SmallImage')[0];
+	if (smallimage != null)
+	{
+	  var smallimageURL = smallimage.getElementsByTagName('URL')[0].childNodes[0].nodeValue;
+	  var smallimageHeight = smallimage.getElementsByTagName('Height')[0].childNodes[0].nodeValue;
+	  var smallimageWidth = smallimage.getElementsByTagName('Width')[0].childNodes[0].nodeValue;
+	      
+	  outHTML += '<img src="'+smallimageURL+'" height="'+smallimageHeight+
+          '" width="'+smallimageWidth+'" border="0">';
+          outHTML += '<img class="WEBLIB_AWS_addinsertbutton" src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertThumbnail+'" title="'+admin_js.insertThumbnail+'" onclick="WEBLIB_InsertThumb('+"'"+QuoteString(smallimageURL)+"'"+');" />';
+          
+                    
+        }
+	var ItemAttributesList = item.getElementsByTagName('ItemAttributes');
+	outHTML += '<ul>';
+	var k;
+	for (k = 0; k < ItemAttributesList.length; k++)
+	{
+	  var ItemAttributes = ItemAttributesList[k];
+	  outHTML += '<table>';
+	  for (j = 0; j < ItemAttributes.childNodes.length; j++)
+	  {
+	    var attribute = ItemAttributes.childNodes[j];
+	    var value = attribute.childNodes[0].nodeValue;
+	    if (value != null)
+	    {
+	      outHTML += '<tr>';
+	      outHTML += '<th valign="top" width="20%">'+attribute.tagName+'</th>';
+	      outHTML += '<td valign="top" width="80%">'+attribute.childNodes[0].nodeValue+'</td>';
+              outHTML += '<td>';
+              switch (attribute.tagName) {
+                  case 'Editor':
+                  case 'Artist':
+                  case 'Actor':
+                  case 'Director':
+                  case 'Foreword':
+                  case 'Contributor':
+                  case 'Author':
+                    var thename = AWSFixName(value);
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToAuthor+'" title="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
+                    break;
+                  case  'Creator':
+                    var thename = AWSFixName(value);
+                    var role = attribute.attributes.getNamedItem("role");
+                    if (role == null) attribute.attributes.getNamedItem("Role");
+                    if (role != null) thename += ' ('+role+')';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToAuthor+'" title="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
+                    break;
+                  case 'ReleaseDate':
+                  case 'PublicationDate':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertAsDate+'" title="'+admin_js.insertAsDate+'"  onclick="WEBLIB_InsertDate('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                  case 'Studio':
+                  case 'Label':
+                  case 'Publisher':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertAsPublisher+'" title="'+admin_js.insertAsPublisher+'" onclick="WEBLIB_InsertPublisher('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                  case 'ISBN':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertISBN+'" title="'+admin_js.insertISBN+'" " onclick="WEBLIB_InsertISBN('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                  case 'Edition':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertEdition+'" title="'+admin_js.insertEdition+'" onclick="WEBLIB_InsertEdition('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                  case 'Binding':
+                  case 'Format':
+                  case 'ProductGroup':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToMedia+'" title="'+admin_js.addToMedia+'" onclick="WEBLIB_AddToMedia('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                  case 'Height':
+                  case 'Width':
+                  case 'Length':
+                  case 'Weight':
+                    var units = attribute.attributes.getNamedItem("units");
+                    if (units != 'pixels') {
+                        var temp = value+' '+units;
+                    } else {
+                        var temp = value;
+                    }
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToDescription+'" title="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(temp)+"'"+');" />';
+                    break;
+                  case 'Title':
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertTitle+'" title="'+admin_js.insertTitle+'" onclick="WEBLIB_InsertTitle('+"'"+QuoteString(value)+"'"+');" />';  
+                    break;
+                  default:
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToDescription+'" title="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(value)+"'"+');" />';
+                    break;
+                }
+                outHTML += '</td></tr>';
+	    }
+	  }
+	  outHTML += '</table>';
+	}
+	outHTML += '</ul>';
+	var keywords = item.getElementsByTagName('Keywords');
+	var needcomma = false;
+	outHTML += '<p>';
+	for (k = 0; k < keywords.length; k++)
+	{
+	  var keyword = keywords[0];
+	  var j;
+	  for (j = 0; j < keyword.childNodes.length; j++)
+	  {
+              if (needcomma) outHTML += ', ';
+              outHTML += '<a href="" onclick="WEBLIB_InsertKeyword('+"'"+QuoteString(keyword.childNodes[j].nodeValue)+"'"+');return false;">';
+              outHTML += keyword.childNodes[j].nodeValue;
+              outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToKeywords+'" />';
+              outHTML += '</a>';
+	    needcomma = true;
+	  }
+	}
+	outHTML += '</p>'
+        document.getElementById('amazon-item-lookup-display').innerHTML = outHTML;
+        document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<p>'+admin_js.lookupComplete+'</p>';
+      } else document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<h1>'+admin_js.nodata+'</h1>';
+    } else document.getElementById('amazon-item-lookup-workstatus').innerHTML = '<h1>'+admin_js.ajaxerr+this.status+'</h1>';
+  } 
+}
+
+function WEBLIB_InsertTitle(title) {
+    document.getElementById('title').value = title;
+}
+
+function WEBLIB_InsertISBN(isbn) {
+    document.getElementById('isbn').value = isbn;
+}
+
+function WEBLIB_InsertThumb(url) {
+    document.getElementById('thumburl').value = url;
+}
+
+function WEBLIB_AddAuthor(thename) {
+    if (document.getElementById('itemauthor').value == '')
+    {
+        document.getElementById('itemauthor').value = thename;
+    } else {
+        document.getElementById('itemauthor').value += ' and '+thename;
+    }
+}
+
+function WEBLIB_InsertDate(value) {
+    var date;
+    //log("*** AWSInsertCallback(): value = "+value);
+    if (/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(value)) {
+        var dateval = value.split('-');
+        //log("*** AWSInsertCallback(): dateval is "+dateval);
+        date = new Date(dateval[0],dateval[1]-1,dateval[2],0,0,0);
+    } else {
+        date = new Date(value);
+    }
+    //log("*** AWSInsertCallback(): date.getMonth() = "+date.getMonth()+", date.getDate() = "+date.getDate()+", date.getYear() = "+date.getYear());
+    var months = ['Jan','Feb','Mar','Apr','May','Jun',
+                  'Jul','Aug','Sep','Oct','Nov','Dec'];
+    document.getElementById('pubdate').value = 
+    months[date.getMonth()]+'/'+date.getDate()+'/'+
+    (date.getYear()+1900);
+}
+
+function WEBLIB_InsertPublisher(value) {
+    document.getElementById('publisher').value = value;
+}
+
+function WEBLIB_InsertEdition(value) {
+    document.getElementById('edition').value = value;
+}
+
+function WEBLIB_AddToMedia(value) {
+    if (document.getElementById('media').value == '')
+    {
+        document.getElementById('media').value = value;
+    } else {
+        document.getElementById('media').value += ','+value;
+    }
+}
+
+function WEBLIB_AddToDescription(value) {
+    document.getElementById('description').value += value+"\n";
+}
+
+function WEBLIB_InsertKeyword(keyword) {
+    if (document.getElementById('itemedit-keyword-list').value != '') 
+    {
+        document.getElementById('itemedit-keyword-list').value += ',';
+    }
+    document.getElementById('itemedit-keyword-list').value += keyword;
+}
 

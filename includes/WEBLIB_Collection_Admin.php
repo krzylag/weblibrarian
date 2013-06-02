@@ -44,6 +44,10 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
     return $theitem->type();
   }
 
+  function column_callnumber ($item) {
+    $theitem = new WEBLIB_ItemInCollection($item);
+    return $theitem->callnumber();
+  }
   function search_box($text, $input_id) {
     if ( empty( $_REQUEST['s'] ) && !$this->has_items() ) return;
 
@@ -91,7 +95,8 @@ class WEBLIB_Collection_Shared extends WP_List_Table {
   function get_sortable_columns() {
 	return array('barcode' => array('barcode',false),
 		     'title' => array('title',false), 
-		     'author' => array('author',false));
+		     'author' => array('author',false),
+		     'callnumber' => array('callnumber',false) );
   }  
 
 }
@@ -108,23 +113,28 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   function __construct() {
     global $weblib_contextual_help;
 
-    $screen_id =  add_menu_page('Collection Database', 'Collection',
+    $screen_id =  add_menu_page(__('Collection Database','web-librarian'), __('Collection','web-librarian'),
 				'manage_collection','weblib-collection-database',
 				array($this,'collection_database'),
 			WEBLIB_IMAGEURL.'/Collection_Menu.png');
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-collection-database');
     add_action("load-$screen_id", array($this,'add_per_page_option'));
     $screen_id =  add_submenu_page('weblib-collection-database',
-				'Add Item to Collection','Add New',
+				__('Add Item to Collection','web-librarian'),__('Add New','web-librarian'),
 				'manage_collection','weblib-add-item-collection',
 				array($this,'add_item'));
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-add-item-collection');
     $screen_id =  add_submenu_page('weblib-collection-database',
-				'Add Bulk Items to Collection','Add New Bulk',
+				__('Add Bulk Items to Collection','web-librarian'),__('Add New Bulk','web-librarian'),
 				'manage_collection','weblib-add-item-collection-bulk',
 				array($this,'add_item_bulk'));
     $weblib_contextual_help->add_contextual_help($screen_id,'weblib-add-item-collection-bulk');
-
+    $screen_id =  add_submenu_page('weblib-collection-database',
+				   __('DB Maintenance','web-librarian'),__('DB Maint','web-librarian'),
+				   'manage_collection',
+				   'weblib-collection-maintance',
+				   array($this,'db_maintance'));
+    $weblib_contextual_help->add_contextual_help($screen_id,'weblib-collection-maintance');
    parent::__construct(); 
 
   }
@@ -140,7 +150,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $user = get_current_user_id();
     $screen = get_current_screen();
     $option = $screen->get_option('per_page','option');
-    file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
+    //file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::get_per_page(): user = $user, screen = ".print_r($screen,true).", option = $option\n");
     $v = get_user_meta($user, $option, true);
     if (empty($v)  || $v < 1) {
       $v = $screen->get_option('per_page','default');
@@ -179,7 +189,8 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		     'barcode' => __('Barcode','web-librarian'),
 		     'title' => __('Title','web-librarian'),
 		     'author' => __('Author','web-librarian'),
-		     'type' => __('Type','web-librarian'));
+		     'type' => __('Type','web-librarian'),
+		     'callnumber' => __('Call Number','web-librarian') );
   }
 
   function get_bulk_actions() {
@@ -201,7 +212,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     switch ($action) {
       case 'delete':
 	if ( isset($_REQUEST['checked']) && !empty($_REQUEST['checked'])) {
-	  foreach ( $_REQUEST['checked'] as $theitem ) {
+	  foreach ( $_REQUEST['checked'] as $thebarcode ) {
 	    WEBLIB_ItemInCollection::DeleteItemByBarCode($thebarcode);
 	    WEBLIB_ItemInCollection::DeleteKeywordsByBarCode($thebarcode);
 	  }
@@ -280,7 +291,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   function collection_database() {
     $message = $this->prepare_items();
     ?><div class="wrap"><div id="icon-collection" class="icon32"><br /></div
-	<h2>Library Collection <a href="<?php
+	<h2><?php _e('Library Collection','web-librarian'); ?> <a href="<?php
 		echo add_query_arg( array('page' => 'weblib-add-item-collection',
 					  'mode' => 'add',
 					  'barcode' => false));
@@ -387,6 +398,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  break;
       }
       $this->viewitem = new WEBLIB_ItemInCollection($this->viewbarcode);
+      file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::prepare_one_item(): this->viewitem is ".print_r($this->viewitem,true)."\n");
       if ($this->viewbarcode == '') {
 	$this->viewkeywords = array();
       } else {
@@ -406,10 +418,10 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
   }
   function add_item_h2() {
     switch ($this->viewmode) {
-      case 'view': return "View an item in the collection";
-      case 'edit': return "Edit an item in the collection";
+      case 'view': return __("View an item in the collection",'web-librarian');
+      case 'edit': return __("Edit an item in the collection",'web-librarian');
       default:
-      case 'add': return 'Add a new item to the collection';
+      case 'add': return __('Add a new item to the collection','web-librarian');
     }
   }
 
@@ -435,13 +447,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
       <tr valign="top">
 	<th scope="row"><label for="barcode" style="width:20%;"><?php _e('Barcode:','web-librarian'); ?></label></th>
 	<td><input id="barcode"
-		   name="barcode"
-		   style="width:75%;"
-		   maxlength="16"
-		   value="<?php echo stripslashes($this->viewbarcode); ?>"<?php
-	if ($this->viewmode != 'add') {
-	  echo ' readonly="readonly"';
-	} ?> /></td></tr>
+                   name="barcode"
+                   style="width:75%;"
+                   maxlength="16"
+                   value="<?php echo stripslashes($this->viewbarcode); ?>"<?php
+                   if ($this->viewmode != 'add') {
+                     echo ' readonly="readonly"';
+                   } ?> /></td></tr>
       <tr valign="top">
 	<th scope="row"><label for="title" style="width:20%;"><?php _e('Title:','web-librarian'); ?></label></th>
 	<td><input id="title"
@@ -547,6 +559,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		   style="width:75%;"
 		   maxlength="256"
 		   value="<?php echo stripslashes($this->viewitem->thumburl()); ?>"<?php echo $ro; ?> /></td></tr>
+              <tr valign="top">
+	<th scope="row"><label for="callnumber" style="width:20%;"><?php _e('Call Number:','web-librarian'); ?></label></th>
+	<td><input id="callnumber"
+		   name="callnumber"
+		   style="width:75%;"
+		   maxlength="36"
+		   value="<?php echo stripslashes($this->viewitem->callnumber()); ?>"<?php echo $ro; ?> /></td></tr>
       <tr valign="top">
 	<td colspan="2" width="100%">
 	<div id="itemedit-keyword-div">
@@ -564,19 +583,19 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  ?></div><div class="hide-if-no-js">
 		<label class="screen-reader-text" 
 		       for="itemedit-new-keyword-item_keyword"><?php _e('Item Keywords','web-librarian'); ?></label>
-		<div class="keywordhint">Add New Keyword</div>
+		<div class="keywordhint"><?php _e('Add New Keyword','web-librarian'); ?></div>
 	    <p><input type="text" id="itemedit-new-keyword-item_keyword" 
 		      name="newkeyword" class="newkeyword form-input-tip" 
 		      size="16" autocomplete="off" value="" />
 	       <input type="button" class="button" value="<?php _e('Add','web-librarian'); ?>" 
 			onclick="WEBLIB_AddKeyword('itemedit');" /></p>
-	    <p class="howto">Separate keywords with commas</p></div> 
+	    <p class="howto"><?php _e('Separate keywords with commas','web-librarian'); ?></p></div> 
 		<div id="itemedit-keywordchecklist" class="keywordchecklist">
 		<script type="text/javascript">
 			WEBLIB_WriteKeywords('itemedit');</script></div><?php
 	    } ?></div></td></tr>
-	 <?php 
-	   if ($this->viewmode != 'view') {
+      <?php 
+	if ($this->viewmode != 'view' && $this->haveAWSoptions()) {
 	     ?><tr valign="top"><td colspan="2" width="100%">
 	     <div id="item-aws">
 		<div id="amazon-logo"><br /></div>
@@ -616,11 +635,11 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		  </select>
 		  <label for="FieldName"><?php _e('for','web-librarian'); ?></label>
 		  <select id="FieldName">
+		    <option value="Title" selected="selected"><?php _e('Title','web-librarian'); ?></option>
 		    <option value="Artist"><?php _e('Artist','web-librarian'); ?></option>
 		    <option value="Author"><?php _e('Author','web-librarian'); ?></option>
-		    <option value="Keywords" selected="selected"><?php _e('Keywords','web-librarian'); ?></option>
-		    <option value="Title"><?php _e('Title','web-librarian'); ?></option>
-		  </select>
+		    <option value="Keywords"><?php _e('Keywords','web-librarian'); ?></option>
+                  </select>
 		  <input id="SearchString" type='text' value="" />
 		  <input type="button" id="Go" onclick="AWSSearch(1);" value="<?php _e('Go','web-librarian'); ?>" />
 		</span>
@@ -643,6 +662,17 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	      }
 	      ?><a href="<?php echo $returnURL; ?>" class="button-primary"><?php _e('Return','web-librarian'); ?></a>
 	</p><?php
+  }
+  
+  function haveAWSoptions() {
+    $aws_public_key = get_option('weblib_aws_public_key');
+    $aws_private_key = get_option('weblib_aws_private_key');
+    $associate_tag = get_option('weblib_associate_tag');
+    if ($aws_public_key != '' && $aws_private_key != '' && $associate_tag != '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   function checkiteminform($barcode)
@@ -690,6 +720,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
     $item->set_isbn($_REQUEST['isbn']);
     $item->set_type($_REQUEST['type']);
     $item->set_thumburl($_REQUEST['thumburl']);
+    $item->set_callnumber($_REQUEST['callnumber']);
     return $item;
   }
 
@@ -782,6 +813,80 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		} ?>" /></p> */ ?>
       <p><input class="button-primary" type="submit" name="doupload" value="<?php _e('Upload File','web-librarian'); ?>" />
 	 <a href="<?php echo $returnURL; ?>" class="button-primary"><?php _e('Return','web-librarian'); ?></a></p><?php
+  }
+  /* DB Maintenance page */
+  function db_maintance() {
+    //must check that the user has the required capability
+    if (!current_user_can('manage_collection'))
+    {
+	wp_die( __('You do not have sufficient permissions to access this page.','web-librarian' ));
+    }
+    if (isset($_REQUEST['deleteorphans'])) {
+      $orphancheckouts = WEBLIB_OutItem::RemoveOrphanCheckouts();
+      $orphanholds     = WEBLIB_HoldItem::RemoveOrphanHolds();
+    } else {
+      $orphancheckouts = array();
+      $orphanholds     = array();
+    }
+    ?><div class="wrap"><div id="icon-weblib-db-maint" class="icon32"><br /></div><h2><?php _e('Database Maintenance','web-librarian'); ?></h2>
+      <?php
+	if (count($orphancheckouts) > 0) { 
+	  ?><table><thead><tr><th><?php _e('Transaction','web-librarian'); 
+		       ?></th><th><?php _e('Barcode','web-librarian');
+		       ?></th><th><?php _e('Patron ID','web-librarian');
+		       ?></th><th><?php _e('Title','web-librarian');
+		       ?></th><th><?php _e('Date Out','web-librarian');
+		       ?></th><th><?php _e('Due Data','web-librarian'); 
+		       ?></th></tr></thead><tfoot><tr><th><?php _e('Transaction','web-librarian'); 
+		       ?></th><th><?php _e('Barcode','web-librarian');
+		       ?></th><th><?php _e('Patron ID','web-librarian');
+		       ?></th><th><?php _e('Title','web-librarian');
+		       ?></th><th><?php _e('Date Out','web-librarian');
+		       ?></th><th><?php _e('Due Date','web-librarian'); 
+		       ?></th></tr></tfoot><tbody><?php
+	  foreach ($orphancheckouts as $ocheck) {
+	    ?><tr><td><?php echo $ocheck->transaction(); 
+	    ?></td><td><?php echo $ocheck->barcode();
+	    ?></td><td><?php echo $ocheck->patronid();
+	    ?></td><td><?php echo stripslashes($ocheck->title());
+	    ?></td><td><?php echo mysql2date('M/j/Y',$ocheck->dateout());
+	    ?></td><td><?php echo mysql2date('M/j/Y',$ocheck->duedate());
+	    ?></td></tr><?php
+	  }
+	  ?></tbody></table><?php
+	}
+	if (count($orphanholds) > 0) {
+	  ?><table><thead><tr><th><?php _e('Transaction','web-librarian');
+		       ?></th><th><?php _e('Barcode','web-librarian');
+		       ?></th><th><?php _e('Patron ID','web-librarian');
+		       ?></th><th><?php _e('Title','web-librarian');
+		       ?></th><th><?php _e('Hold Date','web-librarian');
+		       ?></th><th><?php _e('Expiration Date','web-librarian');
+		       ?></th></tr></thead><tfoot><tr><th><?php _e('Transaction','web-librarian');
+		       ?></th><th><?php _e('Barcode','web-librarian');
+		       ?></th><th><?php _e('Patron ID','web-librarian');
+		       ?></th><th><?php _e('Title','web-librarian');
+		       ?></th><th><?php _e('Hold Date','web-librarian');
+		       ?></th><th><?php _e('Expiration Date','web-librarian');
+		       ?></th></tr></tfoot><tbody><?php
+	  foreach ($orphanholds as $ohold) {
+	    ?><tr><td><?php echo $ohold->transaction();
+	    ?></td><td><?php echo $ohold->barcode();
+	    ?></td><td><?php echo $ohold->patronid();
+	    ?></td><td><?php echo stripslashes($ohold->title());
+	    ?></td><td><?php echo mysql2date('M/j/Y',$ohold->dateheld());
+	    ?></td><td><?php echo mysql2date('M/j/Y',$ohold->dateexpire());
+	    ?></td></tr><?php
+	  }
+	  ?></tbody></table><?php
+	}
+      ?>
+      <form method="get" action="<?php echo admin_url('admin.php'); ?>">
+	<input type="hidden" name="page" value="weblib-collection-maintance" />
+	<p>
+	    <input type="submit" name="deleteorphans" class="button-primary"
+		   value="<?php _e('Delete orphan holds and checkouts','web-librarian'); ?>" />
+	</p></form></div><?php
   }
 }
 

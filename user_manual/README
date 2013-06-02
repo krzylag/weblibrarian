@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.6
+Stable tag: 3.2.4
 
 A WordPress plugin that implements a basic library collection and
 circulation system.
@@ -82,25 +82,7 @@ No Screenshots yet.
 
 == Changelog ==
 
-== 3.2.6 ==
-* Changed AWS insert buttons to be a small icon instead of "bulky" text buttons
-* Updated localization, added Italian translation.
-
-== 3.2.5.3 ==
-* Add insert / add buttons to Amazon item loopup. (Experimental!)
-
-== 3.2.5.2 ==
-* Remove roles on deactiveate.
-* Make title the default on Amazon searchs.
-
-== 3.2.5.1 ==
-* Move loading of Localization files to the correct place
-
-== 3.2.5 ==
-* Added missing conextual help page.
-* Fixed silly typo error in the collection bulk delete code.
-
-== 3.2.4 ==
+== 3.2.4 =
 * Added code to collection and patron delete functions to clear out orphaned
   holds and checkouts.
 * Added Collection Database Maintenance page, containing a button to clear out
