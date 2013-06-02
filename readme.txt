@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.5.1
+Stable tag: 3.2.6
 
 A WordPress plugin that implements a basic library collection and
 circulation system.
@@ -83,6 +83,7 @@ No Screenshots yet.
 == Changelog ==
 
 == 3.2.6 ==
+* Changed AWS insert buttons to be a small icon instead of "bulky" text buttons
 * Updated localization, added Italian translation.
 
 == 3.2.5.3 ==
