@@ -674,13 +674,17 @@ function AWSLookupCallback()
 	var title = item.getElementsByTagName('Title')[0].childNodes[0].nodeValue;
 	var asin  = item.getElementsByTagName('ASIN')[0].childNodes[0].nodeValue;
 	outHTML += '<h3>'+title;
-        outHTML += '<input type="button" class="button"' +
-                   ' value="'+admin_js.insertTitle+'"' +
-                   ' onclick="WEBLIB_InsertTitle('+"'"+QuoteString(title)+"'"+');" />';
+        outHTML += '<img class="WEBLIB_AWS_addinsertbutton"';
+        outHTML += ' src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16"';
+        outHTML += ' alt="'+admin_js.insertTitle+'"';
+        outHTML += ' title="'+admin_js.insertTitle+'"';
+        outHTML += ' onclick="WEBLIB_InsertTitle('+"'"+QuoteString(title)+"'"+');" />';
         outHTML += ' ('+asin;
-        outHTML += '<input type="button" class="button"'+
-                   ' value="'+admin_js.insertISBN+'"' +
-                   ' onclick="WEBLIB_InsertISBN('+"'"+QuoteString(asin)+"'"+');" />';
+        outHTML += '<img class="WEBLIB_AWS_addinsertbutton"';
+        outHTML += ' src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16"';
+        outHTML += ' alt="'+admin_js.insertISBN+'"' ;
+        outHTML += ' title="'+admin_js.insertISBN+'"' ;
+        outHTML += ' onclick="WEBLIB_InsertISBN('+"'"+QuoteString(asin)+"'"+');" />';
         outHTML += ")</h3>\n";
 
 	var smallimage = item.getElementsByTagName('SmallImage')[0];
@@ -692,7 +696,7 @@ function AWSLookupCallback()
 	      
 	  outHTML += '<img src="'+smallimageURL+'" height="'+smallimageHeight+
           '" width="'+smallimageWidth+'" border="0">';
-          outHTML += '<input type="button" class="button" value="'+admin_js.insertThumbnail+'" onclick="WEBLIB_InsertThumb('+"'"+QuoteString(smallimageURL)+"'"+');" />';
+          outHTML += '<img class="WEBLIB_AWS_addinsertbutton" src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertThumbnail+'" title="'+admin_js.insertThumbnail+'" onclick="WEBLIB_InsertThumb('+"'"+QuoteString(smallimageURL)+"'"+');" />';
           
                     
         }
@@ -722,34 +726,34 @@ function AWSLookupCallback()
                   case 'Contributor':
                   case 'Author':
                     var thename = AWSFixName(value);
-                    outHTML += '<input type="button" class="button" value="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToAuthor+'" title="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
                     break;
                   case  'Creator':
                     var thename = AWSFixName(value);
                     var role = attribute.attributes.getNamedItem("role");
                     if (role == null) attribute.attributes.getNamedItem("Role");
                     if (role != null) thename += ' ('+role+')';
-                    outHTML += '<input type="button" class="button" value="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToAuthor+'" title="'+admin_js.addToAuthor+'" onclick="WEBLIB_AddAuthor('+"'"+QuoteString(thename)+"'"+');" />';
                     break;
                   case 'ReleaseDate':
                   case 'PublicationDate':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.insertAsDate+'"  onclick="WEBLIB_InsertDate('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertAsDate+'" title="'+admin_js.insertAsDate+'"  onclick="WEBLIB_InsertDate('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Studio':
                   case 'Label':
                   case 'Publisher':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.insertAsPublisher+'" onclick="WEBLIB_InsertPublisher('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertAsPublisher+'" title="'+admin_js.insertAsPublisher+'" onclick="WEBLIB_InsertPublisher('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'ISBN':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.insertISBN+'" " onclick="WEBLIB_InsertISBN('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertISBN+'" title="'+admin_js.insertISBN+'" " onclick="WEBLIB_InsertISBN('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Edition':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.insertEdition+'" onclick="WEBLIB_InsertEdition('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertEdition+'" title="'+admin_js.insertEdition+'" onclick="WEBLIB_InsertEdition('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Binding':
                   case 'Format':
                   case 'ProductGroup':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.addToMedia+'" onclick="WEBLIB_AddToMedia('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToMedia+'" title="'+admin_js.addToMedia+'" onclick="WEBLIB_AddToMedia('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                   case 'Height':
                   case 'Width':
@@ -761,13 +765,13 @@ function AWSLookupCallback()
                     } else {
                         var temp = value;
                     }
-                    outHTML += '<input type="button" class="button" value="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(temp)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToDescription+'" title="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(temp)+"'"+');" />';
                     break;
                   case 'Title':
-                    outHTML += '<input type="button" class="button" value="'+admin_js.insertTitle+'" onclick="WEBLIB_InsertTitle('+"'"+QuoteString(value)+"'"+');" />';  
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertTitle+'" title="'+admin_js.insertTitle+'" onclick="WEBLIB_InsertTitle('+"'"+QuoteString(value)+"'"+');" />';  
                     break;
                   default:
-                    outHTML += '<input type="button" class="button" value="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(value)+"'"+');" />';
+                    outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToDescription+'" title="'+admin_js.addToDescription+'" onclick="WEBLIB_AddToDescription('+"'"+QuoteString(value)+"'"+');" />';
                     break;
                 }
                 outHTML += '</td></tr>';
@@ -788,6 +792,7 @@ function AWSLookupCallback()
               if (needcomma) outHTML += ', ';
               outHTML += '<a href="" onclick="WEBLIB_InsertKeyword('+"'"+QuoteString(keyword.childNodes[j].nodeValue)+"'"+');return false;">';
               outHTML += keyword.childNodes[j].nodeValue;
+              outHTML += '<img src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.addToKeywords+'" />';
               outHTML += '</a>';
 	    needcomma = true;
 	  }
@@ -868,3 +873,22 @@ function WEBLIB_InsertKeyword(keyword) {
     document.getElementById('itemedit-keyword-list').value += keyword;
 }
 
+log('*** admin.js: loading JQuery functions');
+
+jQuery(function(jQuery) {
+       jQuery('#SearchString').on('keydown',
+        function (event) {
+            if (event.which == 13 /* Return */) {
+                AWSSearch(1);
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                }
+                //IE8 and Lower
+                else {
+                    event.cancelBubble = true;
+                }
+            }
+        });
+       
+   });
+   

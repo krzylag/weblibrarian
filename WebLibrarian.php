@@ -200,15 +200,16 @@ class WebLibrarian {
                 'insertEdition' => __('Insert Edition','web-librarian'),
                 'addToMedia' => __('Add to Media','web-librarian'),
                 'addToDescription' => __('Add to description','web-librarian'),
+                'addToKeywords' => __('Add to keywords','web-librarian')
 	);
     }
     function add_admin_scripts() {
 	//$this->add_front_scripts();
-	wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js'), '2.6.3.2');
+	wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js'), $this->version);
 	wp_localize_script( 'admin_js','admin_js',$this->localize_vars_admin() );
     }
     function add_front_scripts() {
-	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), '2.6.3.2');
+	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), $this->version);
 	wp_localize_script( 'front_js','front_js',$this->localize_vars_front() );
     }
     function wp_head() {

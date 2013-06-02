@@ -447,13 +447,13 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
       <tr valign="top">
 	<th scope="row"><label for="barcode" style="width:20%;"><?php _e('Barcode:','web-librarian'); ?></label></th>
 	<td><input id="barcode"
-		   name="barcode"
-		   style="width:75%;"
-		   maxlength="16"
-		   value="<?php echo stripslashes($this->viewbarcode); ?>"<?php
-	if ($this->viewmode != 'add') {
-	  echo ' readonly="readonly"';
-	} ?> /></td></tr>
+                   name="barcode"
+                   style="width:75%;"
+                   maxlength="16"
+                   value="<?php echo stripslashes($this->viewbarcode); ?>"<?php
+                   if ($this->viewmode != 'add') {
+                     echo ' readonly="readonly"';
+                   } ?> /></td></tr>
       <tr valign="top">
 	<th scope="row"><label for="title" style="width:20%;"><?php _e('Title:','web-librarian'); ?></label></th>
 	<td><input id="title"
@@ -559,7 +559,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		   style="width:75%;"
 		   maxlength="256"
 		   value="<?php echo stripslashes($this->viewitem->thumburl()); ?>"<?php echo $ro; ?> /></td></tr>
-      <tr valign="top">
+              <tr valign="top">
 	<th scope="row"><label for="callnumber" style="width:20%;"><?php _e('Call Number:','web-librarian'); ?></label></th>
 	<td><input id="callnumber"
 		   name="callnumber"
@@ -594,8 +594,8 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		<script type="text/javascript">
 			WEBLIB_WriteKeywords('itemedit');</script></div><?php
 	    } ?></div></td></tr>
-	 <?php 
-	   if ($this->viewmode != 'view') {
+      <?php 
+	if ($this->viewmode != 'view' && $this->haveAWSoptions()) {
 	     ?><tr valign="top"><td colspan="2" width="100%">
 	     <div id="item-aws">
 		<div id="amazon-logo"><br /></div>
@@ -662,6 +662,17 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	      }
 	      ?><a href="<?php echo $returnURL; ?>" class="button-primary"><?php _e('Return','web-librarian'); ?></a>
 	</p><?php
+  }
+  
+  function haveAWSoptions() {
+    $aws_public_key = get_option('weblib_aws_public_key');
+    $aws_private_key = get_option('weblib_aws_private_key');
+    $associate_tag = get_option('weblib_associate_tag');
+    if ($aws_public_key != '' && $aws_private_key != '' && $associate_tag != '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   function checkiteminform($barcode)

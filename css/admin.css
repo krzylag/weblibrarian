@@ -82,6 +82,20 @@
   background-repeat: no-repeat;
 }
 
+img.WEBLIB_AWS_addinsertbutton {
+    margin: 2px;
+}
+
+img.WEBLIB_AWS_addinsertbutton:hover {
+    
+}
+
+.update_field {
+    background: transparent url(../images/update_field.png) no-repeat;
+    width:16;
+    height:16;
+}
+
 /* Error messages are in <span id="error">...</span>.
    Initially bold and red. */
 

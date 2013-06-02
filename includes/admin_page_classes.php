@@ -33,7 +33,7 @@ class WEBLIB_Contextual_Help {
 <input type="hidden" name="hosted_button_id" value="RFSD2JRQVGP7C">
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form></form></div>';
+</form></div>';
       $this->help_map[$sid] .= '<div style="vertical-align: text-top;"><a href="http://www.deepsoft.com/home/products/dwsmerch/" target="_blank">'.__('Buy some Deepwoods Software merchandise','web-librarian').'</a></div>';
       $this->help_map[$sid] .= '<div style="vertical-align: text-top;"><a href="http://amzn.com/w/3679UKP8RZRI9">'.__("Deepwoods Software's Amazon Wish List",'web-librarian').'</a></div>';
       //file_put_contents("php://stderr","*** WEBLIB_Contextual_Help::add_contextual_help: this->help_map is ".print_r($this->help_map,true)."\n");
