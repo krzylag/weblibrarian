@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
-"POT-Creation-Date: 2013-06-01 16:17:27+00:00\n"
+"POT-Creation-Date: 2013-06-02 17:15:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +16,7 @@ msgstr ""
 #: ExportLibraryStats.php:31 FindPatron.php:31
 #: includes/WEBLIB_Circulation_Admin.php:498
 #: includes/WEBLIB_Collection_Admin.php:228
-#: includes/WEBLIB_Collection_Admin.php:811
+#: includes/WEBLIB_Collection_Admin.php:822
 #: includes/WEBLIB_Patrons_Admin.php:157 includes/WEBLIB_Patrons_Admin.php:273
 #: includes/WEBLIB_Statistics_Admin.php:112
 #: includes/WEBLIB_Types_Database_Admin.php:98
@@ -138,11 +138,15 @@ msgstr "Add to Media"
 msgid "Add to description"
 msgstr "Add to description"
 
-#: WebLibrarian.php:246
+#: WebLibrarian.php:203
+msgid "Add to keywords"
+msgstr "Add to keywords"
+
+#: WebLibrarian.php:247
 msgid "Log in/out, admin"
 msgstr "Log in/out, admin"
 
-#: WebLibrarian.php:247
+#: WebLibrarian.php:248
 msgid "Stripped Meta"
 msgstr "Stripped Meta"
 
@@ -188,10 +192,10 @@ msgstr "Place Hold"
 #: includes/WEBLIB_Circulation_Admin.php:124
 #: includes/WEBLIB_Circulation_Admin.php:131
 #: includes/WEBLIB_Collection_Admin.php:189
-#: includes/WEBLIB_Collection_Admin.php:824
-#: includes/WEBLIB_Collection_Admin.php:830
-#: includes/WEBLIB_Collection_Admin.php:849
-#: includes/WEBLIB_Collection_Admin.php:855
+#: includes/WEBLIB_Collection_Admin.php:835
+#: includes/WEBLIB_Collection_Admin.php:841
+#: includes/WEBLIB_Collection_Admin.php:860
+#: includes/WEBLIB_Collection_Admin.php:866
 #: includes/WEBLIB_PatronRecord_Admin.php:76
 msgid "Barcode"
 msgstr "Barcode"
@@ -201,10 +205,10 @@ msgstr "Barcode"
 #: includes/WEBLIB_Circulation_Admin.php:238
 #: includes/WEBLIB_Collection_Admin.php:190
 #: includes/WEBLIB_Collection_Admin.php:638
-#: includes/WEBLIB_Collection_Admin.php:826
-#: includes/WEBLIB_Collection_Admin.php:832
-#: includes/WEBLIB_Collection_Admin.php:851
-#: includes/WEBLIB_Collection_Admin.php:857
+#: includes/WEBLIB_Collection_Admin.php:837
+#: includes/WEBLIB_Collection_Admin.php:843
+#: includes/WEBLIB_Collection_Admin.php:862
+#: includes/WEBLIB_Collection_Admin.php:868
 #: includes/WEBLIB_PatronRecord_Admin.php:77 includes/short_codes.php:11
 #: includes/short_codes.php:49 includes/short_codes.php:272
 msgid "Title"
@@ -585,88 +589,88 @@ msgid "Update Item"
 msgstr "Update Item"
 
 #: includes/WEBLIB_Collection_Admin.php:663
-#: includes/WEBLIB_Collection_Admin.php:804
+#: includes/WEBLIB_Collection_Admin.php:815
 #: includes/WEBLIB_Patrons_Admin.php:587 includes/WEBLIB_Patrons_Admin.php:674
 #: includes/WEBLIB_Types_Database_Admin.php:310
 msgid "Return"
 msgstr "Return"
 
-#: includes/WEBLIB_Collection_Admin.php:724
+#: includes/WEBLIB_Collection_Admin.php:735
 msgid "Add Items to the collection in bulk"
 msgstr "Add Items to the collection in bulk"
 
-#: includes/WEBLIB_Collection_Admin.php:762
+#: includes/WEBLIB_Collection_Admin.php:773
 #: includes/WEBLIB_Patrons_Admin.php:632
 msgid "CSV File:"
 msgstr "CSV File:"
 
-#: includes/WEBLIB_Collection_Admin.php:765
+#: includes/WEBLIB_Collection_Admin.php:776
 #: includes/WEBLIB_Patrons_Admin.php:635
 msgid "Use CSV Header?"
 msgstr "Use CSV Header?"
 
-#: includes/WEBLIB_Collection_Admin.php:769
+#: includes/WEBLIB_Collection_Admin.php:780
 #: includes/WEBLIB_Patrons_Admin.php:639
 msgid "Field Separater Character:"
 msgstr "Field Separater Character:"
 
-#: includes/WEBLIB_Collection_Admin.php:779
+#: includes/WEBLIB_Collection_Admin.php:790
 #: includes/WEBLIB_Patrons_Admin.php:649
 msgid "TAB"
 msgstr "TAB"
 
-#: includes/WEBLIB_Collection_Admin.php:781
+#: includes/WEBLIB_Collection_Admin.php:792
 #: includes/WEBLIB_Patrons_Admin.php:651
 msgid "Enclosure Character:"
 msgstr "Enclosure Character:"
 
-#: includes/WEBLIB_Collection_Admin.php:803
+#: includes/WEBLIB_Collection_Admin.php:814
 #: includes/WEBLIB_Patrons_Admin.php:673
 msgid "Upload File"
 msgstr "Upload File"
 
-#: includes/WEBLIB_Collection_Admin.php:820
+#: includes/WEBLIB_Collection_Admin.php:831
 msgid "Database Maintenance"
 msgstr "Database Maintenance"
 
-#: includes/WEBLIB_Collection_Admin.php:823
-#: includes/WEBLIB_Collection_Admin.php:829
-#: includes/WEBLIB_Collection_Admin.php:848
-#: includes/WEBLIB_Collection_Admin.php:854
+#: includes/WEBLIB_Collection_Admin.php:834
+#: includes/WEBLIB_Collection_Admin.php:840
+#: includes/WEBLIB_Collection_Admin.php:859
+#: includes/WEBLIB_Collection_Admin.php:865
 msgid "Transaction"
 msgstr "Transaction"
 
-#: includes/WEBLIB_Collection_Admin.php:825
-#: includes/WEBLIB_Collection_Admin.php:831
-#: includes/WEBLIB_Collection_Admin.php:850
-#: includes/WEBLIB_Collection_Admin.php:856 includes/WEBLIB_Users_Admin.php:99
+#: includes/WEBLIB_Collection_Admin.php:836
+#: includes/WEBLIB_Collection_Admin.php:842
+#: includes/WEBLIB_Collection_Admin.php:861
+#: includes/WEBLIB_Collection_Admin.php:867 includes/WEBLIB_Users_Admin.php:99
 msgid "Patron ID"
 msgstr "Patron ID"
 
-#: includes/WEBLIB_Collection_Admin.php:827
-#: includes/WEBLIB_Collection_Admin.php:833
+#: includes/WEBLIB_Collection_Admin.php:838
+#: includes/WEBLIB_Collection_Admin.php:844
 msgid "Date Out"
 msgstr "Date Out"
 
-#: includes/WEBLIB_Collection_Admin.php:828
+#: includes/WEBLIB_Collection_Admin.php:839
 msgid "Due Data"
 msgstr "Due Data"
 
-#: includes/WEBLIB_Collection_Admin.php:834
+#: includes/WEBLIB_Collection_Admin.php:845
 msgid "Due Date"
 msgstr "Due Date"
 
-#: includes/WEBLIB_Collection_Admin.php:852
-#: includes/WEBLIB_Collection_Admin.php:858
+#: includes/WEBLIB_Collection_Admin.php:863
+#: includes/WEBLIB_Collection_Admin.php:869
 msgid "Hold Date"
 msgstr "Hold Date"
 
-#: includes/WEBLIB_Collection_Admin.php:853
-#: includes/WEBLIB_Collection_Admin.php:859
+#: includes/WEBLIB_Collection_Admin.php:864
+#: includes/WEBLIB_Collection_Admin.php:870
 msgid "Expiration Date"
 msgstr "Expiration Date"
 
-#: includes/WEBLIB_Collection_Admin.php:877
+#: includes/WEBLIB_Collection_Admin.php:888
 msgid "Delete orphan holds and checkouts"
 msgstr "Delete orphan holds and checkouts"
 
