@@ -873,22 +873,3 @@ function WEBLIB_InsertKeyword(keyword) {
     document.getElementById('itemedit-keyword-list').value += keyword;
 }
 
-log('*** admin.js: loading JQuery functions');
-
-jQuery(function(jQuery) {
-       jQuery('#SearchString').on('keydown',
-        function (event) {
-            if (event.which == 13 /* Return */) {
-                AWSSearch(1);
-                if (event.stopPropagation) {
-                    event.stopPropagation();
-                }
-                //IE8 and Lower
-                else {
-                    event.cancelBubble = true;
-                }
-            }
-        });
-       
-   });
-   
