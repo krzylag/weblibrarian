@@ -84,6 +84,7 @@
 
 img.WEBLIB_AWS_addinsertbutton {
     margin: 2px;
+    cursor: pointer;
 }
 
 img.WEBLIB_AWS_addinsertbutton:hover {
@@ -233,3 +234,24 @@ table.itemcircrecordlist-table {
 table.listpatrons-table {
 }
 
+#aws-formframe {
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+#resizable {
+    width:100%;
+    
+/*    border-style:solid;*/
+}
+
+
+    
+.ui-icon-gripsmall-diagonal-se {
+    background-position: -64px -224px;
+    width: 16;
+    height: 16;
+    background: transparent url(../images/sizegrip16x16.png) no-repeat;
+    float: right;
+}

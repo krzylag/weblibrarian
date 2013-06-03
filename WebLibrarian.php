@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.2.6
+ * Version: 3.2.6.1
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -47,26 +47,33 @@ require_once(WEBLIB_INCLUDES . '/admin_page_classes.php');
 /* Load Front End code */
 require_once(WEBLIB_INCLUDES . '/short_codes.php');
 class WebLibrarian {
-
+  
+    static private $pluginFile = __FILE__;
     private $version;
     private $admin_page;
     private $short_code_class;
+    static function _getVersion() {
+      $version = '';
+      $fp = fopen(self::$pluginFile,'r');
+      if ($fp) {
+        while ($line = fgets($fp)) {
+          if (preg_match("/^\s*\*\s*$/",$line) > 0) {break;}
+          if (preg_match('/^\s*\*\s*Version:\s*(.*)$/',$line,$matches) > 0) {
+            $version = $matches[1];
+            break;
+          }
+        }
+        fclose($fp);
+      }
+      return $version;
+    }
+    
 
     /* Constructor: register our activation and deactivation hooks and then
      * add in our actions.
      */
     function __construct() {
-	$fp = fopen(__FILE__,'r');
-	if ($fp) {
-	  while ($line = fgets($fp)) {
-	    if (preg_match("/^\s*\*\s*$/",$line) > 0) {break;}
-	    if (preg_match('/^\s*\*\s*Version:\s*(.*)$/',$line,$matches) > 0) {
-	      $this->version = $matches[1];
-	      break;
-	    }
-	  }
-	  fclose($fp);
-	}
+        $this->version = self::_getVersion();
 	// Add the installation and uninstallation hooks
 	register_activation_hook(WEBLIB_DIR . '/' . WEBLIB_FILE, 
 				array($this,'install'));
@@ -166,7 +173,7 @@ class WebLibrarian {
         }
         remove_role('volunteer');  
     }
-    function localize_vars_front() {
+    static function localize_vars_front() {
 	return array(
 		'WEBLIB_BASEURL' => WEBLIB_BASEURL,
 		'hold' => __('Hold','web-librarian'),
@@ -175,7 +182,7 @@ class WebLibrarian {
 		'ajaxerr' => __('Ajax error: ','web-librarian')
 	);
     }
-    function localize_vars_admin() {
+    static function localize_vars_admin() {
 	return array(
 		'WEBLIB_BASEURL' => WEBLIB_BASEURL,
 		'hold' => __('Hold','web-librarian'),
@@ -205,12 +212,13 @@ class WebLibrarian {
     }
     function add_admin_scripts() {
 	//$this->add_front_scripts();
-	wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js'), $this->version);
-	wp_localize_script( 'admin_js','admin_js',$this->localize_vars_admin() );
+	wp_enqueue_script('jquery-ui-resizable');
+        wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js','jquery-ui-resizable'), $this->version);
+	wp_localize_script( 'admin_js','admin_js',self::localize_vars_admin() );
     }
     function add_front_scripts() {
 	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), $this->version);
-	wp_localize_script( 'front_js','front_js',$this->localize_vars_front() );
+	wp_localize_script( 'front_js','front_js',self::localize_vars_front() );
     }
     function wp_head() {
     }

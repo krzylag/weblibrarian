@@ -594,63 +594,20 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 		<script type="text/javascript">
 			WEBLIB_WriteKeywords('itemedit');</script></div><?php
 	    } ?></div></td></tr>
+      </table>
       <?php 
 	if ($this->viewmode != 'view' && $this->haveAWSoptions()) {
-	     ?><tr valign="top"><td colspan="2" width="100%">
-	     <div id="item-aws">
-		<div id="amazon-logo"><br /></div>
-		<span id="amazon-search-workstatus"></span><br clear="all" />
-		<div id="amazon-result-list"></div>
-		<span id="amazon-page-buttons">
-		  <input type="text" id="amazon-page-1" class="page-label" 
-			 value="1" readonly="readonly" size="1"/>
-		  <input type="button" id="amazon-goto-page-1" 
-			value="<<" class="page-button" 
-			onclick="AWSGotoFirstPage();" />
-		  <input type="button" id="amazon-goto-previous-page"
-		  	value="<" class="page-button"
-			onclick="AWSGotoPrevPage();" />
-		  <input type="button" id="amazon-goto-page"
-			value="<?php _e('Goto Page:','web-librarian'); ?>" class="page-button"
-			onclick="AWSGotoPage();" />
-		  <input type="text" id="amazon-page-current" 
-			class="page-label"
-			value="  "  size="3"/>
-		  <input type="button" id="amazon-goto-next-page"
-			 value=">" class="page-button"
-			 onclick="AWSGotoNextPage();" />
-		  <input type="button" id="amazon-goto-last-page"
-			 value=">>" class="page-button"
-			 onclick="AWSGotoLastPage();" />
-		  <input type="text" id="amazon-page-N" class="page-label"
-			 value="  " readonly="readonly" size="3" />
-		  <br /></span>
-		<span id="amazon-search-box">
-		  <label for="SearchIndex"><?php _e('Search In:','web-librarian'); ?></label>
-		  <select id="SearchIndex">
-		    <option value="Books" selected="selected"><?php _e('Books','web-librarian'); ?></option>
-		    <option value="DVD"><?php _e('DVD','web-librarian'); ?></option>
-		    <option value="Music"><?php _e('Music','web-librarian'); ?></option>
-		    <option value="Video"><?php _e('Video','web-librarian'); ?></option>
-		  </select>
-		  <label for="FieldName"><?php _e('for','web-librarian'); ?></label>
-		  <select id="FieldName">
-		    <option value="Title" selected="selected"><?php _e('Title','web-librarian'); ?></option>
-		    <option value="Artist"><?php _e('Artist','web-librarian'); ?></option>
-		    <option value="Author"><?php _e('Author','web-librarian'); ?></option>
-		    <option value="Keywords"><?php _e('Keywords','web-librarian'); ?></option>
-                  </select>
-		  <input id="SearchString" type='text' value="" />
-		  <input type="button" id="Go" onclick="AWSSearch(1);" value="<?php _e('Go','web-librarian'); ?>" />
-		</span>
-	     </div>
-	     <a name="amazon-item-lookup-display"></a>
-	     <div id="amazon-item-lookup-display"></div>
-	     <span id="amazon-item-lookup-workstatus"></span><br clear="all" />
-	     </td></tr><?php
+        ?><div id="resizable" class="ui-widget-content">
+              <div id="amazon-logo" class="ui-widget-header"><br /></div>
+              <iframe src="<?php echo WEBLIB_BASEURL.'/AWSForm.php'; ?>" 
+               id="aws-formframe">
+              </iframe>
+              <div class="ui-resizable-handle ui-resizable-se ui-icon 
+                 ui-icon-gripsmall-diagonal-se" 
+                 style="z-index: 1001; width: 16px; height: 16px;"></div>
+            </div><?php
 	   }
 	 ?>
-      </table>
       <p>
 	<?php switch($this->viewmode) {
 		case 'add':
