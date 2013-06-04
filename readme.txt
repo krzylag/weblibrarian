@@ -86,6 +86,8 @@ No Screenshots yet.
 * Way too much fun with resizable iframes and jQuery: put the Amazon search
   thingy in an iframe and put the iframe into a resizable (via jQuery) div.
   sort of works, but still a little funky.
+*  Fixed  various  minor  typos:  broken  tags,   spelling   errors,   missing
+   localizations.
 
 == 3.2.6 ==
 * Changed AWS insert buttons to be a small icon instead of "bulky" text buttons

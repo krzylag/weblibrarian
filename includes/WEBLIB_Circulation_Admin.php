@@ -472,14 +472,14 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 
   function circulation_desk() {
     $message = $this->prepare_items();
-    ?><div class="wrap"><div id="icon-circulation" class="icon32"><br /></div
-	<h2>Library Circulation Desk<?php
+    ?><div class="wrap"><div id="icon-circulation" class="icon32"><br /></div>
+	<h2><?php
 	  switch ($this->mode) {
-	    case 'checkinpage': _e( ' -- Check Items In','web-librarian'); break;
-	    case 'holdlist':    _e( ' -- Items with Holds','web-librarian'); break;
-	    case 'outlist':     _e( ' -- Items Checked out','web-librarian'); break;
-	    case 'patroncircrecord': echo sprintf(__(' -- %s\'s Circulation Record','web-librarian'),WEBLIB_Patron::NameFromId($this->patronid)); break;
-	    case 'itemcircrecord': echo sprintf(__(' -- Circulation Record for %s','web-librarian'),$this->barcode); break;
+	    case 'checkinpage': _e( 'Library Circulation Desk -- Check Items In','web-librarian'); break;
+	    case 'holdlist':    _e( 'Library Circulation Desk -- Items with Holds','web-librarian'); break;
+	    case 'outlist':     _e( 'Library Circulation Desk -- Items Checked out','web-librarian'); break;
+	    case 'patroncircrecord': echo sprintf(__('Library Circulation Desk -- %s\'s Circulation Record','web-librarian'),WEBLIB_Patron::NameFromId($this->patronid)); break;
+	    case 'itemcircrecord': echo sprintf(__('Library Circulation Desk -- Circulation Record for %s','web-librarian'),$this->barcode); break;
 	    default: break;
 	  }
 	?></h2><?php

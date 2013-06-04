@@ -132,7 +132,7 @@ class WEBLIB_Types_Database_Admin extends WP_List_Table {
 
   function item_types_database() {
     $message = $this->prepare_items();
-    ?><div class="wrap"><div id="icon-types" class="icon32"><br /></div
+    ?><div class="wrap"><div id="icon-types" class="icon32"><br /></div>
 	<h2><?php _e('Circulation Types','web-librarian'); ?> <a href="<?php
 		echo add_query_arg( array('page' => 'weblib-add-item-type',
 					  'mode' => 'add',

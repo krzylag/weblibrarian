@@ -290,7 +290,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 
   function collection_database() {
     $message = $this->prepare_items();
-    ?><div class="wrap"><div id="icon-collection" class="icon32"><br /></div
+    ?><div class="wrap"><div id="icon-collection" class="icon32"><br /></div>
 	<h2><?php _e('Library Collection','web-librarian'); ?> <a href="<?php
 		echo add_query_arg( array('page' => 'weblib-add-item-collection',
 					  'mode' => 'add',

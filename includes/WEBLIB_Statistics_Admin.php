@@ -45,7 +45,7 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
                           
     global $weblib_contextual_help;
 
-    $screen_id =  add_menu_page(__('Circulation Statsistics','web-librarian'), __('Circulation Stats','web-librarian'),
+    $screen_id =  add_menu_page(__('Circulation Statistics','web-librarian'), __('Circulation Stats','web-librarian'),
 				'manage_circulation', 
 				'weblib-circulation-statistics',
 				array($this,'circulation_statistics'),
@@ -190,7 +190,7 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
 	$rowdata[] = (object) array('label' => $type,
 				    'value' => WEBLIB_Statistic::TypeCount($type,$this->year,$this->month));
       }
-      $rowdata[] = (object) array('label' => 'Total',
+      $rowdata[] = (object) array('label' => __('Total'),
 				  'value' => WEBLIB_Statistic::MonthTotal($this->year,$this->month));
       if ($this->mode != 'typecount') {
 	unset($this->_column_headers);

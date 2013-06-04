@@ -545,7 +545,7 @@ class WEBLIB_Patron {
 	static function PatronIdDropdown($selected,$args) {
 	  echo '<!-- *** WEBLIB_Patron::PatronIdDropdown: args = '.print_r($args,true)." -->\n";
 	  extract (wp_parse_args($args, array('onlyunassoc' => false,
-					      'label' => 'Patron:',
+					      'label' => __('Patron:'),
 					      'name'  => 'patronid',
 					      'beforesel' => '',
 					      'aftersel'  => '',
@@ -624,7 +624,7 @@ class WEBLIB_Patron {
 		$manditorycolcount++;
 	    }
 	    if ($manditorycolcount < 7) {
-	      $message .= '<p><span id="error">' . __('Some manditory columns are missing!','web-librarian') . '</span></p>';
+	      $message .= '<p><span id="error">' . __('Some mandatory columns are missing!','web-librarian') . '</span></p>';
 	      $dataok = false;
 	    }
 	  } else {
@@ -1220,7 +1220,7 @@ class WEBLIB_ItemInCollection {
 		$manditorycolcount++;
 	    }
 	    if ($manditorycolcount < 4) {
-	      $message .= '<p><span id="error">Some manditory columns are missing!</span></p>';
+	      $message .= '<p><span id="error">Some mandatory columns are missing!</span></p>';
 	      $dataok = false;
 	    }
 	  } else {

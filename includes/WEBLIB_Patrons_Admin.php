@@ -199,7 +199,7 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
   
   function list_patrons() {
     $message = $this->prepare_items();
-    ?><div class="wrap"><div id="icon-patrons" class="icon32"><br /></div
+    ?><div class="wrap"><div id="icon-patrons" class="icon32"><br /></div>
 	<h2><?php _e('Library Patrons','web-librarian'); ?> <a href="<?php
 	   echo add_query_arg( array('page' => 'weblib-add-patron',
 				     'mode' => 'add',
