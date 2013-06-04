@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.2.6.1
+ * Version: 3.2.7
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -105,8 +105,10 @@ class WebLibrarian {
 	wp_enqueue_style('weblib-front-style',WEBLIB_CSSURL . '/front.css',
 			 null,$this->version);
 	if (is_admin()) {
+          wp_enqueue_style('jquery-ui-lightness',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery-ui-lightness.css',null,$this->version);
+          wp_enqueue_style('jquery-ui-resizable',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery.ui.resizable.css',null,$this->version);
 	  wp_enqueue_style('weblib-admin-style',WEBLIB_CSSURL . '/admin.css',
-			array('weblib-front-style'),$this->version);
+			array('weblib-front-style','jquery-ui-resizable'),$this->version);
 	}
     }
     function MyVersion() {return $this->version;}
@@ -189,7 +191,7 @@ class WebLibrarian {
 		'holds' => __('Holds','web-librarian'),
 		'nodata' => __('Ajax error:  No Data Received','web-librarian'),
 		'ajaxerr' => __('Ajax error: ','web-librarian'),
-		'totalResultsFount' => __('total results found','web-librarian'),
+		'totalResultsFount' => __('%d total results found','web-librarian'),
 		'loading' => __('Loading','web-librarian'),
 		'lookupItem' => __('Lookup Item','web-librarian'),
 		'insertItem' => __('Insert Item','web-librarian'),

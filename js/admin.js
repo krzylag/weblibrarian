@@ -418,7 +418,10 @@ jQuery(function() {
   jQuery("#resizable").resizable({
        resize: function(event, ui) {
            log('*** admin.js: jQuery: resizing the iframe');
-           jQuery("#aws-formframe").css({ "height": ui.size.height,"width":ui.size.width});
+           log('*** admin.js: jQuery: ui.size.height = '+ui.size.height);
+           var h = ui.size.height-40;
+           log('*** admin.js: jQuery: h = '+h);
+           jQuery("#aws-formframe").css({ "height": h,"width":ui.size.width});
        }
    });
   });

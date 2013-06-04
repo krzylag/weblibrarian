@@ -8,7 +8,7 @@
      Created By    : Robert Heller, Deepwoods Software
      Created       : Mon Jun 3 09:29:32 2013
 
-     Last Modified : <130603.1324>
+     Last Modified : <130604.1017>
      ID            : $Id$
      Source        : $Source$
      Description	
@@ -132,7 +132,8 @@ function AWSSearchCallback()
         }
         listout += '</table>';
         document.getElementById('amazon-result-list').innerHTML = listout;
-        document.getElementById('amazon-search-workstatus').innerHTML = '<p>'+TotalResults+' '+admin_js.totalResultsFount+'</p>';
+        var tr1 = admin_js.totalResultsFount.replace(/%d/,TotalResults);
+        document.getElementById('amazon-search-workstatus').innerHTML = '<p>'+tr1+'</p>';
       } else document.getElementById('amazon-search-workstatus').innerHTML = '<p>'+admin_js.nodata+'</p>'
     } else document.getElementById('amazon-search-workstatus').innerHTML  = '<p>'+admin_js.ajaxerr+this.status+"</p>"
   }

@@ -80,6 +80,9 @@
   background-color: transparent;
   background-image: url(../images/AmazonLogo.gif);
   background-repeat: no-repeat;
+  border: none;
+  padding: 5px;
+  
 }
 
 img.WEBLIB_AWS_addinsertbutton {
@@ -248,10 +251,3 @@ table.listpatrons-table {
 
 
     
-.ui-icon-gripsmall-diagonal-se {
-    background-position: -64px -224px;
-    width: 16;
-    height: 16;
-    background: transparent url(../images/sizegrip16x16.png) no-repeat;
-    float: right;
-}

@@ -82,6 +82,11 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.7 ==
+* Fixed up the jQuery UI, smoothed out the rough edges (eg got all of the 
+  proper stylesheet and image support). Additional (minor) localization 
+  updates. 
+
 == 3.2.6.1 ==
 * Way too much fun with resizable iframes and jQuery: put the Amazon search
   thingy in an iframe and put the iframe into a resizable (via jQuery) div.

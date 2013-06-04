@@ -601,10 +601,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
               <div id="amazon-logo" class="ui-widget-header"><br /></div>
               <iframe src="<?php echo WEBLIB_BASEURL.'/AWSForm.php'; ?>" 
                id="aws-formframe">
-              </iframe>
-              <div class="ui-resizable-handle ui-resizable-se ui-icon 
-                 ui-icon-gripsmall-diagonal-se" 
-                 style="z-index: 1001; width: 16px; height: 16px;"></div>
+              </iframe>              
             </div><?php
 	   }
 	 ?>
