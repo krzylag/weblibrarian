@@ -55,7 +55,7 @@ function WEBLIB_make_tables() {
   media varchar(36) not null default '',
   publisher varchar(36) not null default '',
   publocation varchar(36) not null default '',
-  pubdate date not null default '0000-01-01',
+  pubdate date not null default '1900-01-01',
   edition varchar(36) not null default '',
   isbn varchar(20) not null default '',
   type varchar(16) not null check (type <> ''),
