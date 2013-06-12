@@ -636,22 +636,22 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
       $newbarcode = $_REQUEST['barcode'];
       if ($newbarcode != '') {
 	if (!preg_match('/^[a-zA-Z0-9]+$/',$newbarcode) || strlen($barcode) > 16) {
-	  $result .= '<br /><span id="error">Bad barcode.  Must be alphanumerical and not more than 16 characters long</span>';
+	  $result .= '<br /><span id="error">'._('Bad barcode.  Must be alphanumerical and not more than 16 characters long','web-librarian').'</span>';
 	}
       }
     }
     if ($_REQUEST['title'] == '') {
-      $result .= '<br /><span id="error">Title is invalid</span>';
+      $result .= '<br /><span id="error">'._('Title is invalid','web-librarian').'</span>';
     }
     if ($_REQUEST['itemauthor'] == '') {
-      $result .= '<br /><span id="error">Author is invalid</span>';
+      $result .= '<br /><span id="error">'._('Author is invalid','web-librarian').'</span>';
     }
     if ($_REQUEST['subject'] == '') {
-      $result .= '<br /><span id="error">Subject is invalid</span>';
+      $result .= '<br /><span id="error">'._('Subject is invalid','web-librarian').'</span>';
     }
-    WEBLIB_Patrons_Admin::ValidHumanDate($_REQUEST['pubdate'],$dummy,'Publication Date',$result);
+    WEBLIB_Patrons_Admin::ValidHumanDate($_REQUEST['pubdate'],$dummy,_('Publication Date','web-librarian'),$result);
     if ($_REQUEST['type'] == '') {
-      $result .= '<br /><span id="error">Type is invalid</span>';
+      $result .= '<br /><span id="error">'._('Type is invalid','web-librarian').'</span>';
     }
     return $result;    
   }
