@@ -325,8 +325,8 @@ class WEBLIB_ShortCodes {
 	}
 	$result .= '&nbsp;<span id="hold-count-'.$barcode.'">';
 	if ($numberofholds > 0) {
-	  if ($numberofholds > 1) $result .= sprintf(__('%d Holds','web-librarian'),$numberofholds);
-	  else $result .= __('1 Hold','web-librarian');
+          $result .= sprintf(_n('%d Hold','%d Holds',$numberofholds,'web-librarian'),
+                             $numberofholds);
 	}
 	$result .= '</span><!-- hold-count-... -->';
 	$result .= '</span><!-- weblib-item-left-content -->';
@@ -430,8 +430,8 @@ class WEBLIB_ShortCodes {
 	}
 	$result .= '<br /><span id="hold-count-'.$barcode.'">';
 	if ($numberofholds > 0) {
-	  if ($numberofholds > 1) $result .= sprintf(__('%d Holds','web-librarian'),$numberofholds);
-	  else $result .= __('1 Hold','web-librarian');
+          $result .= sprintf(_n('%d Hold','%d Holds',$numberofholds,'web-librarian'),
+                             $numberofholds);
 	}
 	$result .= '</span></span>';
 	if ($holdbutton) {

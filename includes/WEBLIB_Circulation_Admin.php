@@ -478,7 +478,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 	    case 'checkinpage': _e( 'Library Circulation Desk -- Check Items In','web-librarian'); break;
 	    case 'holdlist':    _e( 'Library Circulation Desk -- Items with Holds','web-librarian'); break;
 	    case 'outlist':     _e( 'Library Circulation Desk -- Items Checked out','web-librarian'); break;
-	    case 'patroncircrecord': echo sprintf(__('Library Circulation Desk -- %s\'s Circulation Record','web-librarian'),WEBLIB_Patron::NameFromId($this->patronid)); break;
+	    case 'patroncircrecord': echo sprintf(__("Library Circulation Desk -- %s's Circulation Record",'web-librarian'),WEBLIB_Patron::NameFromId($this->patronid)); break;
 	    case 'itemcircrecord': echo sprintf(__('Library Circulation Desk -- Circulation Record for %s','web-librarian'),$this->barcode); break;
 	    default: break;
 	  }

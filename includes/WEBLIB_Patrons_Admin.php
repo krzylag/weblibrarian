@@ -413,18 +413,30 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
                     __('oct','web-librarian') => 10, 
                     __('nov','web-librarian') => 11, 
                     __('dec','web-librarian') => 12);
+    $dfmt = nl_langinfo(D_FMT);
+    if ($dfmt == '%m/%d/%y') {
+      $invdate = __('Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy.','web-librarian');
+    } else {
+      $invdate = __('Invalid %s date (%s). Should be mm/yyyy or dd/mm/yyyy.','web-librarian');
+    }
     $datearry=split("/",$datestring); // splitting the array
     if (count($datearry) == 2) {/* only month and year given (presumed) */
       $month = $datearry[0];
       $year  = $datearry[1];
       $date  = 1; /* assume first of the month */
     } elseif (count($datearry) == 3) {
-      $month = $datearry[0];
-      $date  = $datearry[1];
-      $year  = $datearry[2];
+      if ($dfmt == '%m/%d/%y') {
+        $month = $datearry[0];
+        $date  = $datearry[1];
+        $year  = $datearry[2];
+      } else {
+        $date  = $datearry[0];
+        $month = $datearry[1];
+        $year  = $datearry[2];
+      }
     } else {
       $error .= '<br /><span id="error">';
-      $error .= sprintf(__('Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy.','web-librarian'),$label,$datestring);
+      $error .= sprintf($invdate,$label,$datestring);
       $error .= '</span>';
       return false;
     }

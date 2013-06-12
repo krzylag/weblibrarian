@@ -30,7 +30,7 @@ msgstr "Non hai privilegi sufficienti per accedere alla pagina."
 msgid ""
 "The headers have been sent by another plugin - there may be a plugin "
 "conflict."
-msgstr ""
+msgstr "Potrebbe esserci un conflitto di plugin: headers already sent"
 
 #: PlaceHoldOnItem.php:53
 msgid "No such item:"
@@ -46,7 +46,7 @@ msgstr "L'iscritto ha già prenotato questo elemento!"
 
 #: ExportLibraryData.php:61
 msgid "Bad value for dataselection!"
-msgstr ""
+msgstr "Selezione di dati non valida"
 
 #: includes/WEBLIB_Circulation_Admin.php:33
 #: includes/WEBLIB_Collection_Admin.php:21
@@ -57,9 +57,25 @@ msgstr ""
 msgid "Items"
 msgstr "Elementi"
 
-#: includes/WEBLIB_Circulation_Admin.php:462
-msgid "Library Circulation Desk"
-msgstr "Banco prestiti"
+#: includes/WEBLIB_Circulation_Admin.php:478
+msgid "Library Circulation Desk -- Check Items In"
+msgstr "Banco prestiti -- Gestione rientri"
+
+#: includes/WEBLIB_Circulation_Admin.php:479
+msgid "Library Circulation Desk -- Items with Holds"
+msgstr "Banco prestiti -- Gestione prenotazioni"
+
+#: includes/WEBLIB_Circulation_Admin.php:480
+msgid "Library Circulation Desk -- Items Checked out"
+msgstr "Banco prestiti -- Gestione uscite"
+
+#: includes/WEBLIB_Circulation_Admin.php:481
+msgid "Library Circulation Desk -- %s's Circulation Record"
+msgstr "Banco prestiti -- Scheda elemento %s"
+
+#: includes/WEBLIB_Circulation_Admin.php:482
+msgid "Library Circulation Desk -- Circulation Record for %s"
+msgstr "Banco prestiti -- Scheda dell'elemento %s"
 
 #: includes/WEBLIB_Circulation_Admin.php:294
 msgid "Someone else has a hold on this item!"
@@ -261,6 +277,22 @@ msgstr "Separa le parole chiave con delle virgole"
 msgid "Add a new item to the collection"
 msgstr "Aggiungi nuovo elemento alla collezione"
 
+#: includes/WEBLIB_Collection_Admin.php:644
+msgid "Title is invalid"
+msgstr "Errore: titolo non valido"
+
+#: includes/WEBLIB_Collection_Admin.php:647
+msgid "Author is invalid"
+msgstr "Errore: autore non valido"
+
+#: includes/WEBLIB_Collection_Admin.php:650
+msgid "Subject is invalid"
+msgstr "Errore: argomento non valido"
+
+#: includes/WEBLIB_Collection_Admin.php:654
+msgid "Type is invalid"
+msgstr "Errore: tipo non valido"
+
 #: includes/WEBLIB_Collection_Admin.php:20
 #: includes/WEBLIB_PatronRecord_Admin.php:19
 msgid "Item"
@@ -364,7 +396,7 @@ msgstr "Categoria:"
 
 #: includes/WEBLIB_Collection_Admin.php:493
 msgid "Media:"
-msgstr "Medium:"
+msgstr "Formato:"
 
 #: includes/WEBLIB_Collection_Admin.php:500
 msgid "Publisher:"
@@ -492,7 +524,7 @@ msgstr "TAB"
 #: includes/WEBLIB_Collection_Admin.php:781
 #: includes/WEBLIB_Patrons_Admin.php:636
 msgid "Enclosure Character:"
-msgstr ""
+msgstr "Carattere di Enclosure"
 
 #: includes/WEBLIB_Collection_Admin.php:803
 #: includes/WEBLIB_Patrons_Admin.php:658
@@ -524,7 +556,7 @@ msgstr "Data di uscita"
 
 #: includes/WEBLIB_Collection_Admin.php:828
 msgid "Due Data"
-msgstr ""
+msgstr "Informazioni riconsegna"
 
 #: includes/WEBLIB_Collection_Admin.php:834
 msgid "Due Date"
@@ -542,7 +574,7 @@ msgstr "Data di scadenza"
 
 #: includes/WEBLIB_Collection_Admin.php:877
 msgid "Delete orphan holds and checkouts"
-msgstr ""
+msgstr "Cancella prenotazioni e uscite senza elementi collegati"
 
 #: includes/WEBLIB_PatronRecord_Admin.php:28
 msgid "You do not have a patron ID yet."
@@ -554,7 +586,7 @@ msgstr "Cancella le prenotazioni selezionate"
 
 #: includes/WEBLIB_PatronRecord_Admin.php:327
 msgid "Renew Selected Items"
-msgstr ""
+msgstr "Rinnova gli elementi selezionati"
 
 #: includes/WEBLIB_Patrons_Admin.php:28 includes/WEBLIB_Patrons_Admin.php:203
 msgid "Library Patrons"
@@ -619,7 +651,7 @@ msgstr "ERRORE: Controlla \"Indirizzo 1\""
 
 #: includes/WEBLIB_Patrons_Admin.php:350
 msgid "City is invalid"
-msgstr "ERRORE: Controlla \"Città\""
+msgstr "ERRORE: Controlla \"Citt&agrave;\""
 
 #: includes/WEBLIB_Patrons_Admin.php:354
 msgid "State is invalid"
@@ -697,11 +729,11 @@ msgstr "Aggiungi iscritti in blocco"
 msgid "Stats"
 msgstr "Statistiche"
 
-#: includes/WEBLIB_Statistics_Admin.php:230
+#: includes/WEBLIB_Statistics_Admin.php:245
 msgid "Export Library Circulation Statistics"
 msgstr "Esporta statistiche del prestito"
 
-#: includes/WEBLIB_Statistics_Admin.php:216
+#: includes/WEBLIB_Statistics_Admin.php:231
 msgid "Library Circulation Statistics"
 msgstr "Statistiche del prestito"
 
@@ -767,6 +799,22 @@ msgstr "Tipi"
 #: includes/WEBLIB_Types_Database_Admin.php:91
 msgid "Loan Period (days)"
 msgstr "Durata del prestito (giorni)"
+
+#: includes/WEBLIB_Types_Database_Admin.php:182
+msgid "Duplicate typename"
+msgstr "Errore: nome del tipo gi&agrave; presente"
+
+#: includes/WEBLIB_Types_Database_Admin.php:186
+msgid "Loan period not a whole number"
+msgstr "Errore: la durata del prestito non &egrave; un numero intero"
+
+#: includes/WEBLIB_Types_Database_Admin.php:203
+msgid "Edit A Circulation Type's Loan Period"
+msgstr "Modifica la durata"
+
+#: includes/WEBLIB_Types_Database_Admin.php:205
+msgid "Add new Circulation Type"
+msgstr "Aggiungi nuovo tipo di prestito"
 
 #: includes/WEBLIB_Types_Database_Admin.php:220
 msgid "%s inserted, with a loan period of %d."
@@ -890,11 +938,11 @@ msgstr "Chiave privata assente!"
 
 #: includes/admin_page_classes.php:128
 msgid "Region Domain missing!"
-msgstr ""
+msgstr "Region Domain assente!"
 
 #: includes/admin_page_classes.php:132
 msgid "Associate Tag missing!"
-msgstr ""
+msgstr "Associate Tag assente!"
 
 #: includes/admin_page_classes.php:141
 msgid "Options Saved"
@@ -942,11 +990,11 @@ msgstr "Gran Bretagna"
 
 #: includes/admin_page_classes.php:196
 msgid "Amazon Associate Tag:"
-msgstr ""
+msgstr "Amazon Associate Tag:"
 
 #: includes/admin_page_classes.php:203
 msgid "Debug Database:"
-msgstr ""
+msgstr "Debug del database"
 
 #: includes/admin_page_classes.php:206
 msgid "On"
@@ -993,8 +1041,8 @@ msgstr "Statistiche sul prestito per iscritto"
 msgid "Circulation Type"
 msgstr "Tipo di prestito"
 
+#: includes/WEBLIB_Statistics_Admin.php:193
 #: includes/admin_page_classes.php:272
-#: includes/WEBLIB_Statistics_Admin.php:164
 msgid "Total"
 msgstr "Totale"
 
@@ -1004,11 +1052,11 @@ msgstr "Statistiche sul prestito per %s"
 
 #: includes/admin_page_classes.php:286
 msgid "Items on hold:"
-msgstr ""
+msgstr "Elementi prenotati:"
 
 #: includes/admin_page_classes.php:287
 msgid "Items checked out:"
-msgstr ""
+msgstr "Elementi usciti:"
 
 #: includes/database_code.php:169
 msgid "Table: "
@@ -1056,7 +1104,7 @@ msgstr "Ordina per:"
 
 #: includes/short_codes.php:48
 msgid "System Sorted"
-msgstr ""
+msgstr "Sistema riordinato"
 
 #: includes/short_codes.php:57
 msgid "Ascending"
@@ -1080,7 +1128,7 @@ msgstr "%d corrispondenze."
 
 #: includes/short_codes.php:217
 msgid "Goto Page"
-msgstr ""
+msgstr "Vai alla pagina"
 
 #: includes/short_codes.php:256
 msgid "No such item: %s"
@@ -1092,7 +1140,7 @@ msgstr "Pubblicato"
 
 #: includes/short_codes.php:302 includes/short_codes.php:439
 msgid "Request"
-msgstr ""
+msgstr "Richiesta"
 
 #: includes/short_codes.php:311
 msgid "Status:"
@@ -1100,7 +1148,7 @@ msgstr "Stato:"
 
 #: includes/short_codes.php:316 includes/short_codes.php:422
 msgid "Due "
-msgstr ""
+msgstr "Da riconsegnare "
 
 #: includes/short_codes.php:328 includes/short_codes.php:433
 msgid "%d Holds"
@@ -1116,7 +1164,7 @@ msgstr "Categoria"
 
 #: includes/short_codes.php:348
 msgid "Media"
-msgstr "Medium"
+msgstr "Formato"
 
 #: includes/short_codes.php:354
 msgid "Edition"
@@ -1128,7 +1176,7 @@ msgstr "Bibliotecario"
 
 #: WebLibrarian.php:132
 msgid "Senior Aid"
-msgstr ""
+msgstr "Assistente"
 
 #: WebLibrarian.php:141
 msgid "Volunteer"
@@ -1192,4 +1240,4 @@ msgstr "Accedi/esci, admin"
 
 #: WebLibrarian.php:235
 msgid "Stripped Meta"
-msgstr ""
+msgstr "Meta ridotto"

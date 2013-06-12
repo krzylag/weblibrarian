@@ -224,7 +224,7 @@ a.weblib-button:visited {
   font-weight: bold;
 }
 
-.weblib-item-content-block {
+.weblib-item-content-block, .weblib-item-table {
   display: table;
 }
 
