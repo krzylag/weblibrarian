@@ -1596,15 +1596,18 @@ class WEBLIB_OutItem {
 	static function RenewByBarcodeAndPatronID($barcode,$patronid = '*') {
 	  $outitem = WEBLIB_OutItem::OutItemByBarcode($barcode);
 	  if ($outitem == null) {
-	    return 'The item is not checked out!';
+	    return __('The item is not checked out!','web-librarian');
 	  }
 	  if ($patronid != '*' && $outitem->patronid() != $patronid) {
-	    return 'You cannot renew '.$outitem->title().'!';
+	    return sprintf(__('You cannot renew %s!','web-librarian'),
+                           $outitem->title());
 	  }
 	  $numberofholds = WEBLIB_HoldItem::HoldCountsOfBarcode($outitem->barcode());
 	  if ($numberofholds > 0) {
-	    return 'You cannot renew '.$outitem->title().' it has '.
-			$numberofholds.' hold'.($numberofholds > 1?'s':'').'!';
+            return sprintf(_n('You cannot renew %s, it has %d hold.',
+                              'You cannot renew %s, it has %d holds.',
+                              $numberofholds,'web-librarian'),
+                           $outitem->title(),$numberofholds);
 	  }
 	  $type = new WEBLIB_Type($outitem->type());
 	  $currentdue = strtotime($outitem->datedue());
@@ -1614,13 +1617,13 @@ class WEBLIB_OutItem {
 	  $renewals = $totalloandays / $type->loanperiod();
 	  unset($type);
 	  if ($renewals > 3) {
-	    return 'Maximum number of renewals reached for '.
-				$outitem->title().'!';
+	    return sprintf(__('Maximum number of renewals reached for %s!',
+                              'web-librarian'),$outitem->title());
 	  } else {
 	    $outitem->set_datedue($duedate);
 	    $outitem->store();
 	  }
-	  return $outitem->title().' Renewed.';	  
+	  return sprintf(__('%s Renewed.','web-librarian'),$outitem->title());	  
 	}
 	static function AllOutItems() {
 	  global $wpdb;
