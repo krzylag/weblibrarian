@@ -179,11 +179,11 @@ class WEBLIB_Types_Database_Admin extends WP_List_Table {
     $result = '';
     if ($this->viewmode == 'add') {
       if (WEBLIB_Type::KnownType($_REQUEST['typename'])) {
-	$result .= '<br /><span id="error">Duplicate typename.</span>';
+	$result .= '<br /><span id="error">'.__('Duplicate typename','web-librarian').'</span>';
       }
     }
     if (!preg_match('/^\d+$/',$_REQUEST['loanperiod'])) {
-      $result .= '<br /><span id="error">Loan period not a whole number</span>';
+      $result .= '<br /><span id="error">'.__('Loan period not a whole number','web-librarian').'</span>';
     }
     return $result;
   }
@@ -200,9 +200,9 @@ class WEBLIB_Types_Database_Admin extends WP_List_Table {
   }
   function add_item_h2() {
     switch ($this->viewmode) {
-      case 'edit': return "Edit A Circulation Type's Loan Period";
+      case 'edit': return __("Edit A Circulation Type's Loan Period",'web-librarian');
       default:
-      case 'add': return 'Add new Circulation Type';
+      case 'add': return __('Add new Circulation Type','web-librarian');
     }
   }
 
