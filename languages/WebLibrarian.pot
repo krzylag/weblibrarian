@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
-"POT-Creation-Date: 2013-06-04 14:38:49+00:00\n"
+"POT-Creation-Date: 2013-06-14 17:23:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: AWSXmlGet.php:139 ExportLibraryData.php:46 ExportLibraryData.php:53
 #: ExportLibraryStats.php:31 FindPatron.php:31
-#: includes/WEBLIB_Circulation_Admin.php:498
+#: includes/WEBLIB_Circulation_Admin.php:499
 #: includes/WEBLIB_Collection_Admin.php:228
 #: includes/WEBLIB_Collection_Admin.php:776
 #: includes/WEBLIB_Patrons_Admin.php:157 includes/WEBLIB_Patrons_Admin.php:273
@@ -112,6 +112,18 @@ msgstr ""
 
 #: ExportLibraryData.php:61
 msgid "Bad value for dataselection!"
+msgstr ""
+
+#: PlaceHoldOnItem.php:53
+msgid "No such item: %s!"
+msgstr ""
+
+#: PlaceHoldOnItem.php:55
+msgid "No such patron id: %d!"
+msgstr ""
+
+#: PlaceHoldOnItem.php:57
+msgid "Patron already has a hold on this item!"
 msgstr ""
 
 #: WebLibrarian.php:128
@@ -252,12 +264,12 @@ msgstr ""
 msgid "Check Shelves"
 msgstr ""
 
-#: includes/WEBLIB_Circulation_Admin.php:95 includes/short_codes.php:328
-#: includes/short_codes.php:433
+#: includes/WEBLIB_Circulation_Admin.php:95
 msgid "%d Holds"
 msgstr ""
 
-#: includes/WEBLIB_Circulation_Admin.php:97
+#: includes/WEBLIB_Circulation_Admin.php:97 includes/short_codes.php:328
+#: includes/short_codes.php:433
 msgid "%d Hold"
 msgstr ""
 
@@ -391,26 +403,30 @@ msgid "Item not checked out!"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:478
-msgid "Library Circulation Desk -- Check Items In"
+msgid "Library Circulation Desk"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:479
-msgid "Library Circulation Desk -- Items with Holds"
+msgid "Library Circulation Desk -- Check Items In"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:480
-msgid "Library Circulation Desk -- Items Checked out"
+msgid "Library Circulation Desk -- Items with Holds"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:481
-msgid "Library Circulation Desk -- %s's Circulation Record"
+msgid "Library Circulation Desk -- Items Checked out"
 msgstr ""
 
 #: includes/WEBLIB_Circulation_Admin.php:482
+msgid "Library Circulation Desk -- %s's Circulation Record"
+msgstr ""
+
+#: includes/WEBLIB_Circulation_Admin.php:483
 msgid "Library Circulation Desk -- Circulation Record for %s"
 msgstr ""
 
-#: includes/WEBLIB_Circulation_Admin.php:492
+#: includes/WEBLIB_Circulation_Admin.php:493
 #: includes/WEBLIB_Collection_Admin.php:311
 msgid "Search Collection"
 msgstr ""
@@ -602,9 +618,34 @@ msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:617
 #: includes/WEBLIB_Collection_Admin.php:769
-#: includes/WEBLIB_Patrons_Admin.php:587 includes/WEBLIB_Patrons_Admin.php:674
+#: includes/WEBLIB_Patrons_Admin.php:599 includes/WEBLIB_Patrons_Admin.php:686
 #: includes/WEBLIB_Types_Database_Admin.php:310
 msgid "Return"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:639
+msgid ""
+"Bad barcode.  Must be alphanumerical and not more than 16 characters long"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:644
+msgid "Title is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:647
+msgid "Author is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:650
+msgid "Subject is invalid"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:652
+msgid "Publication Date"
+msgstr ""
+
+#: includes/WEBLIB_Collection_Admin.php:654
+msgid "Type is invalid"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:689
@@ -612,32 +653,32 @@ msgid "Add Items to the collection in bulk"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:727
-#: includes/WEBLIB_Patrons_Admin.php:632
+#: includes/WEBLIB_Patrons_Admin.php:644
 msgid "CSV File:"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:730
-#: includes/WEBLIB_Patrons_Admin.php:635
+#: includes/WEBLIB_Patrons_Admin.php:647
 msgid "Use CSV Header?"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:734
-#: includes/WEBLIB_Patrons_Admin.php:639
+#: includes/WEBLIB_Patrons_Admin.php:651
 msgid "Field Separater Character:"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:744
-#: includes/WEBLIB_Patrons_Admin.php:649
+#: includes/WEBLIB_Patrons_Admin.php:661
 msgid "TAB"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:746
-#: includes/WEBLIB_Patrons_Admin.php:651
+#: includes/WEBLIB_Patrons_Admin.php:663
 msgid "Enclosure Character:"
 msgstr ""
 
 #: includes/WEBLIB_Collection_Admin.php:768
-#: includes/WEBLIB_Patrons_Admin.php:673
+#: includes/WEBLIB_Patrons_Admin.php:685
 msgid "Upload File"
 msgstr ""
 
@@ -839,75 +880,79 @@ msgstr ""
 msgid "dec"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:427
+#: includes/WEBLIB_Patrons_Admin.php:418
 msgid "Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy."
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:444
+#: includes/WEBLIB_Patrons_Admin.php:420
+msgid "Invalid %s date (%s). Should be mm/yyyy or dd/mm/yyyy."
+msgstr ""
+
+#: includes/WEBLIB_Patrons_Admin.php:456
 msgid "Invalid %s date (%s): illegal month (%s). Should be one of %s."
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:451
+#: includes/WEBLIB_Patrons_Admin.php:463
 msgid "Invalid %s date (%s). Out of range."
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:492
+#: includes/WEBLIB_Patrons_Admin.php:504
 msgid "Patron ID:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:501
+#: includes/WEBLIB_Patrons_Admin.php:513
 msgid "Telephone:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:509
+#: includes/WEBLIB_Patrons_Admin.php:521
 msgid "Last Name:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:516
+#: includes/WEBLIB_Patrons_Admin.php:528
 msgid "First Name:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:523
+#: includes/WEBLIB_Patrons_Admin.php:535
 msgid "Extra Name:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:530
+#: includes/WEBLIB_Patrons_Admin.php:542
 msgid "Address 1:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:537
+#: includes/WEBLIB_Patrons_Admin.php:549
 msgid "Address 2:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:544
+#: includes/WEBLIB_Patrons_Admin.php:556
 msgid "City:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:551
+#: includes/WEBLIB_Patrons_Admin.php:563
 msgid "State:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:558
+#: includes/WEBLIB_Patrons_Admin.php:570
 msgid "Zip:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:565
+#: includes/WEBLIB_Patrons_Admin.php:577
 msgid "Outstanding Fines: $"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:571
+#: includes/WEBLIB_Patrons_Admin.php:583
 msgid "Expires on:"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:580
+#: includes/WEBLIB_Patrons_Admin.php:592
 msgid "Add Patron"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:583
+#: includes/WEBLIB_Patrons_Admin.php:595
 msgid "Update Patron"
 msgstr ""
 
-#: includes/WEBLIB_Patrons_Admin.php:594
+#: includes/WEBLIB_Patrons_Admin.php:606
 msgid "Add Library Patrons in bulk"
 msgstr ""
 
@@ -1010,8 +1055,16 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
+#: includes/WEBLIB_Statistics_Admin.php:231
+msgid "Library Circulation Statistics"
+msgstr ""
+
 #: includes/WEBLIB_Statistics_Admin.php:234
 msgid "Export Stats"
+msgstr ""
+
+#: includes/WEBLIB_Statistics_Admin.php:245
+msgid "Export Library Circulation Statistics"
 msgstr ""
 
 #: includes/WEBLIB_Types_Database_Admin.php:32
@@ -1034,6 +1087,22 @@ msgstr ""
 
 #: includes/WEBLIB_Types_Database_Admin.php:91
 msgid "Loan Period (days)"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:182
+msgid "Duplicate typename"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:186
+msgid "Loan period not a whole number"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:203
+msgid "Edit A Circulation Type's Loan Period"
+msgstr ""
+
+#: includes/WEBLIB_Types_Database_Admin.php:205
+msgid "Add new Circulation Type"
 msgstr ""
 
 #: includes/WEBLIB_Types_Database_Admin.php:220
@@ -1272,32 +1341,54 @@ msgstr ""
 msgid "Items checked out:"
 msgstr ""
 
-#: includes/database_code.php:169
+#: includes/database_code.php:171
 msgid "Table: "
 msgstr ""
 
-#: includes/database_code.php:548
+#: includes/database_code.php:550
 msgid "Patron:"
 msgstr ""
 
-#: includes/database_code.php:614
+#: includes/database_code.php:616
 msgid "Undefined column: %s"
 msgstr ""
 
-#: includes/database_code.php:627
+#: includes/database_code.php:629
 msgid "Some mandatory columns are missing!"
 msgstr ""
 
-#: includes/database_code.php:660
+#: includes/database_code.php:662
 msgid "Bad number of columns: %d"
 msgstr ""
 
-#: includes/database_code.php:692
+#: includes/database_code.php:694
 msgid "%d patron inserted"
 msgstr ""
 
-#: includes/database_code.php:694
+#: includes/database_code.php:696
 msgid "%d patrons inserted"
+msgstr ""
+
+#: includes/database_code.php:1601
+msgid "The item is not checked out!"
+msgstr ""
+
+#: includes/database_code.php:1604
+msgid "You cannot renew %s!"
+msgstr ""
+
+#: includes/database_code.php:1609
+msgid "You cannot renew %s, it has %d hold."
+msgid_plural "You cannot renew %s, it has %d holds."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/database_code.php:1622
+msgid "Maximum number of renewals reached for %s!"
+msgstr ""
+
+#: includes/database_code.php:1628
+msgid "%s Renewed."
 msgstr ""
 
 #: includes/short_codes.php:37
@@ -1354,10 +1445,6 @@ msgstr ""
 
 #: includes/short_codes.php:316 includes/short_codes.php:422
 msgid "Due "
-msgstr ""
-
-#: includes/short_codes.php:329 includes/short_codes.php:434
-msgid "1 Hold"
 msgstr ""
 
 #: includes/short_codes.php:342
