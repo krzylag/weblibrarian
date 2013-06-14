@@ -243,7 +243,7 @@ a.weblib-button:visited {
 }
 
 .weblib-item-info {
-  width: 100%;
+  width: 85%;
 }
 
 .weblib-item-index {
@@ -261,7 +261,9 @@ a.weblib-button:visited {
 
 .weblib-item-thumb {
   padding: 0px 4px;
-  width: 48px;
-  height: 72px;
 }
 
+.weblib-item-thumb img {
+  min-width: 48px;
+  min-height: 72px;
+}

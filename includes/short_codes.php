@@ -292,7 +292,7 @@ class WEBLIB_ShortCodes {
 	$result .= '<div class="weblib-item-right weblib-item-element">';
 	$result .= '<span class="weblib-item-thumb">';
 	if ($item->thumburl() != '') {
-	  $result .= '<img src="'.$item->thumburl().'" border="0" />';
+	  $result .= '<img src="'.$item->thumburl().'" border="0"  />';
 	} else {
 	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
 	}
@@ -396,15 +396,14 @@ class WEBLIB_ShortCodes {
 	break;
       case 'brief':
       default:
-	$result .= '<div class="weblib-item-brief weblib-item-element">';
-	$result .= '<span class="weblib-item-thumb weblib-item-element">';
+	$result .= '<span class="weblib-item-brief weblib-item-thumb weblib-item-element">';
 	if ($item->thumburl() != '') {
 	  $result .= '<img src="'.$item->thumburl().'" border="0" />';
 	} else {
 	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
 	}
         $result .= '</span>';
-	$result .= '<span class="weblib-item-info weblib-item-element">';
+	$result .= '<span class="weblib-item-brief weblib-item-info weblib-item-element">';
 	if ($moreinfourl != '') {
 	  $result .= '<a href="'.add_query_arg(array('barcode' => $barcode),
 						$moreinfourl).'">';
@@ -439,7 +438,6 @@ class WEBLIB_ShortCodes {
 	  $result .= '<input class="weblib-button" type="button" value="'.__('Request','web-librarian').'" onClick="PlaceHold('."'".$barcode."');".'" />';
 	  $result .= '</span>';
 	}
-	$result .= '</div>';
 	break;
     }
     return $result;
