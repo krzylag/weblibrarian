@@ -144,7 +144,7 @@ class WEBLIB_ShortCodes {
     } else {
 	$result .= sprintf(__('%d Items Matched.','web-librarian'),$total_items);
     }
-    $result .= '</span><br />';
+    $result .= '</span><br clear="all" />';
 
     $total_pages = ceil( $total_items / $per_page );
     $pagenum = isset($_REQUEST['pagenum']) ? $_REQUEST['pagenum'] : 1;
@@ -194,7 +194,9 @@ class WEBLIB_ShortCodes {
 
     file_put_contents("php://stderr","*** WEBLIB_ShortCodes::generate_pagination($pagenum,$lastpage,$per_page,".print_r($otherparams,true).")\n");
 
-    if ($lastpage == 1) {return '';}
+    if ($lastpage == 1) {
+      return '';
+    }
 
     $result  = '<div class="weblib-item-pagination-table">';
     $result .= '<div class="weblib-item-pagination">';
@@ -234,7 +236,7 @@ class WEBLIB_ShortCodes {
 				   	'per_page' => $per_page)),
 			     get_permalink( ));
     $result .= '">&gt;&gt;</a></span>';
-    $result .= '</div></div>';
+    $result .= '</div></div><br clear="all" />';
     return $result;
   }
 
