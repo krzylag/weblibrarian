@@ -190,7 +190,7 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
 	$rowdata[] = (object) array('label' => $type,
 				    'value' => WEBLIB_Statistic::TypeCount($type,$this->year,$this->month));
       }
-      $rowdata[] = (object) array('label' => __('Total'),
+      $rowdata[] = (object) array('label' => __('Total','web-librarian'),
 				  'value' => WEBLIB_Statistic::MonthTotal($this->year,$this->month));
       if ($this->mode != 'typecount') {
 	unset($this->_column_headers);
@@ -228,7 +228,7 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
   function circulation_statistics () {
     $message = $this->prepare_items();
     ?><div class="wrap"><div id="icon-statistics" class="icon32"><br /></div>
-      <h2>Library Circulation Statistics <a href="<?php
+      <h2><?php _e('Library Circulation Statistics','web-librarian'); ?> <a href="<?php
 		echo add_query_arg( 
 		       array('page' => 'weblib-export-circulation-statistics')); 
 	?>" class="button add-new-h2"><?php _e('Export Stats','web-librarian'); ?></a></h2><?php
@@ -242,8 +242,8 @@ class WEBLIB_Statistics_Admin extends WP_List_Table {
 
   function export_circulation_statistics () {
     ?><div class="wrap"><div id="icon-export-statistics" class="icon32"><br /></div>
-      <h2>Export Library Circulation Statistics</h2><?php
-      ?><form method="get" action="<?php 
+      <h2><?php _e('Export Library Circulation Statistics','web-librarian');?></h2>
+      <form method="get" action="<?php 
 	echo WEBLIB_BASEURL.'/ExportLibraryStats.php'; ?>"><?php
 	$year = date('Y',time());
 	$month = date('m',time());

@@ -474,7 +474,8 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
     $message = $this->prepare_items();
     ?><div class="wrap"><div id="icon-circulation" class="icon32"><br /></div>
 	<h2><?php
-	  switch ($this->mode) {
+         switch ($this->mode) {
+            case 'circulationdesk': _e( 'Library Circulation Desk','web-librarian'); break;
 	    case 'checkinpage': _e( 'Library Circulation Desk -- Check Items In','web-librarian'); break;
 	    case 'holdlist':    _e( 'Library Circulation Desk -- Items with Holds','web-librarian'); break;
 	    case 'outlist':     _e( 'Library Circulation Desk -- Items Checked out','web-librarian'); break;

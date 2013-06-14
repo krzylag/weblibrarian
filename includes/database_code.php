@@ -135,7 +135,9 @@ function WEBLIB_make_tables() {
   year numeric(4) unsigned not null,
   month numeric(2) unsigned not null,
   count integer unsigned not null default 0,
-  PRIMARY KEY  (type)
+  KEY  (type),
+  KEY  (year),
+  KEY  (month)
   );";
 
   //require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

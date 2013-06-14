@@ -50,11 +50,11 @@ if (current_user_can('manage_circulation') && isset($_REQUEST['patronid'])) {
 file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (before if) xml_response = $xml_response\n");
 
 if (!WEBLIB_ItemInCollection::IsItemInCollection($barcode)) {
-  $xml_response .= '<message>No such item: '.$barcode.'!</message>';
+  $xml_response .= '<message>'.sprintf(__('No such item: %s!','web-librarian'),$barcode).'</message>';
 } else if ($patronid == '' || !WEBLIB_Patron::ValidPatronID($patronid)) {
-  $xml_response .= '<message>No such patron id: '.$patronid.'!</message>';
+  $xml_response .= '<message>'.sprintf(__('No such patron id: %d!','web-librarian'),$patronid).'</message>';
 } else if (WEBLIB_HoldItem::PatronAlreadyHolds($patronid,$barcode)) {
-  $xml_response .= '<message>Patron already has a hold on this item!</message>';
+  $xml_response .= '<message>'.__('Patron already has a hold on this item!','web-librarian').'</message>';
 } else {
   $item = new WEBLIB_ItemInCollection($barcode);
   $type = new WEBLIB_Type($item->type());

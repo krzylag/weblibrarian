@@ -82,6 +82,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.7.5 ==
+* Localization updates.
+
 == 3.2.7.4 ==
 * Localization updates, including localized date validation.
 
