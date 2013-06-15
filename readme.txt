@@ -82,6 +82,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.8.1 ==
+* Added hook to allow for localized contextual help.
+
 == 3.2.8 ==
 * Move user manual to assets.
 * Small fix to options page: allow for blank AWS options.

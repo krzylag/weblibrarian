@@ -20,7 +20,13 @@ class WEBLIB_Contextual_Help {
 
   function add_contextual_help($sid,$page) {
     //file_put_contents("php://stderr","*** WEBLIB_Contextual_Help::add_contextual_help('$sid','$page')\n");
-    $helpfile = WEBLIB_CONTEXTUALHELP.'/'.$page.'.html';
+    $default_helpfile = WEBLIB_CONTEXTUALHELP.'/'.$page.'.html';
+    $locale_helpfile  = WEBLIB_CONTEXTUALHELP.'/'.get_locale().'/'.$page.'.html';
+    if (file_exists($locale_helpfile)) {
+      $helpfile = $locale_helpfile;
+    } else {
+      $helpfile = $default_helpfile;
+    }
     //file_put_contents("php://stderr","*** WEBLIB_Contextual_Help::add_contextual_help: helpfile = '$helpfile'\n");
     $helptext = file_get_contents($helpfile);
     if ($helptext) {
