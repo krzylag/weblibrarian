@@ -26,8 +26,7 @@ class WEBLIB_Contextual_Help {
     if ($helptext) {
       $helptext = preg_replace("/\n/",' ',$helptext);
       $this->help_map[$sid] = $helptext.
-	  '<p><a href="'.WEBLIB_DOCURL.
-	  '/user_manual.pdf">'.__('Web Librarian User Manual (PDF)','web-librarian').'</a></p>';
+	  '<p><a href="http://plugins.svn.wordpress.org/weblibrarian/assets/user_manual/user_manual.pdf">'.__('Web Librarian User Manual (PDF)','web-librarian').'</a></p>';
       $this->help_map[$sid] .= '<div style="vertical-align: text-top;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">'.__('Donate to the Web Librarian plugin software effort.','web-librarian').
 '<input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="RFSD2JRQVGP7C">
@@ -114,19 +113,24 @@ class WEBLIB_AdminPages {
         $new_regiondom = (isset($_REQUEST['aws_regiondom']))?$_REQUEST['aws_regiondom']:'';
         $new_associate_tag = (isset($_REQUEST['associate_tag']))?$_REQUEST['associate_tag']:'';
 	$message = ''; $valid = true;
-	if ($new_public_key == '') {
+        if ($new_public_key == '' && $new_private_key == '' && $new_associate_tag == '') {
+          $aws = false;
+        } else {
+          $aws = true;
+        }
+	if ($new_public_key == '' && $aws) {
 	  $message .= '<p class="error">'.__('Public Key missing!','web-librarian').'</p>';
 	  $valid = false;
 	}
-	if ($new_private_key == '') {
+	if ($new_private_key == '' && $aws) {
 	  $message .= '<p class="error">'.__('Private Key missing!','web-librarian').'</p>';
 	  $valid = false;
 	}
-	if ($new_regiondom == '') {
+	if ($new_regiondom == '' && $aws) {
 	  $message .= '<p class="error">'.__('Region Domain missing!','web-librarian').'</p>';
 	  $valid = false;
 	}
-	if ($new_associate_tag == '') {
+	if ($new_associate_tag == '' && $aws) {
 	  $message .= '<p class="error">'.__('Associate Tag missing!','web-librarian').'</p>';
 	  $valid = false;
 	}
@@ -224,7 +228,7 @@ class WEBLIB_AdminPages {
 	 printf(__('This is version %s of the Web Librarian.','web-librarian'),$weblibrarian->MyVersion());
 	?></h4>      
       <?php @include(WEBLIB_CONTEXTUALHELP.'/weblib-about.html'); ?>
-      <p><a href="<?php echo WEBLIB_DOCURL.'/user_manual.pdf'; ?>"><?php
+      <p><a href="http://plugins.svn.wordpress.org/weblibrarian/assets/user_manual/user_manual.pdf"><?php
 	_e('Web Librarian User Manual (PDF)','web-librarian'); ?></a></p>
       <div style="vertical-align: text-top;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><?php _e('Donate to the Web Librarian plugin software effort.','web-librarian'); ?>
         <input type="hidden" name="cmd" value="_s-xclick">

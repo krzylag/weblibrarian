@@ -82,6 +82,10 @@ No Screenshots yet.
 
 == Changelog ==
 
+== 3.2.8 ==
+* Move user manual to assets.
+* Small fix to options page: allow for blank AWS options.
+
 == 3.2.7.7 ==
 * Front side update: minor short code updates.
 
