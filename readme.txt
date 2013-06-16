@@ -84,6 +84,7 @@ No Screenshots yet.
 
 == 3.2.8.1 ==
 * Added hook to allow for localized contextual help.
+* Fixed minor localization bug.
 
 == 3.2.8 ==
 * Move user manual to assets.

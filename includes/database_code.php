@@ -547,7 +547,7 @@ class WEBLIB_Patron {
 	static function PatronIdDropdown($selected,$args) {
 	  echo '<!-- *** WEBLIB_Patron::PatronIdDropdown: args = '.print_r($args,true)." -->\n";
 	  extract (wp_parse_args($args, array('onlyunassoc' => false,
-					      'label' => __('Patron:'),
+					      'label' => __('Patron:','web-librarian'),
 					      'name'  => 'patronid',
 					      'beforesel' => '',
 					      'aftersel'  => '',

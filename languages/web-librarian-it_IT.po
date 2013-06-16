@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/weblibrarian\n"
 "POT-Creation-Date: 2013-06-04 14:38:49+00:00\n"
-"PO-Revision-Date: 2013-06-13 00:36:19+02:00\n"
+"PO-Revision-Date: 2013-06-15 23:02:39+02:00\n"
 "Last-Translator: Lorenzo Novaro <novalore@19.coop>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -1285,7 +1285,7 @@ msgstr "Elementi usciti:"
 msgid "Table: "
 msgstr "Tabella: "
 
-#: includes/database_code.php:548
+#: includes/database_code.php:550
 msgid "Patron:"
 msgstr "Iscritto:"
 
