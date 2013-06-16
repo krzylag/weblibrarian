@@ -92,6 +92,12 @@ No Screenshots yet.
 
 == Changelog ==
 
+= 3.2.8.2 =
+* Updated readme: Fixed Changelog section (too many ='s!).
+                  Added link for user manual (in English and Italian).
+* Updated user manual to include style sheet information for front side
+  styling.
+
 = 3.2.8.1 =
 * Added hook to allow for localized contextual help.
 * Fixed minor localization bug.
