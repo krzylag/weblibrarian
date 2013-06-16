@@ -5,6 +5,7 @@ Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
 Stable tag: 3.2.8
+License: GPL2
 
 A WordPress plugin that implements a basic library collection and
 circulation system.
@@ -36,9 +37,13 @@ pages or posts for front end searching and display of your library
 collection and there are a number of back-end (dashboard) pages for all
 of the management of your library.
 
-Please read the PDF User Manual for complete documentation on using this
-plugin. This is a fairly non-trivial plugin, and there is not a simple
-quick-start guide for the impatient.
+Please   read  the  [PDF  User   Manual][usermanual]   ([also   available   in
+Italian][usermanualIT])  for complete documentation on using this plugin. This
+is a fairly  non-trivial  plugin, and there is not a simple  quick-start guide
+for the impatient.
+
+[usermanual]: http://plugins.svn.wordpress.org/weblibrarian/assets/user_manual/user_manual.pdf "User Manual (English)"
+[usermanualIT]: http://plugins.svn.wordpress.org/weblibrarian/assets/user_manual/user_manual_IT.pdf "User Manual (Italian)"
 
 == Frequently Asked Questions ==
 
@@ -62,6 +67,11 @@ workers ("Volunteer") who man the circulation desk(s).  It is important
 to read the subsection titled "User Role Setup" in the "Installation and
 basic setup" section *carefully* and to be sure you understand it fully.
 
+= How  stylesheet  (CSS)  selectors can I use to modify the  appearence of the
+front end? =
+
+This is described in the appendix of the user manual.
+
 = Something does not work. What should I do? =
 
 Submit a bug at [Deepwoods Software's Bugzilla][bugreport].
@@ -82,91 +92,91 @@ No Screenshots yet.
 
 == Changelog ==
 
-== 3.2.8.1 ==
+= 3.2.8.1 =
 * Added hook to allow for localized contextual help.
 * Fixed minor localization bug.
 
-== 3.2.8 ==
+= 3.2.8 =
 * Move user manual to assets.
 * Small fix to options page: allow for blank AWS options.
 
-== 3.2.7.7 ==
+= 3.2.7.7 =
 * Front side update: minor short code updates.
 
-== 3.2.7.6 ==
+= 3.2.7.6 =
 * Front side update: short codes and front style sheet updates.
 
-== 3.2.7.5 ==
+= 3.2.7.5 =
 * Localization updates. Minor database update.
 
-== 3.2.7.4 ==
+= 3.2.7.4 =
 * Localization updates, including localized date validation.
 
-== 3.2.7.3 ==
+= 3.2.7.3 =
 * Localization updates.
 
-== 3.2.7.2 ==
+= 3.2.7.2 =
 * Added missing style definition for weblib-item-table.
 
-== 3.2.7.1 ==
+= 3.2.7.1 =
 * Changed default for publication date to 1900-01-01 to deal with possible 
   MySQL/PHP error on activation (out of range default for publication date).
 
-== 3.2.7 ==
+= 3.2.7 =
 * Fixed up the jQuery UI, smoothed out the rough edges (eg got all of the 
   proper stylesheet and image support). Additional (minor) localization 
   updates. 
 
-== 3.2.6.1 ==
+= 3.2.6.1 =
 * Way too much fun with resizable iframes and jQuery: put the Amazon search
   thingy in an iframe and put the iframe into a resizable (via jQuery) div.
   sort of works, but still a little funky.
 *  Fixed  various  minor  typos:  broken  tags,   spelling   errors,   missing
    localizations.
 
-== 3.2.6 ==
+= 3.2.6 =
 * Changed AWS insert buttons to be a small icon instead of "bulky" text buttons
 * Updated localization, added Italian translation.
 
-== 3.2.5.3 ==
+= 3.2.5.3 =
 * Add insert / add buttons to Amazon item loopup. (Experimental!)
 
-== 3.2.5.2 ==
+= 3.2.5.2 =
 * Remove roles on deactiveate.
 * Make title the default on Amazon searchs.
 
-== 3.2.5.1 ==
+= 3.2.5.1 =
 * Move loading of Localization files to the correct place
 
-== 3.2.5 ==
+= 3.2.5 =
 * Added missing conextual help page.
 * Fixed silly typo error in the collection bulk delete code.
 
-== 3.2.4 ==
+= 3.2.4 =
 * Added code to collection and patron delete functions to clear out orphaned
   holds and checkouts.
 * Added Collection Database Maintenance page, containing a button to clear out
   orphaned holds and checkouts.
 
-== 3.2.3 ==
+= 3.2.3 =
 * Updated the support/donation links (added localiazion).
 * Added an 'About' page.
 
-== 3.2.2 ==
+= 3.2.2 =
 * Added donation buttons and links.
 * Updated localization.
 
-== 3.2.1 ==
+= 3.2.1 =
 * Minor bug fix with Call Number column.
 
-== 3.2 ==
+= 3.2 =
 * Added Call Number column to collection database.
 * Updated localization.
 
-== 3.1 ==
+= 3.1 =
 * Minor documentation update for the contextual help for the options page.
 
-== 3.0 ==
+= 3.0 =
 * Major code rewrite.  All of the WP_List_Tables redone properly and 
   separated into separate source files.  Adding the per_page screen options 
   properly.
