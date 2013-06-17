@@ -547,7 +547,7 @@ msgstr "Editore:"
 
 #: includes/WEBLIB_Collection_Admin.php:507
 msgid "Publisher Location:"
-msgstr "Luogo di edizione:"
+msgstr "Luogo di pubblicazione:"
 
 #: includes/WEBLIB_Collection_Admin.php:514
 msgid "Publish Date:"
