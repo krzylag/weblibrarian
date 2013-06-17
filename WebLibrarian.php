@@ -32,7 +32,7 @@
 define('WEBLIB_FILE', basename(__FILE__));
 define('WEBLIB_DIR' , dirname(__FILE__));
 define('WEBLIB_INCLUDES', WEBLIB_DIR . '/includes');
-define('WEBLIB_CONTEXTUALHELP', WEBLIB_DIR . '/contexual_help');
+define('WEBLIB_CONTEXTUALHELP', WEBLIB_DIR . '/contextual_help');
 
 define('WEBLIB_BASEURL',plugins_url( '', __FILE__));
 define('WEBLIB_CSSURL', plugins_url('/css',__FILE__));
