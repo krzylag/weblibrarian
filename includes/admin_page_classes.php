@@ -233,7 +233,16 @@ class WEBLIB_AdminPages {
 	 global $weblibrarian;
 	 printf(__('This is version %s of the Web Librarian.','web-librarian'),$weblibrarian->MyVersion());
 	?></h4>      
-      <?php @include(WEBLIB_CONTEXTUALHELP.'/weblib-about.html'); ?>
+      <?php
+      //Include the localized version of weblib-about.html
+          $default_about = WEBLIB_CONTEXTUALHELP.'/'.'weblib-about.html';
+          $i18n_about  = WEBLIB_CONTEXTUALHELP.'/'. get_locale() .'/weblib-about.html';
+           if (file_exists($i18n_about)) {
+             $aboutfile = $i18n_about;
+           } else {
+             $aboutfile = $default_about;
+           } @include($aboutfile); ?>
+
       <p><a href="http://plugins.svn.wordpress.org/weblibrarian/assets/user_manual/user_manual.pdf"><?php
 	_e('Web Librarian User Manual (PDF)','web-librarian'); ?></a></p>
       <div style="vertical-align: text-top;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><?php _e('Donate to the Web Librarian plugin software effort.','web-librarian'); ?>
