@@ -1269,6 +1269,10 @@ msgstr "Statistiche sul prestito per iscritto"
 msgid "Circulation Type"
 msgstr "Tipo di prestito"
 
+#: includes/admin_page_classes.php:272
+msgid "For"
+msgstr "Per"
+
 #: includes/admin_page_classes.php:281
 msgid "Circulation Statistics for %s"
 msgstr "Statistiche sul prestito per %s"

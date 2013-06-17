@@ -269,7 +269,7 @@ class WEBLIB_AdminPages {
 	  $typetotals[$type] = WEBLIB_Statistic::TypeCount($type,$thisyear,$thismonth);
 	}
 	?><div class="table">
-	    <h3>For <?php echo date('F, Y',time()); ?></h3>
+	    <h3><?php _e('For','web-librarian'); ?>&nbsp;<?php echo date_i18n( 'F, Y',time()); ?></h3>
 	    <table class="weblib-quick-stats" width="80%">
 	    <thead><tr><th width="80%" align="left"><?php _e('Circulation Type','web-librarian'); ?></th>
 	    	       <th width="20%" align="right"><?php _e('Count','web-librarian'); ?></th></tr></thead>
