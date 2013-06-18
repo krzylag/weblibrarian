@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.2.8.2
+ * Version: 3.2.8.3
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -79,6 +79,7 @@ class WebLibrarian {
 				array($this,'install'));
 	register_deactivation_hook(WEBLIB_DIR . '/' . WEBLIB_FILE,
 				array($this,'deinstall'));
+        add_action('init', array($this, 'add_styles'));
 	add_action('admin_print_scripts', array($this, 'add_admin_scripts'));
 	add_action('wp_print_scripts', array($this, 'add_front_scripts'));
 	add_action('wp_head', array($this, 'wp_head'));
@@ -102,14 +103,16 @@ class WebLibrarian {
 	//if (is_admin()) {
 	//  wp_enqueue_script('jquery-ui-sortable');
 	//}
-	wp_enqueue_style('weblib-front-style',WEBLIB_CSSURL . '/front.css',
-			 null,$this->version);
-	if (is_admin()) {
-          wp_enqueue_style('jquery-ui-lightness',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery-ui-lightness.css',null,$this->version);
-          wp_enqueue_style('jquery-ui-resizable',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery.ui.resizable.css',null,$this->version);
-	  wp_enqueue_style('weblib-admin-style',WEBLIB_CSSURL . '/admin.css',
-			array('weblib-front-style','jquery-ui-resizable'),$this->version);
-	}
+    }
+    function add_styles() {
+      wp_enqueue_style('weblib-front-style',WEBLIB_CSSURL . '/front.css',
+                       null,$this->version);
+      if (is_admin()) {
+        wp_enqueue_style('jquery-ui-lightness',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery-ui-lightness.css',null,$this->version);
+        wp_enqueue_style('jquery-ui-resizable',WEBLIB_CSSURL . '/jquery-ui-lightness/jquery.ui.resizable.css',null,$this->version);
+        wp_enqueue_style('weblib-admin-style',WEBLIB_CSSURL . '/admin.css',
+                         array('weblib-front-style','jquery-ui-resizable'),$this->version);
+      }
     }
     function MyVersion() {return $this->version;}
     function install() {
@@ -213,14 +216,14 @@ class WebLibrarian {
 	);
     }
     function add_admin_scripts() {
-	//$this->add_front_scripts();
-	wp_enqueue_script('jquery-ui-resizable');
-        wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js','jquery-ui-resizable'), $this->version);
-	wp_localize_script( 'admin_js','admin_js',self::localize_vars_admin() );
+      //$this->add_front_scripts();
+      wp_enqueue_script('jquery-ui-resizable');
+      wp_enqueue_script('admin_js',WEBLIB_JSURL . '/admin.js', array('front_js','jquery-ui-resizable'), $this->version);
+      wp_localize_script( 'admin_js','admin_js',self::localize_vars_admin() );
     }
     function add_front_scripts() {
-	wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), $this->version);
-	wp_localize_script( 'front_js','front_js',self::localize_vars_front() );
+      wp_enqueue_script('front_js',WEBLIB_JSURL . '/front.js', array(), $this->version);
+      wp_localize_script( 'front_js','front_js',self::localize_vars_front() );
     }
     function wp_head() {
     }

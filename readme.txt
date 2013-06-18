@@ -92,6 +92,10 @@ No Screenshots yet.
 
 == Changelog ==
 
+= 3.2.8.3 =
+* Update when styles are enqueued.
+* Contextual help translated to Italian (in progress).
+
 = 3.2.8.2 =
 * Updated readme: Fixed Changelog section (too many ='s!).
                   Added link for user manual (in English and Italian).
