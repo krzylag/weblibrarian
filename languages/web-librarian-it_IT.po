@@ -1071,11 +1071,11 @@ msgstr "Aggiorna tipo"
 
 #: includes/WEBLIB_Users_Admin.php:24
 msgid "Edit your Patron info"
-msgstr "Modifica la tua scheda iscritto"
+msgstr "Modifica la tua iscrizione"
 
 #: includes/WEBLIB_Users_Admin.php:25
 msgid "Edit Patron info"
-msgstr "Modifica scheda iscritto"
+msgstr "Modifica la tua iscrizione"
 
 #: includes/WEBLIB_Users_Admin.php:29
 msgid "Add Patron ID to a user"
@@ -1119,7 +1119,7 @@ msgstr "Il tuo ID iscritto è stato impostato."
 
 #: includes/WEBLIB_Users_Admin.php:198
 msgid "Edit your patron info"
-msgstr "Modifica la tua scheda di iscrizione"
+msgstr "Modifica la tua iscrizione"
 
 #: includes/WEBLIB_Users_Admin.php:210
 msgid "Set Your Patron Id"
