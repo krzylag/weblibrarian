@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.9
+Stable tag: 3.2.9.1
 License: GPL2
 
 A WordPress plugin that implements a basic library collection and
@@ -67,8 +67,7 @@ workers ("Volunteer") who man the circulation desk(s).  It is important
 to read the subsection titled "User Role Setup" in the "Installation and
 basic setup" section *carefully* and to be sure you understand it fully.
 
-= How  stylesheet  (CSS)  selectors can I use to modify the  appearence of the
-front end? =
+= Which stylesheet (CSS) selectors can I use to modify the appearence of the front end? =
 
 This is described in the appendix of the user manual.
 
@@ -91,6 +90,9 @@ as well.
 No Screenshots yet.
 
 == Changelog ==
+
+= 3.2.9.1 =
+* Fix typo in the readme.txt file.
 
 = 3.2.9 = 
 * Contextual help translated to Italian (completed).
