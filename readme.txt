@@ -13,7 +13,7 @@ circulation system.
 == Description ==
 
 This WordPress plugin started as a portable, cross-platform system that
-the Wendell Free Library could use as a transistion system from its current
+the Wendell Free Library could use as a transition system from its current
 paper card based circulation system to the system that will eventually
 be rolled out by the regional library system.  It has 'morphed' to a
 web-based successor to Deepwoods Software's Home Librarian 3 system.
@@ -22,8 +22,8 @@ This plugin implements a simple and basic, web-based, library catalog
 and circulation system.  There are short codes that can be added to
 pages of a WordPress site to search and display items in the library
 collection.  And there are back-end (admin) pages that implement
-managment of the collection, management of patrons (users) of the
-library, as well as implementing the functionallity of a  circulation
+management of the collection, management of patrons (users) of the
+library, as well as implementing the functionality of a  circulation
 desk. 
 
 == Installation ==
@@ -57,17 +57,17 @@ for general questions).
 You've successfully installed the Web Librarian, but none of the admin
 menus (Patrons, Collection, Circulation Types, Circulation Desk, or
 Circulation Stats) show up. Why is this? This is because you are
-probably logged in as the web site adminstrator (your user role is
-Adminstrator).  You need to create at least a user with a user role of
+probably logged in as the web site administrator (your user role is
+Administrator).  You need to create at least a user with a user role of
 Librarian and then log in as this user.  Optionally, you can also
 create users with roles of Senior Aid or Volunteer, who have lesser
-privilidges -- these latter users make sense if you are a large enough
+privileges -- these latter users make sense if you are a large enough
 library that has additional staff ("Senior Aid") or uses additional
 workers ("Volunteer") who man the circulation desk(s).  It is important
 to read the subsection titled "User Role Setup" in the "Installation and
 basic setup" section *carefully* and to be sure you understand it fully.
 
-= Which stylesheet (CSS) selectors can I use to modify the appearence of the front end? =
+= Which stylesheet (CSS) selectors can I use to modify the appearance of the front end? =
 
 This is described in the appendix of the user manual.
 
@@ -157,14 +157,14 @@ No Screenshots yet.
 * Add insert / add buttons to Amazon item loopup. (Experimental!)
 
 = 3.2.5.2 =
-* Remove roles on deactiveate.
-* Make title the default on Amazon searchs.
+* Remove roles on deactivate.
+* Make title the default on Amazon searches.
 
 = 3.2.5.1 =
 * Move loading of Localization files to the correct place
 
 = 3.2.5 =
-* Added missing conextual help page.
+* Added missing contextual help page.
 * Fixed silly typo error in the collection bulk delete code.
 
 = 3.2.4 =
@@ -174,7 +174,7 @@ No Screenshots yet.
   orphaned holds and checkouts.
 
 = 3.2.3 =
-* Updated the support/donation links (added localiazion).
+* Updated the support/donation links (added localization).
 * Added an 'About' page.
 
 = 3.2.2 =
