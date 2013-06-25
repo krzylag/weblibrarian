@@ -413,7 +413,11 @@ class WEBLIB_Patrons_Admin extends WP_List_Table {
                     __('oct','web-librarian') => 10, 
                     __('nov','web-librarian') => 11, 
                     __('dec','web-librarian') => 12);
-    $dfmt = nl_langinfo(D_FMT);
+    if (function_exists('nl_langinfo')) {
+      $dfmt = nl_langinfo(D_FMT);
+    } else {
+      $dfmt = '%m/%d/%y';//All MS-Windows servers are presumed to be in North America
+    }
     if ($dfmt == '%m/%d/%y') {
       $invdate = __('Invalid %s date (%s). Should be mm/yyyy or mm/dd/yyyy.','web-librarian');
     } else {

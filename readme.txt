@@ -91,6 +91,10 @@ No Screenshots yet.
 
 == Changelog ==
 
+= 3.2.9.2 =
+* Workaround for missing localization function (nl_langinfo()).
+* Fix missing localization function call (missing _'s).
+
 = 3.2.9.1 =
 * Fix typo in the readme.txt file.
 
