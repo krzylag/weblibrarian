@@ -200,7 +200,7 @@ class WEBLIB_Users_Admin extends WP_List_Table {
       ?><div id="message" class="update fade"><?php echo $message; ?></div><?php
     }
     ?><form action="<?php echo admin_url('admin.php'); ?>" method="get">
-	<input type="hidden" name="page" value="edit-your-patron-info" /><?php
+	<input type="hidden" name="page" value="weblib-edit-your-patron-info" /><?php
     switch ($formtype) {
       case 'none': break;
       case 'edit': $this->patron_admin_pages->display_one_item_form(null); 
