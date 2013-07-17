@@ -192,7 +192,7 @@ class WEBLIB_ShortCodes {
 
   function generate_pagination($pagenum,$lastpage,$per_page,$otherparams) {
 
-    file_put_contents("php://stderr","*** WEBLIB_ShortCodes::generate_pagination($pagenum,$lastpage,$per_page,".print_r($otherparams,true).")\n");
+    //file_put_contents("php://stderr","*** WEBLIB_ShortCodes::generate_pagination($pagenum,$lastpage,$per_page,".print_r($otherparams,true).")\n");
 
     if ($lastpage == 1) {
       return '';

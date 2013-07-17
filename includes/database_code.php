@@ -907,7 +907,7 @@ class WEBLIB_ItemInCollection {
 	    $where = array('barcode' => $this->thebarcode );
 	    $wherefmt = '%s';
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
-	    file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store(): updaterec = ".print_r($updaterec,true)."\n");
+	    //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store(): updaterec = ".print_r($updaterec,true)."\n");
 	    $wpdb->update(WEBLIB_COLLECTION, $updaterec, $where, $updatefmt, 
 					   $wherefmt);
 	    $wpdb->show_errors($olderror);

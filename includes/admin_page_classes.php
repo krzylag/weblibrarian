@@ -306,22 +306,22 @@ class WEBLIB_AdminPages {
 	</tbody></table></div><?php
     }
     static function set_screen_options($status,$option,$value) {
-	file_put_contents("php://stderr","*** WEBLIB_AdminPages::set_screen_options($status,$option,$value)\n");
-	file_put_contents("php://stderr","*** WEBLIB_Patrons_Admin::my_per_page = ".WEBLIB_Patrons_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_AdminPages::set_screen_options($status,$option,$value)\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Patrons_Admin::my_per_page = ".WEBLIB_Patrons_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Patrons_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_Users_Admin::my_per_page = ".WEBLIB_Users_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Users_Admin::my_per_page = ".WEBLIB_Users_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Users_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::my_per_page = ".WEBLIB_Collection_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::my_per_page = ".WEBLIB_Collection_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Collection_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_Types_Database_Admin::my_per_page = ".WEBLIB_Types_Database_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Types_Database_Admin::my_per_page = ".WEBLIB_Types_Database_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Types_Database_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_Circulation_Admin::my_per_page = ".WEBLIB_Circulation_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Circulation_Admin::my_per_page = ".WEBLIB_Circulation_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Circulation_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_Statistics_Admin::my_per_page = ".WEBLIB_Statistics_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_Statistics_Admin::my_per_page = ".WEBLIB_Statistics_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_Statistics_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_PatronHoldRecord_Admin::my_per_page = ".WEBLIB_PatronHoldRecord_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_PatronHoldRecord_Admin::my_per_page = ".WEBLIB_PatronHoldRecord_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_PatronHoldRecord_Admin::$my_per_page) return true;
-	file_put_contents("php://stderr","*** WEBLIB_PatronOutRecord_Admin::my_per_page = ".WEBLIB_PatronOutRecord_Admin::$my_per_page."\n");
+	//file_put_contents("php://stderr","*** WEBLIB_PatronOutRecord_Admin::my_per_page = ".WEBLIB_PatronOutRecord_Admin::$my_per_page."\n");
 	if ($option == WEBLIB_PatronOutRecord_Admin::$my_per_page) return true;
 	return false;
     }

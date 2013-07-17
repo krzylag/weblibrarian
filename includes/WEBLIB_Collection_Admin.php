@@ -398,7 +398,7 @@ class WEBLIB_Collection_Admin extends WEBLIB_Collection_Shared {
 	  break;
       }
       $this->viewitem = new WEBLIB_ItemInCollection($this->viewbarcode);
-      file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::prepare_one_item(): this->viewitem is ".print_r($this->viewitem,true)."\n");
+      //file_put_contents("php://stderr","*** WEBLIB_Collection_Admin::prepare_one_item(): this->viewitem is ".print_r($this->viewitem,true)."\n");
       if ($this->viewbarcode == '') {
 	$this->viewkeywords = array();
       } else {

@@ -47,7 +47,7 @@ if (current_user_can('manage_circulation') && isset($_REQUEST['patronid'])) {
 } else {
   $patronid = get_user_meta(wp_get_current_user()->ID,'PatronID',true);
 }
-file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (before if) xml_response = $xml_response\n");
+//file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (before if) xml_response = $xml_response\n");
 
 if (!WEBLIB_ItemInCollection::IsItemInCollection($barcode)) {
   $xml_response .= '<message>'.sprintf(__('No such item: %s!','web-librarian'),$barcode).'</message>';
@@ -75,13 +75,13 @@ if (!WEBLIB_ItemInCollection::IsItemInCollection($barcode)) {
 	'</holdcount><name>'.$patronname.'</name><email>'.$email.
 	'</email><telephone>'.$telephone.'</telephone><expires>'.$expires.
 	'</expires></result>';
-    file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after transaction) xml_response = $xml_response\n");
+    //file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after transaction) xml_response = $xml_response\n");
   } else {
     $xml_response .= '<message>Hold failed!</message>';
   }
 }
 
-file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after if) xml_response = $xml_response\n");
+//file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after if) xml_response = $xml_response\n");
 
 /* http Headers */
 @header('Content-Type: text/xml');

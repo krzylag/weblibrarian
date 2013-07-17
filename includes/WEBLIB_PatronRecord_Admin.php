@@ -244,7 +244,7 @@ class WEBLIB_PatronHoldRecord_Admin extends WEBLIB_PatronRecord_Common {
 
 
     $per_page = $this->get_per_page();
-    file_put_contents("php://stderr","*** WEBLIB_PatronHoldRecord_Admin::prepare_items: per_page = '$per_page'\n");
+    //file_put_contents("php://stderr","*** WEBLIB_PatronHoldRecord_Admin::prepare_items: per_page = '$per_page'\n");
 
     $helditems = WEBLIB_HoldItem::HeldItemsOfPatron($this->patronid);
     $all_items = array();
