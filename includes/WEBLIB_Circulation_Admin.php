@@ -144,7 +144,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
     ?><input type="hidden" name="mode" value="<?php echo $this->mode; ?>" /><?php
     if ($this->mode == 'checkinpage') {
       foreach ($this->checkinlist as $index => $bc) {
-	?><input type="hidden" name="checkinlist[<?php echo $index; ?>]" value="<? echo stripslashes($bc); ?>" /><?php
+	?><input type="hidden" name="checkinlist[<?php echo $index; ?>]" value="<?php echo stripslashes($bc); ?>" /><?php
       }
     }
     // barcode entry / dropdown + mode selection
@@ -487,7 +487,7 @@ class WEBLIB_Circulation_Admin extends WEBLIB_Collection_Shared {
 	if ($message != '') {
 	  ?><div id="message" class="update fade"><?php echo $message; ?></div><?php
 	}
-	?><form method="get" action="<? echo admin_url('admin.php'); ?>">
+	?><form method="get" action="<?php echo admin_url('admin.php'); ?>">
 	<input type="hidden" name="page" value="weblib-circulation-desk" />
 	<?php if ($this->mode != 'checkinpage')
 		$this->search_box(__( 'Search Collection','web-librarian' ), 'collection' ); ?>
