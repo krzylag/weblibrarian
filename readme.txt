@@ -91,6 +91,9 @@ No Screenshots yet.
 
 == Changelog ==
 
+= 3.2.9.5 =
+* Remove two small short tags.
+
 = 3.2.9.4 =
 * Comment out ALL debug code (silly IIS).
 
