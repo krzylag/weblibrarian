@@ -217,7 +217,7 @@ class WEBLIB_ShortCodes {
     $result .= '<span class="pagelink pagenumform">';
     $result .= '<form action="'.get_permalink( ).'" method="get">';
     $result .= '<input class="weblib-button" type="submit" value="'. __('Goto Page','web-librarian').'" />';
-    $result .= '<input type="text" size="2" maxlength="2" value="'.$pagenum.'" />';
+    $result .= '<input name="pagenum" type="text" size="2" maxlength="2" value="'.$pagenum.'" />';
     $result .= 'of '.$lastpage;
     foreach (array_merge($otherparams,array('per_page' => $per_page)) as $key => $val) {
       $result .= '<input type="hidden" name="'.$key.'" value="'.$val.'" />';
