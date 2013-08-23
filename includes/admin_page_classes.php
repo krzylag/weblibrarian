@@ -180,24 +180,33 @@ class WEBLIB_AdminPages {
 	     <td><select id="aws_regiondom" 
 			 name="aws_regiondom" 
 			 style="width:75%">
-		   <option value="com"<?php 
-			if ($aws_regiondom == 'com') 
-			  echo 'selected="selected"'; ?>><?php _e('United States','web-librarian'); ?></option>
 		   <option value="ca"<?php
 			if ($aws_regiondom == 'ca')
 			  echo 'selected="selected"'; ?>><?php _e('Canada','web-librarian'); ?></option>
-		   <option value="de"<?php
+                   <option value="cn"<?php
+                        if ($aws_regiondom == 'cn')
+			  echo 'selected="selected"'; ?>><?php _e('China','web-librarian'); ?></option>
+                   <option value="de"<?php
 			if ($aws_regiondom == 'de')
 			  echo 'selected="selected"'; ?>><?php _e('Germany','web-librarian'); ?></option>
+                   <option value="es"<?php
+                        if ($aws_regiondom == 'es')
+                          echo 'selected="selected"'; ?>><?php _e('Spain','web-librarian'); ?></option>
 		   <option value="fr"<?php
 			if ($aws_regiondom == 'fr')
 			  echo 'selected="selected"'; ?>><?php _e('France','web-librarian'); ?></option>
-		   <option value="jp"<?php
-			if ($aws_regiondom == 'jp')
+		   <option value="it"<?php
+			if ($aws_regiondom == 'it')
+			  echo 'selected="selected"'; ?>><?php _e('Italy','web-librarian'); ?></option>
+		   <option value="co.jp"<?php
+			if ($aws_regiondom == 'jp' || $aws_regiondom == 'co.jp')
 			  echo 'selected="selected"'; ?>><?php _e('Japan','web-librarian'); ?></option>
-		   <option value="uk"<?php
-			if ($aws_regiondom == 'uk')
+		   <option value="co.uk"<?php
+			if ($aws_regiondom == 'uk' || $aws_regiondom == 'co.uk')
 			  echo 'selected="selected"'; ?>><?php _e('United Kingdom','web-librarian'); ?></option>
+		   <option value="com"<?php 
+			if ($aws_regiondom == 'com') 
+			  echo 'selected="selected"'; ?>><?php _e('United States','web-librarian'); ?></option>
 		</select></td></tr>
 	  <tr valign="top">  
 	     <th scope="row">

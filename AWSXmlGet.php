@@ -40,7 +40,7 @@ function  aws_signed_request($region,$params,$public_key,$private_key)
 {
 
     $method = "GET";
-    $host = "ecs.amazonaws.".$region; // must be in small case
+    $host = "webservices.amazon.".$region; // must be in small case
     $uri = "/onca/xml";
     
     
@@ -151,6 +151,11 @@ unset($params['nocache']);
 //file_put_contents("php://stderr","*** AWSXmlGet.php: params = ".print_r($params,true)."\n");
 
 $region      = get_option('weblib_aws_regiondom');
+if ($region == 'jp') {
+  $region = 'co.jp';
+} else if ($region == 'uk') {
+  $region = 'co.uk';
+}
 $public_key  = get_option('weblib_aws_public_key');
 $private_key = get_option('weblib_aws_private_key');
 $params['AssociateTag'] = get_option('weblib_associate_tag');
