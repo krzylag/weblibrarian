@@ -829,12 +829,15 @@ class WEBLIB_ItemInCollection {
 
 
 	function store($newbarcode = '') {
-	  if (!$this->dirty) return $this->thebarcode;
+	  //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store('$newbarcode')\n");
+          //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: this->dirty = $this->dirty\n");
+          if (!$this->dirty) return $this->thebarcode;
 	  if ($this->record['title'] == '' ||
 	      $this->record['author'] == '' ||
 	      $this->record['type'] == '' ||
 	      $this->record['subject'] == '') return(-1);
 	  global $wpdb;
+          //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: this->insert = $this->insert\n");
 	  if ($this->insert) {
 	    if ($newbarcode != '') {
 	      $this->thebarcode = $newbarcode;
@@ -858,11 +861,20 @@ class WEBLIB_ItemInCollection {
 	      $insertfmt = array('%s','%s','%s','%s','%s','%s','%s','%s',
 				 '%s','%s','%s','%s','%s','%s','%s');
 	    } else {
+              //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode is empty\n");
 	      $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
-	      $lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
-	      $wpdb->show_errors($olderror);
-	      $this->thebarcode = WEBLIB_ItemInCollection::incrstring($lastbarcode);
-	      $insertrec = array(
+	      $lastbarcode = $wpdb->get_var('SELECT barcode FROM '.WEBLIB_COLLECTION." order by barcode desc limit 1");
+	      //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: lastbarcode = '$lastbarcode'\n");
+              $wpdb->show_errors($olderror);
+              $newbarcode = WEBLIB_ItemInCollection::incrstring($lastbarcode);
+              //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode = '$newbarcode'\n");
+              while (WEBLIB_ItemInCollection::IsItemInCollection($newbarcode)) {
+                $newbarcode = WEBLIB_ItemInCollection::incrstring($newbarcode);
+                //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode = '$newbarcode'\n");
+              }
+	      $this->thebarcode = $newbarcode;
+	      //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: this->thebarcode = '$this->thebarcode'\n");
+              $insertrec = array(
 	      	'barcode' => $this->thebarcode,
 		'title'   => $this->record['title'],
 		'author'  => $this->record['author'],
@@ -917,7 +929,7 @@ class WEBLIB_ItemInCollection {
 	}
 
         static function incrstring($string) {
-	  if ($string == '') {return '1';}
+	  if ($string == '') {return '0000000000000001';}
           $digits = str_split($string);
           $index = count($digits) - 1;
           $next = ord($digits[$index]) + 1;

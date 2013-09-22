@@ -57,27 +57,31 @@ if (!WEBLIB_ItemInCollection::IsItemInCollection($barcode)) {
   $xml_response .= '<message>'.__('Patron already has a hold on this item!','web-librarian').'</message>';
 } else {
   $item = new WEBLIB_ItemInCollection($barcode);
-  $type = new WEBLIB_Type($item->type());
-  $expiredate = date('Y-m-d',time()+($type->loanperiod()*24*60*60));
-  $transaction = $item->hold($patronid, 'Local', $expiredate);
-  if ($transaction > 0) {
-    $newhold = new WEBLIB_HoldItem($transaction);
-    $patronid = $newhold->patronid();
-    $telephone = WEBLIB_Patrons_Admin::addtelephonedashes(
-			WEBLIB_Patron::TelephoneFromId($patronid) 
-		 );
-    $userid = WEBLIB_Patron::UserIDFromPatronID($patronid);
-    $email = get_userdata( $userid )->user_email;
-    $patronname = WEBLIB_Patron::NameFromID($patronid);
-    $expires = mysql2date('F j, Y',$newhold ->dateexpire());
-    $xml_response .= '<result><barcode>'.$barcode.'</barcode><holdcount>'.
-	WEBLIB_HoldItem::HoldCountsOfBarcode($barcode).
-	'</holdcount><name>'.$patronname.'</name><email>'.$email.
-	'</email><telephone>'.$telephone.'</telephone><expires>'.$expires.
-	'</expires></result>';
-    //file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after transaction) xml_response = $xml_response\n");
+  if ($item->type() == '' && !WEBLIB_Type::KnownType($item->type())) {
+    $xml_response .= '<message>'.sprintf(__('Item has invalid type: %s!','web-librarian'),$item->type()).'</message>';
   } else {
-    $xml_response .= '<message>Hold failed!</message>';
+    $type = new WEBLIB_Type($item->type());
+    $expiredate = date('Y-m-d',time()+($type->loanperiod()*24*60*60));
+    $transaction = $item->hold($patronid, 'Local', $expiredate);
+    if ($transaction > 0) {
+      $newhold = new WEBLIB_HoldItem($transaction);
+      $patronid = $newhold->patronid();
+      $telephone = WEBLIB_Patrons_Admin::addtelephonedashes(
+                                WEBLIB_Patron::TelephoneFromId($patronid)
+                                );
+      $userid = WEBLIB_Patron::UserIDFromPatronID($patronid);
+      $email = get_userdata( $userid )->user_email;
+      $patronname = WEBLIB_Patron::NameFromID($patronid);
+      $expires = mysql2date('F j, Y',$newhold ->dateexpire());
+      $xml_response .= '<result><barcode>'.$barcode.'</barcode><holdcount>'.
+      WEBLIB_HoldItem::HoldCountsOfBarcode($barcode).
+      '</holdcount><name>'.$patronname.'</name><email>'.$email.
+      '</email><telephone>'.$telephone.'</telephone><expires>'.$expires.
+      '</expires></result>';
+      //file_put_contents("php://stderr","*** PlaceHoldOnItem.php: (after transaction) xml_response = $xml_response\n");
+    } else {
+      $xml_response .= '<message>Hold failed!</message>';
+    }
   }
 }
 
