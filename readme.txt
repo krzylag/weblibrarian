@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.9.8
+Stable tag: 3.2.9.9
 License: GPL2
 
 A WordPress plugin that implements a basic library collection and
@@ -90,6 +90,9 @@ as well.
 No Screenshots yet.
 
 == Changelog ==
+
+= 3.2.9.9 =
+* Include medium and large image in AWS item loopup and make them  available for insertion
 
 = 3.2.9.8 =
 * Fix bug in autobarcode generator code.  (Stupid SQL 'order by'!).

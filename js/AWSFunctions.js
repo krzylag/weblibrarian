@@ -8,7 +8,7 @@
      Created By    : Robert Heller, Deepwoods Software
      Created       : Mon Jun 3 09:29:32 2013
 
-     Last Modified : <130604.1017>
+     Last Modified : <130928.1022>
      ID            : $Id$
      Source        : $Source$
      Description	
@@ -383,6 +383,32 @@ function AWSLookupCallback()
 	  outHTML += '<img src="'+smallimageURL+'" height="'+smallimageHeight+
           '" width="'+smallimageWidth+'" border="0">';
           outHTML += '<img class="WEBLIB_AWS_addinsertbutton" src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertThumbnail+'" title="'+admin_js.insertThumbnail+'" onclick="AWSWEBLIB_InsertThumb('+"'"+QuoteString(smallimageURL)+"'"+');" />';
+          
+                    
+        }
+	var mediumimage = item.getElementsByTagName('MediumImage')[0];
+	if (mediumimage != null)
+	{
+	  var mediumimageURL = mediumimage.getElementsByTagName('URL')[0].childNodes[0].nodeValue;
+	  var mediumimageHeight = mediumimage.getElementsByTagName('Height')[0].childNodes[0].nodeValue;
+	  var mediumimageWidth = mediumimage.getElementsByTagName('Width')[0].childNodes[0].nodeValue;
+	      
+	  outHTML += '<img src="'+mediumimageURL+'" height="'+mediumimageHeight+
+          '" width="'+mediumimageWidth+'" border="0">';
+          outHTML += '<img class="WEBLIB_AWS_addinsertbutton" src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertThumbnail+'" title="'+admin_js.insertThumbnail+'" onclick="AWSWEBLIB_InsertThumb('+"'"+QuoteString(mediumimageURL)+"'"+');" />';
+          
+                    
+        }
+	var largeimage = item.getElementsByTagName('LargeImage')[0];
+	if (largeimage != null)
+	{
+	  var largeimageURL = largeimage.getElementsByTagName('URL')[0].childNodes[0].nodeValue;
+	  var largeimageHeight = largeimage.getElementsByTagName('Height')[0].childNodes[0].nodeValue;
+	  var largeimageWidth = largeimage.getElementsByTagName('Width')[0].childNodes[0].nodeValue;
+	      
+	  outHTML += '<img src="'+largeimageURL+'" height="'+largeimageHeight+
+          '" width="'+largeimageWidth+'" border="0">';
+          outHTML += '<img class="WEBLIB_AWS_addinsertbutton" src="'+admin_js.WEBLIB_BASEURL+'/images/update_field.png" width="16" height="16" class="WEBLIB_AWS_addinsertbutton" alt="'+admin_js.insertThumbnail+'" title="'+admin_js.insertThumbnail+'" onclick="AWSWEBLIB_InsertThumb('+"'"+QuoteString(largeimageURL)+"'"+');" />';
           
                     
         }
