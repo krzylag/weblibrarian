@@ -3,7 +3,7 @@
  * Plugin Name: Web Librarian WP Plugin
  * Plugin URI: http://www.deepsoft.com/WebLibrarian
  * Description: A plugin that implements a web-based library catalog and circulation System
- * Version: 3.2.9.9
+ * Version: 3.2.10
  * Author: Robert Heller
  * Author URI: http://www.deepsoft.com/
  *
@@ -34,11 +34,6 @@ define('WEBLIB_DIR' , dirname(__FILE__));
 define('WEBLIB_INCLUDES', WEBLIB_DIR . '/includes');
 define('WEBLIB_CONTEXTUALHELP', WEBLIB_DIR . '/contextual_help');
 
-define('WEBLIB_BASEURL',plugins_url( '', __FILE__));
-define('WEBLIB_CSSURL', plugins_url('/css',__FILE__));
-define('WEBLIB_JSURL', plugins_url('/js',__FILE__));
-define('WEBLIB_IMAGEURL', plugins_url('/images',__FILE__));
-//define('WEBLIB_DOCURL', plugins_url('/user_manual',__FILE__));
 
 /* Load Database code */
 require_once(WEBLIB_INCLUDES . '/database_code.php');
@@ -79,7 +74,7 @@ class WebLibrarian {
 				array($this,'install'));
 	register_deactivation_hook(WEBLIB_DIR . '/' . WEBLIB_FILE,
 				array($this,'deinstall'));
-        add_action('init', array($this, 'add_styles'));
+        add_action('init', array($this, 'init_action'));
 	add_action('admin_print_scripts', array($this, 'add_admin_scripts'));
 	add_action('wp_print_scripts', array($this, 'add_front_scripts'));
 	add_action('wp_head', array($this, 'wp_head'));
@@ -104,7 +99,12 @@ class WebLibrarian {
 	//  wp_enqueue_script('jquery-ui-sortable');
 	//}
     }
-    function add_styles() {
+    function init_action() {
+      define('WEBLIB_BASEURL',plugins_url( '', __FILE__));
+      define('WEBLIB_CSSURL', plugins_url('/css',__FILE__));
+      define('WEBLIB_JSURL', plugins_url('/js',__FILE__));
+      define('WEBLIB_IMAGEURL', plugins_url('/images',__FILE__));
+      //define('WEBLIB_DOCURL', plugins_url('/user_manual',__FILE__));
       wp_enqueue_style('weblib-front-style',WEBLIB_CSSURL . '/front.css',
                        null,$this->version);
       if (is_admin()) {
