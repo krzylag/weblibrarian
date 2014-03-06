@@ -41,33 +41,39 @@ function PlaceHold(barcode) {
   request.open("GET",url,true);
   request.onreadystatechange = function()
   {
-    if (this.readyState == 4)
-    {
-      if (this.status == 200) {
-	if (this.responseXML != null)
-	{
-	  // hold-count-<barcode>
-	  var message = this.responseXML.getElementsByTagName('message');
-	  if (message.length > 0) {
-	    var messageText = message[0].childNodes[0].nodeValue;
-	    document.getElementById('ajax-message').innerHTML = '<p><span id="error">'+messageText+'</span></p>';
-	  }
-	  var result = this.responseXML.getElementsByTagName('result');
-	  if (result.length > 0) {
-	    var barcode = result[0].getElementsByTagName('barcode')[0].childNodes[0].nodeValue;
-	    var holdcount = result[0].getElementsByTagName('holdcount')[0].childNodes[0].nodeValue;
-	    var spanelt = document.getElementById('hold-count-'+barcode);
-	    if (holdcount != 1) {
-		spanelt.innerHTML = holdcount+' '+front_js.holds;
-	    } else {
-		spanelt.innerHTML = holdcount+' '+front_js.hold;
-	    }
-	  }
-	}
-	else alert(front_js.nodata);
+      if (this.readyState == 4)
+      {
+          if (this.status == 200) {
+              if (this.responseXML != null)
+              {
+                  // hold-count-<barcode>
+                  var message = this.responseXML.getElementsByTagName('message');
+                  if (message.length > 0) {
+                      var messageText = message[0].childNodes[0].nodeValue;
+                      var elt = document.getElementById('ajax-message');
+                      if (elt) elt.innerHTML = '<p><span id="error">'+messageText+'</span></p>';
+                  }
+                  var result = this.responseXML.getElementsByTagName('result');
+                  if (result.length > 0) {
+                      var barcode = result[0].getElementsByTagName('barcode')[0].childNodes[0].nodeValue;
+                      var holdcount = result[0].getElementsByTagName('holdcount')[0].childNodes[0].nodeValue;
+                      var spanelt = document.getElementById('hold-count-'+barcode);
+                      if (holdcount != 1) {
+                          spanelt.innerHTML = holdcount+' '+front_js.holds;
+                      } else {
+                          spanelt.innerHTML = holdcount+' '+front_js.hold;
+                      }
+                  }
+              }
+              else if (this.responseText != null)
+              {
+                  var newWindow = window.open("","AJAX Text Response","width=800,height=600");
+                  newWindow.document.write(this.responseText);
+              }
+              else alert(front_js.nodata);
+          }
+          else alert(front_js.ajaxerr+this.statusText+' (HTTP Status = '+this.status+')');
       }
-      else alert(front_js.ajaxerr+this.statusText);
-    }
   }
   request.send(null);
 }

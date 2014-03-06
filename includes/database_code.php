@@ -870,7 +870,7 @@ class WEBLIB_ItemInCollection {
               //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode = '$newbarcode'\n");
               while (WEBLIB_ItemInCollection::IsItemInCollection($newbarcode)) {
                 $newbarcode = WEBLIB_ItemInCollection::incrstring($newbarcode);
-                //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode = '$newbarcode'\n");
+                file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: newbarcode = '$newbarcode'\n");
               }
 	      $this->thebarcode = $newbarcode;
 	      //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::store: this->thebarcode = '$this->thebarcode'\n");
@@ -1326,8 +1326,9 @@ class WEBLIB_ItemInCollection {
 	  $numberfixedbc = 0;
 	  if ($generatebarcode) {
 	    $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
-	    $lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.
-					  WEBLIB_COLLECTION);
+	    $lastbarcode = $wpdb->get_var('SELECT barcode FROM '.
+                                          WEBLIB_COLLECTION.
+                                          " order by barcode desc limit 1");
 	    $wpdb->show_errors($olderror);
 	  }
 	  //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::upload_csv: columns is ".print_r($columns,true)."\n");
@@ -1346,11 +1347,16 @@ class WEBLIB_ItemInCollection {
 	    }
 	    if ($generatebarcode) {
 	      $lastbarcode = WEBLIB_ItemInCollection::incrstring($lastbarcode);
-	      $data['barcode'] = $lastbarcode;
+	      while (WEBLIB_ItemInCollection::IsItemInCollection($lastbarcode)) {
+                $lastbarcode = WEBLIB_ItemInCollection::incrstring($lastbarcode);
+              }
+              $data['barcode'] = $lastbarcode;
 	    } else {
 	      if (!preg_match('/^[a-zA-Z0-9]+$/',$data['barcode'])) {
 		$message .= '<p class="error">Replaced bad barcode: '.$$data['barcode'].' with ';
-		$lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
+		$lastbarcode = $wpdb->get_var('SELECT barcode FROM '.
+                                              WEBLIB_COLLECTION.
+                                              " order by barcode desc limit 1");
 		$data['barcode'] = WEBLIB_ItemInCollection::incrstring($lastbarcode);
 		$message .= $data['barcode'].'.</p>';
 		$numberfixedbc++;
@@ -1427,7 +1433,9 @@ class WEBLIB_ItemInCollection {
 	    if (!preg_match('/^[a-zA-Z0-9]+$/',$bc)) {
 	      $where = array('barcode' => $bc);
 	      $olderror = $wpdb->show_errors(get_option('weblib_debugdb') != 'off');
-	      $lastbarcode = $wpdb->get_var('SELECT max(barcode) FROM '.WEBLIB_COLLECTION);
+	      $lastbarcode = $wpdb->get_var('SELECT barcode FROM '.
+                                            WEBLIB_COLLECTION.
+                                            " order by barcode desc limit 1");
 	      $wpdb->show_errors($olderror);
 	      $newbc = WEBLIB_ItemInCollection::incrstring($lastbarcode);
 	      $updaterec = array('barcode' => $newbc);
