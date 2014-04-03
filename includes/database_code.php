@@ -1334,8 +1334,16 @@ class WEBLIB_ItemInCollection {
 	  //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::upload_csv: columns is ".print_r($columns,true)."\n");
 	  while ($line = fgetcsv($fpointer, 10*1024, $field_sep,
 				$enclose_char/*,$escape_char*/)) {
-	    //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::upload_csv: line is ".print_r($line,true)." and count(columns) is ".count($columns)."\n");
-	    if (count($line) != count($columns)) continue;
+            //file_put_contents("php://stderr","*** WEBLIB_ItemInCollection::upload_csv: line is ".print_r($line,true)." and count(columns) is ".count($columns)."\n");
+	    if (count($line) != count($columns)) {
+              $message .= '<p class="error">Data line has the wrong number of columns '.count($line).' instead of '.count($columns).' : '.$line[0].','.$line[1].','.$line[2].'...';
+              if (count($line) > count($columns)) {
+                $message .= ' (excess columns ignored)</p>';
+              } else {
+                $message .= ' line skipped</p>';
+                continue;
+              }
+            }
 	    $data = array();
 	    $keywords = array();
 	    foreach ($columns as $i => $col) {

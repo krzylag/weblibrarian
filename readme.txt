@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.10
+Stable tag: 3.2.10.1
 License: GPL2
 
 A WordPress plugin that implements a basic library collection and
@@ -90,6 +90,9 @@ as well.
 No Screenshots yet.
 
 == Changelog ==
+
+= 3.2.10.1 =
+* Handle Excel extra column stupidity.
 
 = 3.2.10 =
 * Fix problems with generated barcodes during bulk uploads.
