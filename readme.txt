@@ -71,7 +71,7 @@ basic setup" section *carefully* and to be sure you understand it fully.
 
 This is described in the appendix of the user manual.
 
-= I am having a problem with the bulk upload.
+= I am having a problem with the bulk upload. =
 
 Here are some tips relating to problems with bulk uploading a collection:
 
