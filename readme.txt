@@ -4,7 +4,7 @@ Donate link: http://www.deepsoft.com/WebLibrarian
 Tags: widget,plugin,shortcode,library,circulation,database
 Requires at least: 3.2.1
 Tested up to: 3.5
-Stable tag: 3.2.10.1
+Stable tag: 3.2.10.2
 License: GPL2
 
 A WordPress plugin that implements a basic library collection and
@@ -70,6 +70,30 @@ basic setup" section *carefully* and to be sure you understand it fully.
 = Which stylesheet (CSS) selectors can I use to modify the appearance of the front end? =
 
 This is described in the appendix of the user manual.
+
+= I am having a problem with the bulk upload.
+
+Here are some tips relating to problems with bulk uploading a collection:
+
+If you export a CSV file from Excel (and probably  other 'modern'  spreadsheet
+programs as well), you should check the resulting CSV file with a *plain text*
+editor.  Things  to  look  for  include  extra  commas  at the  ends of  lines
+('phantom'  or empty  columns)  and strange  characters,  partitularly  in the
+headings and in barcodes (if you using your own barcodes).
+
+Other  issues  involving  issues  with  newline  characters.  Most of the time
+WordPress will be running on a LAMP server (a Linux  machine).  Linux uses the
+linefeed character (ASCII 10, Ctrl-j) as newline character.  MS-Windows uses a
+two  character  sequence  for  newlines:  carriage  return  (ASCII 13, Ctrl-m)
+followed  by a  linefeed  (ASCII  10,  Ctrl-j).  MacOSX  uses just a  carriage
+return (ASCII 13, Ctrl-m).  Web browsers are *supposed* to normalize uploaded
+plain text files, but  sometimes  this does not happen.  It might be necessary
+to fix things in advance of uploading.
+
+Finally, try your upload in *small* chunks, at least until you get the process
+worked out. Remember  that most  WordPress  (PHP) installs have a limit on the
+maximum size of uploaded files, so a really large database is going to have be
+uploaded in chunks anyway.
 
 = Something does not work. What should I do? =
 
