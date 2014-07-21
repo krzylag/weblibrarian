@@ -95,6 +95,16 @@ worked out. Remember  that most  WordPress  (PHP) installs have a limit on the
 maximum size of uploaded files, so a really large database is going to have be
 uploaded in chunks anyway.
 
+= How do I check an item out? =
+
+In order to check an item out, you need to load a patron record into the 
+circulation desk page.  You can use the "Find Patron" button to search the 
+patrons by name and then  select the proper  result  from the list of results 
+in the drop down and then click the "Lookup Patron" to load that patron's
+record.  You can then enter the item's barcode in the item barcode field and
+click the "Checkout" button.  It is possible to pre-load the item barcode
+field before looking up the patron.
+
 = Something does not work. What should I do? =
 
 Submit a bug at [Deepwoods Software's Bugzilla][bugreport].
