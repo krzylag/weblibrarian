@@ -108,7 +108,7 @@ img.WEBLIB_AWS_addinsertbutton:hover {
   font-weight: bold;
 }
 
-/* Overdue and expired dates are in <span id="overdue">...</span>.
+/* Overdue and expired dates are in <span class="overdue">...</span>.
    Initially italic and red. */
 
 span.overdue {
