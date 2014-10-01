@@ -105,6 +105,26 @@ record.  You can then enter the item's barcode in the item barcode field and
 click the "Checkout" button.  It is possible to pre-load the item barcode
 field before looking up the patron.
 
+= Search does not work - sends me back to my home page =
+
+This is caused by a conflict with  permalinks  and form handling.  Answered in
+the support forum on the WordPress site:
+
+https://wordpress.org/support/topic/search-doesnt-work-7
+
+  I'd suggest two solutions (with #1 being the prefered solution):
+  
+  1) Change your site's permalink settings: on the dashboard select 
+     Settings->permalinks, then select something other than the 'default'.
+    
+  2) Set the actionurl and method parameters in the search form shortcode (you
+     will need to modify  the  `page_id=317`  to  whatever  you search  page's
+     permalink is):
+  
+  `[weblib_searchform actionurl='/?page_id=317' method='post']`    
+  `[weblib_itemlist holdbutton=1 inlinemoreinfo=1]`
+    
+
 = Something does not work. What should I do? =
 
 Submit a bug at [Deepwoods Software's Bugzilla][bugreport].
