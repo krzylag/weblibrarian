@@ -417,6 +417,9 @@ class WEBLIB_ShortCodes {
 	$result .= '<span class="weblib-item-info-author">';
 	$result .= $item->author();
 	$result .= '</span>';
+	$result .= '<span class="weblib-item-info-publisher">';
+	$result .= $item->publisher()." ".date('Y',$item->pubdate());
+	$result .= '</span>';
 	if ($item->callnumber() != '') {
 	  $result .= '<span class="weblib-item-info-callnumber">';
 	  $result .= __('Call Number:','web-librarian').'&nbsp;'.$item->callnumber();
