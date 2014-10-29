@@ -267,3 +267,84 @@ a.weblib-button:visited {
   min-width: 48px;
   min-height: 72px;
 }
+
+/* ****************************** */
+/* DODANE PRZEZ KRZYSZTOFA LAGANA */
+
+.weblib-item-index {
+  font-size: 0.85em;
+}
+.weblib-item-row {
+  display: block;
+  margin: 0.2em 0;
+  border-bottom: 1px solid lightgray;
+}
+.weblib-item-row:first-child {
+  border-top: 1px solid lightgray;
+}
+.weblib-item-pagination-table {
+  margin: 2em 0;
+  width: 100%;
+}
+.weblib-item-pagination-table span {
+  margin: 0 1em;
+}
+.weblib-item-pagination {
+  padding: 1em;;
+}
+.weblib-item-pagination .pagelabel {
+  display: none;
+}
+.weblib-item-pagination .pagelink {
+  margin:  0 0.3em;
+  display: inline-block;
+  float: left;
+  min-width: 1em;
+}
+.weblib-item-pagination .pagenumform {
+  margin:  0 0.3em;
+  display: inline-block;
+  float: left;
+  width: 14em;
+}
+.weblib-item-thumb {
+  display:none;
+}
+.weblib-item-info span {
+  display: block;
+  font-size: 0.8em;
+}
+.weblib-item-info-title {
+  font-weight: bold;  
+}
+.weblib-item-info-author {
+  font-style: italic;
+}
+.weblib-item-info-due {
+  color: gray;
+}
+.weblib-item-info-holdcount {
+  color: gray;
+}
+input[type="button"].weblib-button {
+  padding: 0.6em;
+}
+input[type="submit"].weblib-button {
+  padding: 0.6em;
+}
+a.weblib-button {
+  border-radius: 2px;
+  display: block;
+  background-color: #DE0F59;
+  border: none;
+  font-size: 8pt;
+  font-weight: bold;
+  color: white;
+  padding: 0.25em;
+}
+a.weblib-button:link {
+  color: white;
+}
+a.weblib-button:visited {
+  color: white;
+}
