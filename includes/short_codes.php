@@ -410,26 +410,33 @@ class WEBLIB_ShortCodes {
 	  $result .= '<a href="'.add_query_arg(array('barcode' => $barcode),
 						$moreinfourl).'">';
 	}
+	$result .= '<span class="weblib-item-info-title">';
 	$result .= $item->title();
+	$result .= '</span>';
 	if ($moreinfourl != '') {$result .= '</a>';}
-	$result .= '<br />';
+	$result .= '<span class="weblib-item-info-author">';
 	$result .= $item->author();
+	$result .= '</span>';
 	if ($item->callnumber() != '') {
-	  $result .= '<br />'.__('Call Number:','web-librarian').'&nbsp;'.$item->callnumber();
+	  $result .= '<span class="weblib-item-info-callnumber">';
+	  $result .= __('Call Number:','web-librarian').'&nbsp;'.$item->callnumber();
+	  $result .= '</span>';
 	}
 	$outitem = WEBLIB_OutItem::OutItemByBarcode($barcode);
 	$numberofholds = WEBLIB_HoldItem::HoldCountsOfBarcode($barcode);
 	if ($outitem != null) {
-	  $result .= '<br />'.__('Due ','web-librarian');
+	  $result .= '<span class="weblib-item-info-due">';
+	  $result .= __('Due ','web-librarian');
 	  $duedate = $outitem->datedue();
 	  if (mysql2date('U',$duedate) < time()) {
 	    $result .= '<span class="overdue" >'.strftime('%x',mysql2date('U',$duedate)).'</span>';
 	  } else {
 	    $result .= strftime('%x',mysql2date('U',$duedate));
 	  }
+	  $result .= '</span>';
 	  
 	}
-	$result .= '<br /><span id="hold-count-'.$barcode.'">';
+	$result .= '<span class="weblib-item-info-holdcount" id="hold-count-'.$barcode.'">';
 	if ($numberofholds > 0) {
           $result .= sprintf(_n('%d Hold','%d Holds',$numberofholds,'web-librarian'),
                              $numberofholds);
