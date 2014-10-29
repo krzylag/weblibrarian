@@ -312,13 +312,20 @@ a.weblib-button:visited {
 }
 .weblib-item-info span {
   display: block;
-  font-size: 0.8em;
 }
 .weblib-item-info-title {
   font-weight: bold;  
+  font-size: 0.9em;
+  line-height: 1.1;
+  margin-bottom: 0.4em;
 }
 .weblib-item-info-author {
   font-style: italic;
+  font-size: 0.8em;
+}
+.weblib-item-info-publisher {
+  color: #404040;
+  font-size: 0.8em;
 }
 .weblib-item-info-due {
   color: gray;
@@ -328,6 +335,9 @@ a.weblib-button:visited {
 }
 input[type="button"].weblib-button {
   padding: 0.6em;
+  display: inline;
+  color: #B07070;
+  background: none;
 }
 input[type="submit"].weblib-button {
   padding: 0.6em;
